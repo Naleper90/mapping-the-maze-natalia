@@ -1,0 +1,15 @@
+# Nmap 7.99 scan initiated Sun Nov 22 18:04:04 2026 as: /usr/lib/nmap/nmap --privileged -sU -p 623 -T2 --script ipmi-version -oN ipmi_version_172.17.0.10.txt 172.17.0.10
+Nmap scan report for 172.17.0.10
+Host is up (0.000049s latency).
+
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+| ipmi-version: 
+|   Version: 
+|     IPMI-2.0
+|   UserAuth: password, md5, md2, null
+|   PassAuth: auth_msg, auth_user, non_null_user
+|_  Level: 1.5, 2.0
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+# Nmap done at Sun Nov 22 18:04:06 2026 -- 1 IP address (1 host up) scanned in 1.47 seconds

@@ -1,0 +1,9 @@
+# Nmap 7.99 scan initiated Sun Nov 22 18:53:50 2026 as: /usr/lib/nmap/nmap --privileged -p445 -T3 --script smb-os-discovery -oN smb_os_discovery_172.17.0.8.txt 172.17.0.8
+Nmap scan report for 172.17.0.8
+Host is up (0.000053s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+# Nmap done at Sun Nov 22 18:53:50 2026 -- 1 IP address (1 host up) scanned in 0.71 seconds

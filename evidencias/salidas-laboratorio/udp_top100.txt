@@ -1,0 +1,52 @@
+# Nmap 7.99 scan initiated Sun Nov 22 18:48:39 2026 as: /usr/lib/nmap/nmap --privileged -sU --top-ports 100 -T3 --max-rate 100 -oN udp_top100.txt 172.17.0.3-10
+Nmap scan report for 172.17.0.3
+Host is up (0.000056s latency).
+All 100 scanned ports on 172.17.0.3 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.000040s latency).
+All 100 scanned ports on 172.17.0.4 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.000054s latency).
+All 100 scanned ports on 172.17.0.5 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.000059s latency).
+All 100 scanned ports on 172.17.0.6 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.000066s latency).
+All 100 scanned ports on 172.17.0.7 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.000024s latency).
+Not shown: 54 closed udp ports (port-unreach), 45 open|filtered udp ports (no-response)
+PORT    STATE SERVICE
+137/udp open  netbios-ns
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000065s latency).
+All 100 scanned ports on 172.17.0.9 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+Nmap scan report for 172.17.0.10
+Host is up (0.000072s latency).
+Not shown: 99 closed udp ports (port-unreach)
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+# Nmap done at Sun Nov 22 18:50:27 2026 -- 8 IP addresses (8 hosts up) scanned in 107.41 seconds

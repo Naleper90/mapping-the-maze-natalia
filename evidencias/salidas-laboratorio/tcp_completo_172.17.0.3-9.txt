@@ -1,0 +1,67 @@
+# Nmap 7.99 scan initiated Sun Nov 22 18:17:58 2026 as: /usr/lib/nmap/nmap --privileged -p- -T3 --max-rate 300 -oN tcp_completo_172.17.0.3-9.txt 172.17.0.3-9
+Nmap scan report for 172.17.0.3
+Host is up (0.0000060s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.0000060s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.0000060s latency).
+Not shown: 65526 closed tcp ports (reset)
+PORT      STATE SERVICE
+80/tcp    open  http
+443/tcp   open  https
+1883/tcp  open  mqtt
+5672/tcp  open  amqp
+8161/tcp  open  patrol-snmp
+46335/tcp open  unknown
+61613/tcp open  unknown
+61614/tcp open  unknown
+61616/tcp open  unknown
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.0000060s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8080/tcp open  http-proxy
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.0000090s latency).
+Not shown: 65534 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.0000090s latency).
+Not shown: 65531 closed tcp ports (reset)
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000010s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+# Nmap done at Sun Nov 22 18:43:29 2026 -- 7 IP addresses (7 hosts up) scanned in 1530.82 seconds

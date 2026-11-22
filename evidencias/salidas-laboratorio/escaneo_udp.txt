@@ -1,0 +1,210 @@
+# Nmap 7.99 scan initiated Sun Nov 22 17:08:24 2026 as: /usr/lib/nmap/nmap --privileged -sU --top-ports 20 -T3 -oN escaneo_udp.txt 172.17.0.3-10
+Nmap scan report for 172.17.0.3
+Host is up (0.000040s latency).
+
+PORT      STATE         SERVICE
+53/udp    open|filtered domain
+67/udp    open|filtered dhcps
+68/udp    open|filtered dhcpc
+69/udp    open|filtered tftp
+123/udp   open|filtered ntp
+135/udp   closed        msrpc
+137/udp   open|filtered netbios-ns
+138/udp   closed        netbios-dgm
+139/udp   closed        netbios-ssn
+161/udp   closed        snmp
+162/udp   closed        snmptrap
+445/udp   open|filtered microsoft-ds
+500/udp   closed        isakmp
+514/udp   closed        syslog
+520/udp   closed        route
+631/udp   open|filtered ipp
+1434/udp  open|filtered ms-sql-m
+1900/udp  closed        upnp
+4500/udp  closed        nat-t-ike
+49152/udp closed        unknown
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.000036s latency).
+
+PORT      STATE  SERVICE
+53/udp    closed domain
+67/udp    closed dhcps
+68/udp    closed dhcpc
+69/udp    closed tftp
+123/udp   closed ntp
+135/udp   closed msrpc
+137/udp   closed netbios-ns
+138/udp   closed netbios-dgm
+139/udp   closed netbios-ssn
+161/udp   closed snmp
+162/udp   closed snmptrap
+445/udp   closed microsoft-ds
+500/udp   closed isakmp
+514/udp   closed syslog
+520/udp   closed route
+631/udp   closed ipp
+1434/udp  closed ms-sql-m
+1900/udp  closed upnp
+4500/udp  closed nat-t-ike
+49152/udp closed unknown
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.000030s latency).
+
+PORT      STATE  SERVICE
+53/udp    closed domain
+67/udp    closed dhcps
+68/udp    closed dhcpc
+69/udp    closed tftp
+123/udp   closed ntp
+135/udp   closed msrpc
+137/udp   closed netbios-ns
+138/udp   closed netbios-dgm
+139/udp   closed netbios-ssn
+161/udp   closed snmp
+162/udp   closed snmptrap
+445/udp   closed microsoft-ds
+500/udp   closed isakmp
+514/udp   closed syslog
+520/udp   closed route
+631/udp   closed ipp
+1434/udp  closed ms-sql-m
+1900/udp  closed upnp
+4500/udp  closed nat-t-ike
+49152/udp closed unknown
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.000024s latency).
+
+PORT      STATE  SERVICE
+53/udp    closed domain
+67/udp    closed dhcps
+68/udp    closed dhcpc
+69/udp    closed tftp
+123/udp   closed ntp
+135/udp   closed msrpc
+137/udp   closed netbios-ns
+138/udp   closed netbios-dgm
+139/udp   closed netbios-ssn
+161/udp   closed snmp
+162/udp   closed snmptrap
+445/udp   closed microsoft-ds
+500/udp   closed isakmp
+514/udp   closed syslog
+520/udp   closed route
+631/udp   closed ipp
+1434/udp  closed ms-sql-m
+1900/udp  closed upnp
+4500/udp  closed nat-t-ike
+49152/udp closed unknown
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.000016s latency).
+
+PORT      STATE         SERVICE
+53/udp    open|filtered domain
+67/udp    open|filtered dhcps
+68/udp    closed        dhcpc
+69/udp    closed        tftp
+123/udp   closed        ntp
+135/udp   closed        msrpc
+137/udp   open|filtered netbios-ns
+138/udp   open|filtered netbios-dgm
+139/udp   open|filtered netbios-ssn
+161/udp   closed        snmp
+162/udp   closed        snmptrap
+445/udp   closed        microsoft-ds
+500/udp   open|filtered isakmp
+514/udp   closed        syslog
+520/udp   open|filtered route
+631/udp   closed        ipp
+1434/udp  closed        ms-sql-m
+1900/udp  closed        upnp
+4500/udp  open|filtered nat-t-ike
+49152/udp open|filtered unknown
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.000040s latency).
+
+PORT      STATE         SERVICE
+53/udp    closed        domain
+67/udp    closed        dhcps
+68/udp    closed        dhcpc
+69/udp    closed        tftp
+123/udp   closed        ntp
+135/udp   closed        msrpc
+137/udp   open          netbios-ns
+138/udp   open|filtered netbios-dgm
+139/udp   closed        netbios-ssn
+161/udp   closed        snmp
+162/udp   closed        snmptrap
+445/udp   closed        microsoft-ds
+500/udp   closed        isakmp
+514/udp   closed        syslog
+520/udp   closed        route
+631/udp   closed        ipp
+1434/udp  closed        ms-sql-m
+1900/udp  closed        upnp
+4500/udp  closed        nat-t-ike
+49152/udp closed        unknown
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000024s latency).
+
+PORT      STATE  SERVICE
+53/udp    closed domain
+67/udp    closed dhcps
+68/udp    closed dhcpc
+69/udp    closed tftp
+123/udp   closed ntp
+135/udp   closed msrpc
+137/udp   closed netbios-ns
+138/udp   closed netbios-dgm
+139/udp   closed netbios-ssn
+161/udp   closed snmp
+162/udp   closed snmptrap
+445/udp   closed microsoft-ds
+500/udp   closed isakmp
+514/udp   closed syslog
+520/udp   closed route
+631/udp   closed ipp
+1434/udp  closed ms-sql-m
+1900/udp  closed upnp
+4500/udp  closed nat-t-ike
+49152/udp closed unknown
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+Nmap scan report for 172.17.0.10
+Host is up (0.000015s latency).
+
+PORT      STATE  SERVICE
+53/udp    closed domain
+67/udp    closed dhcps
+68/udp    closed dhcpc
+69/udp    closed tftp
+123/udp   closed ntp
+135/udp   closed msrpc
+137/udp   closed netbios-ns
+138/udp   closed netbios-dgm
+139/udp   closed netbios-ssn
+161/udp   closed snmp
+162/udp   closed snmptrap
+445/udp   closed microsoft-ds
+500/udp   closed isakmp
+514/udp   closed syslog
+520/udp   closed route
+631/udp   closed ipp
+1434/udp  closed ms-sql-m
+1900/udp  closed upnp
+4500/udp  closed nat-t-ike
+49152/udp closed unknown
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+# Nmap done at Sun Nov 22 17:08:44 2026 -- 8 IP addresses (8 hosts up) scanned in 19.18 seconds

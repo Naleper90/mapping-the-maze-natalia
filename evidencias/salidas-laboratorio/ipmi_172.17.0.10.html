@@ -1,0 +1,384 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CTG · IPMI bajo exposición</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0b1020;
+  --panel:#11182d;
+  --panel2:#0e1528;
+  --ink:#e9eefc;
+  --muted:#aab5d6;
+  --accent:#69d2ff;
+  --accent2:#8be28b;
+  --danger:#ff7f7f;
+  --line:#273354
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#0a0f1d,#101933);
+  font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--ink)
+}
+main{
+  max-width:1020px;
+  margin:auto;
+  padding:48px 22px 80px
+}
+.hero{
+  padding:30px;
+  border:1px solid var(--line);
+  background:rgba(17,24,45,.9);
+  border-radius:20px;
+  box-shadow:0 15px 60px #0005
+}
+h1{
+  font-size:clamp(2rem,5vw,3.6rem);
+  line-height:1.05;
+  margin:.15em 0 .35em
+}
+h2{
+  margin-top:34px;
+  font-size:1.5rem
+}
+h3{
+  margin-bottom:8px
+}
+.tag{
+  display:inline-block;
+  padding:4px 9px;
+  border:1px solid #3c5b77;
+  border-radius:999px;
+  color:var(--accent);
+  font-size:.82rem;
+  letter-spacing:.06em;
+  text-transform:uppercase
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin:22px 0
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+  background:var(--panel2)
+}
+.metric{
+  font-size:1.8rem;
+  font-weight:800;
+  color:var(--accent)
+}
+code{
+  background:#090e1a;
+  padding:2px 6px;
+  border-radius:6px
+}
+a{color:var(--accent)}
+.warning{
+  border-left:4px solid var(--danger);
+  padding:14px 17px;
+  background:#26161b;
+  border-radius:0 10px 10px 0
+}
+.info{
+  border-left:4px solid var(--accent2);
+  padding:14px 17px;
+  background:#142319;
+  border-radius:0 10px 10px 0
+}
+.muted{color:var(--muted)}
+.server-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+  margin-top:14px
+}
+.server{
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#0c1325
+}
+.server strong{
+  display:block;
+  color:var(--ink);
+  margin-bottom:4px
+}
+.flow{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-top:18px
+}
+.flow-step{
+  position:relative;
+  padding:16px;
+  border:1px dashed #385073;
+  border-radius:12px;
+  background:#0c1324
+}
+.flow-step span{
+  display:block;
+  color:var(--accent);
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:5px
+}
+footer{
+  margin-top:30px;
+  color:var(--muted);
+  font-size:.9rem
+}
+</style>
+</head>
+
+<body>
+<main>
+<section class="hero">
+
+<span class="tag">CTG · gestión fuera de banda</span>
+
+<h1>IPMI: administrar un servidor incluso cuando su sistema operativo no responde</h1>
+
+<p>
+El <strong>Intelligent Platform Management Interface (IPMI)</strong> es un estándar utilizado
+para la gestión remota de servidores. A diferencia de una administración convencional,
+su objetivo es permitir determinadas tareas de supervisión y control
+<strong>independientemente del sistema operativo</strong> que esté instalado.
+</p>
+
+<p>
+Para ello, muchos servidores incorporan un <strong>BMC (Baseboard Management Controller)</strong>,
+un controlador dedicado que permanece activo incluso cuando el sistema operativo está apagado,
+bloqueado o todavía no ha terminado de arrancar.
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="metric">UDP 623</div>
+    <div>Puerto habitual de IPMI sobre red.</div>
+    <p class="muted">
+      Las sesiones de gestión IPMI utilizan normalmente RMCP/RMCP+ sobre este puerto.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="metric">BMC</div>
+    <div>Controlador independiente.</div>
+    <p class="muted">
+      Puede encargarse de sensores, inventario, energía, alertas y funciones de administración remota.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="metric">SOL</div>
+    <div>Serial Over LAN.</div>
+    <p class="muted">
+      Permite transportar por red la consola serie del equipo para tareas de diagnóstico
+      y administración.
+    </p>
+  </div>
+
+</div>
+
+<h2>¿Dónde aparece IPMI?</h2>
+
+<p>
+IPMI está especialmente asociado al mundo de los <strong>servidores empresariales,
+data centers y plataformas de infraestructura</strong>. Dependiendo de la generación del
+equipo y del fabricante, el BMC puede integrarse en una solución de gestión propia
+que ofrece funciones equivalentes o compatibles con este ecosistema.
+</p>
+
+<div class="server-list">
+
+  <div class="server">
+    <strong>Dell</strong>
+    Familias de servidores PowerEdge y plataformas de gestión basadas en BMC.
+  </div>
+
+  <div class="server">
+    <strong>HPE</strong>
+    Servidores ProLiant y sus sistemas de administración remota.
+  </div>
+
+  <div class="server">
+    <strong>Supermicro</strong>
+    Amplia presencia de BMC en servidores y sistemas orientados a data center.
+  </div>
+
+  <div class="server">
+    <strong>Otros fabricantes</strong>
+    Diversos fabricantes de hardware empresarial utilizan BMC y tecnologías de
+    gestión fuera de banda.
+  </div>
+
+</div>
+
+<h2>¿Por qué es útil SOL?</h2>
+
+<p>
+Una de las capacidades interesantes de un BMC es <strong>Serial Over LAN (SOL)</strong>.
+En lugar de necesitar acceso físico al monitor y teclado del servidor, la consola serie
+puede estar disponible a través de la infraestructura de gestión.
+</p>
+
+<p>
+Esto permite observar procesos de arranque, mensajes de diagnóstico y determinadas
+interacciones con el sistema aunque el sistema operativo todavía no esté disponible.
+En un entorno empresarial puede resultar muy útil para recuperación y mantenimiento.
+</p>
+
+<div class="info">
+  <strong>Importante:</strong>
+  las funciones de administración fuera de banda tienen un nivel de privilegio muy elevado.
+  Por diseño, el BMC está mucho más cerca del hardware y de la fase de arranque
+  que una aplicación normal del sistema operativo.
+</div>
+
+<h2>El problema no suele ser la existencia del BMC</h2>
+
+<p>
+La gestión fuera de banda tiene una función legítima y muy útil. El problema aparece cuando
+su interfaz de red se trata como si fuera un servicio ordinario de la red corporativa.
+</p>
+
+<p>
+Un error habitual de diseño consiste en colocar la interfaz de gestión en una red demasiado
+amplia, permitiendo que numerosos equipos internos puedan comunicarse directamente con ella.
+Una segmentación deficiente aumenta considerablemente la superficie de exposición.
+</p>
+
+<div class="warning">
+  <strong>Principio de seguridad:</strong>
+  una interfaz de administración privilegiada debería encontrarse en una
+  <strong>red de gestión restringida</strong>, con controles de acceso y filtrado adecuados,
+  y no simplemente en la misma red donde están los equipos de usuarios.
+</div>
+
+<h2>Un protocolo con historia</h2>
+
+<p>
+IPMI 2.0 incorporó mecanismos de autenticación y establecimiento de sesiones destinados
+a permitir administración remota. Con el tiempo se han estudiado distintos problemas de
+seguridad relacionados con el diseño y la implementación de estos mecanismos.
+</p>
+
+<p>
+Uno de los casos más conocidos apareció en <strong>2013</strong> y quedó registrado como
+<strong>CVE-2013-4786</strong>. El problema está relacionado con el proceso de autenticación
+<strong>RAKP</strong> de IPMI 2.0 y con la posibilidad de obtener material que puede utilizarse
+para realizar comprobaciones de contraseñas fuera de línea.
+</p>
+
+<p>
+El interés de este caso no está únicamente en la vulnerabilidad concreta, sino en la
+combinación de tres factores: <strong>una interfaz de administración privilegiada,
+exposición de red y mecanismos de autenticación con problemas de diseño</strong>.
+</p>
+
+<h2>¿Qué debería preocuparnos?</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Visibilidad</h3>
+    <p class="muted">
+      ¿Quién puede alcanzar el BMC desde la red? Cuantos más equipos puedan acceder,
+      mayor es la superficie de exposición.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Credenciales</h3>
+    <p class="muted">
+      Las cuentas de administración del BMC deben utilizar credenciales robustas,
+      individuales y correctamente gestionadas.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Segmentación</h3>
+    <p class="muted">
+      La red de gestión debería separarse de las redes de usuarios y servidores
+      mediante controles apropiados.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Actualizaciones</h3>
+    <p class="muted">
+      El firmware del BMC forma parte de la superficie de seguridad del servidor
+      y debe recibir mantenimiento igual que el resto de componentes.
+    </p>
+  </div>
+
+</div>
+
+<h2>Este laboratorio</h2>
+
+<p>
+Esta máquina reproduce un escenario educativo centrado en la <strong>exposición de una
+interfaz de gestión fuera de banda</strong>. El objetivo es investigar qué información
+proporciona el servicio, entender el papel del BMC y observar por qué una interfaz de
+administración no debería quedar accesible desde una red innecesariamente amplia.
+</p>
+
+<p>
+La presencia de IPMI, SOL y una vulnerabilidad histórica forma parte del escenario.
+La resolución requiere identificar cómo interactúan estas piezas y analizar el entorno
+de forma progresiva, en lugar de presentar la respuesta directamente en la propia web.
+</p>
+
+<div class="info">
+  <strong>Pista conceptual:</strong>
+  piensa en IPMI como una vía de administración que existe
+  <em>por debajo</em> del sistema operativo. Pregúntate qué implica eso para la seguridad
+  cuando esa vía de administración queda expuesta a otros equipos de la red.
+</div>
+
+<h2>Resumen</h2>
+
+<div class="flow">
+
+  <div class="flow-step">
+    <span>01 · Hardware</span>
+    Servidor equipado con un BMC.
+  </div>
+
+  <div class="flow-step">
+    <span>02 · Gestión</span>
+    IPMI proporciona funciones de administración remota.
+  </div>
+
+  <div class="flow-step">
+    <span>03 · Consola</span>
+    SOL puede transportar la consola serie por la red.
+  </div>
+
+  <div class="flow-step">
+    <span>04 · Seguridad</span>
+    La exposición innecesaria convierte una función administrativa en una superficie de ataque.
+  </div>
+
+</div>
+
+<footer>
+  Fuentes de referencia: documentación técnica de IPMI; documentación de fabricantes
+  sobre gestión fuera de banda; referencias públicas de CVE-2013-4786.
+</footer>
+
+</section>
+</main>
+</body>
+</html>

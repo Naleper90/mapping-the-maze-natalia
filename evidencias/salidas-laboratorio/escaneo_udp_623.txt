@@ -1,0 +1,58 @@
+# Nmap 7.99 scan initiated Sun Nov 22 18:03:05 2026 as: /usr/lib/nmap/nmap --privileged -sU -p 623 -T2 -oN escaneo_udp_623.txt 172.17.0.3-10
+Nmap scan report for 172.17.0.3
+Host is up (0.000011s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.000014s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.000010s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.000060s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.000010s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.000010s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000031s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+Nmap scan report for 172.17.0.10
+Host is up (0.000023s latency).
+
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+# Nmap done at Sun Nov 22 18:03:07 2026 -- 8 IP addresses (8 hosts up) scanned in 2.42 seconds

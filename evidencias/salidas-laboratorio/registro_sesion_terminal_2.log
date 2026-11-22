@@ -1,0 +1,525 @@
+Script started on 2026-11-22 17:58:20+00:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="237" LINES="63"]
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [CT[;32m└─[1;34m$[0m [C[C[K[;32m└─[1;34m$[0m [C[K[;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [Ca[;32m└─[1;34m$[0m [C[Cte
+[?2004lSun Nov 22 05:58:44 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m curl -s http://172.17.0.10/ -o ipmi_172.17.0.10.html[27m[C[C[C[C curl -s http://172.17.0.10/ -o ipmi_172.17.0.10.html
+[?2004l
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m sed -n '/<body/,$p' ipmi_172.17.0.10.html | sed 's/<[^>]*>//g' | grep -v '^\s*$'[27m[C[C[C[C sed -n '/<body/,$p' ipmi_172.17.0.10.html | sed 's/<[^>]*>//g' | grep -v '^\s*$'
+[?2004lCTG · gestión fuera de banda
+IPMI: administrar un servidor incluso cuando su sistema operativo no responde
+El Intelligent Platform Management Interface (IPMI) es un estándar utilizado
+para la gestión remota de servidores. A diferencia de una administración convencional,
+su objetivo es permitir determinadas tareas de supervisión y control
+independientemente del sistema operativo que esté instalado.
+Para ello, muchos servidores incorporan un BMC (Baseboard Management Controller),
+un controlador dedicado que permanece activo incluso cuando el sistema operativo está apagado,
+bloqueado o todavía no ha terminado de arrancar.
+    UDP 623
+    Puerto habitual de IPMI sobre red.
+      Las sesiones de gestión IPMI utilizan normalmente RMCP/RMCP+ sobre este puerto.
+    BMC
+    Controlador independiente.
+      Puede encargarse de sensores, inventario, energía, alertas y funciones de administración remota.
+    SOL
+    Serial Over LAN.
+      Permite transportar por red la consola serie del equipo para tareas de diagnóstico
+      y administración.
+¿Dónde aparece IPMI?
+IPMI está especialmente asociado al mundo de los servidores empresariales,
+data centers y plataformas de infraestructura. Dependiendo de la generación del
+equipo y del fabricante, el BMC puede integrarse en una solución de gestión propia
+que ofrece funciones equivalentes o compatibles con este ecosistema.
+    Dell
+    Familias de servidores PowerEdge y plataformas de gestión basadas en BMC.
+    HPE
+    Servidores ProLiant y sus sistemas de administración remota.
+    Supermicro
+    Amplia presencia de BMC en servidores y sistemas orientados a data center.
+    Otros fabricantes
+    Diversos fabricantes de hardware empresarial utilizan BMC y tecnologías de
+    gestión fuera de banda.
+¿Por qué es útil SOL?
+Una de las capacidades interesantes de un BMC es Serial Over LAN (SOL).
+En lugar de necesitar acceso físico al monitor y teclado del servidor, la consola serie
+puede estar disponible a través de la infraestructura de gestión.
+Esto permite observar procesos de arranque, mensajes de diagnóstico y determinadas
+interacciones con el sistema aunque el sistema operativo todavía no esté disponible.
+En un entorno empresarial puede resultar muy útil para recuperación y mantenimiento.
+  Importante:
+  las funciones de administración fuera de banda tienen un nivel de privilegio muy elevado.
+  Por diseño, el BMC está mucho más cerca del hardware y de la fase de arranque
+  que una aplicación normal del sistema operativo.
+El problema no suele ser la existencia del BMC
+La gestión fuera de banda tiene una función legítima y muy útil. El problema aparece cuando
+su interfaz de red se trata como si fuera un servicio ordinario de la red corporativa.
+Un error habitual de diseño consiste en colocar la interfaz de gestión en una red demasiado
+amplia, permitiendo que numerosos equipos internos puedan comunicarse directamente con ella.
+Una segmentación deficiente aumenta considerablemente la superficie de exposición.
+  Principio de seguridad:
+  una interfaz de administración privilegiada debería encontrarse en una
+  red de gestión restringida, con controles de acceso y filtrado adecuados,
+  y no simplemente en la misma red donde están los equipos de usuarios.
+Un protocolo con historia
+IPMI 2.0 incorporó mecanismos de autenticación y establecimiento de sesiones destinados
+a permitir administración remota. Con el tiempo se han estudiado distintos problemas de
+seguridad relacionados con el diseño y la implementación de estos mecanismos.
+Uno de los casos más conocidos apareció en 2013 y quedó registrado como
+CVE-2013-4786. El problema está relacionado con el proceso de autenticación
+RAKP de IPMI 2.0 y con la posibilidad de obtener material que puede utilizarse
+para realizar comprobaciones de contraseñas fuera de línea.
+El interés de este caso no está únicamente en la vulnerabilidad concreta, sino en la
+combinación de tres factores: una interfaz de administración privilegiada,
+exposición de red y mecanismos de autenticación con problemas de diseño.
+¿Qué debería preocuparnos?
+    Visibilidad
+      ¿Quién puede alcanzar el BMC desde la red? Cuantos más equipos puedan acceder,
+      mayor es la superficie de exposición.
+    Credenciales
+      Las cuentas de administración del BMC deben utilizar credenciales robustas,
+      individuales y correctamente gestionadas.
+    Segmentación
+      La red de gestión debería separarse de las redes de usuarios y servidores
+      mediante controles apropiados.
+    Actualizaciones
+      El firmware del BMC forma parte de la superficie de seguridad del servidor
+      y debe recibir mantenimiento igual que el resto de componentes.
+Este laboratorio
+Esta máquina reproduce un escenario educativo centrado en la exposición de una
+interfaz de gestión fuera de banda. El objetivo es investigar qué información
+proporciona el servicio, entender el papel del BMC y observar por qué una interfaz de
+administración no debería quedar accesible desde una red innecesariamente amplia.
+La presencia de IPMI, SOL y una vulnerabilidad histórica forma parte del escenario.
+La resolución requiere identificar cómo interactúan estas piezas y analizar el entorno
+de forma progresiva, en lugar de presentar la respuesta directamente en la propia web.
+  Pista conceptual:
+  piensa en IPMI como una vía de administración que existe
+  por debajo del sistema operativo. Pregúntate qué implica eso para la seguridad
+  cuando esa vía de administración queda expuesta a otros equipos de la red.
+Resumen
+    01 · Hardware
+    Servidor equipado con un BMC.
+    02 · Gestión
+    IPMI proporciona funciones de administración remota.
+    03 · Consola
+    SOL puede transportar la consola serie por la red.
+    04 · Seguridad
+    La exposición innecesaria convierte una función administrativa en una superficie de ataque.
+  Fuentes de referencia: documentación técnica de IPMI; documentación de fabricantes
+  sobre gestión fuera de banda; referencias públicas de CVE-2013-4786.
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m e[;32m└─[1;34m$[0m [Cx[;32m└─[1;34m$[0m [C[Cit
+[?2004lexit
+
+Script done on 2026-11-22 17:59:43+00:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-11-22 18:01:51+00:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="104" LINES="55"]
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [Ca[;32m└─[1;34m$[0m [C[Cte
+[?2004lSun Nov 22 06:01:58 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap --script-help ipmi-version[27m[C[C[C[Cnmap --script-help ipmi-version
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:02 +0000
+
+ipmi-version
+Categories: discovery safe
+https://nmap.org/nsedoc/scripts/ipmi-version.html
+    Performs IPMI Information Discovery through Channel Auth probes.
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m nmap -sU -p 623 -T2 -oN escaneo_udp_623.txt 172.17.0.3-10[27m[C[C[C[C nmap -sU -p 623 -T2 -oN escaneo_udp_623.txt 172.17.0.3-10
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:03 +0000
+Nmap scan report for 172.17.0.3
+Host is up (0.000011s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.000014s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.000010s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.000060s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.000010s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.000010s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000031s latency).
+
+PORT    STATE  SERVICE
+623/udp closed asf-rmcp
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+Nmap scan report for 172.17.0.10
+Host is up (0.000023s latency).
+
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+Nmap done: 8 IP addresses (8 hosts up) scanned in 2.42 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap -sU -p 623 -T2 --script ipmi-version -oN ipmi_version_172.17.0.10.txt 172.17.0.10[27m[C[C[C[Cnmap -sU -p 623 -T2 --script ipmi-version -oN ipmi_version_172.17.0.10.txt 172.17.0.10
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:04 +0000
+Nmap scan report for 172.17.0.10
+Host is up (0.000049s latency).
+
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+| ipmi-version: 
+|   Version: 
+|     IPMI-2.0
+|   UserAuth: password, md5, md2, null
+|   PassAuth: auth_msg, auth_user, non_null_user
+|_  Level: 1.5, 2.0
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 1.47 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap -p- -T3 --max-rate 100 -oN tcp_completo_172.17.0.10.txt 172.17.0.10[27m[C[C[C[Cnmap -p- -T3 --max-rate 100 -oN tcp_completo_172.17.0.10.txt 172.17.0.10
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:06 +0000
+Nmap scan report for 172.17.0.10
+Host is up (0.000011s latency).
+Not shown: 65534 closed tcp ports (reset)
+PORT   STATE SERVICE
+80/tcp open  http
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 656.01 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap -p- -T3 --max-rate 300 -oN tcp_completo_172.17.0.3-9.txt 172.17.0.3-9[27m[C[C[C[Cnmap -p- -T3 --max-rate 300 -oN tcp_completo_172.17.0.3-9.txt 172.17.0.3-9
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:17 +0000
+Nmap scan report for 172.17.0.3
+Host is up (0.0000060s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.0000060s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.0000060s latency).
+Not shown: 65526 closed tcp ports (reset)
+PORT      STATE SERVICE
+80/tcp    open  http
+443/tcp   open  https
+1883/tcp  open  mqtt
+5672/tcp  open  amqp
+8161/tcp  open  patrol-snmp
+46335/tcp open  unknown
+61613/tcp open  unknown
+61614/tcp open  unknown
+61616/tcp open  unknown
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.0000060s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8080/tcp open  http-proxy
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.0000090s latency).
+Not shown: 65534 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.0000090s latency).
+Not shown: 65531 closed tcp ports (reset)
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000010s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+Nmap done: 7 IP addresses (7 hosts up) scanned in 1530.82 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [K[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [K[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap -sV -T3 -p 1883,5672,8161,46335,61613,61614,61616 -oN servicios_172.17.0.5_altos.txt 172.17.0.5[27m[C[C[C[Cnmap -sV -T3 -p 1883,5672,8161,46335,61613,61614,61616 -oN servicios_172.17.0.5_altos.txt 172.17.0.5
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:44 +0000
+Nmap scan report for 172.17.0.5
+Host is up (0.000025s latency).
+
+PORT      STATE SERVICE    VERSION
+1883/tcp  open  mqtt
+5672/tcp  open  amqp?
+8161/tcp  open  http       Jetty 9.4.39.v20210325
+46335/tcp open  tcpwrapped
+61613/tcp open  stomp      Apache ActiveMQ
+61614/tcp open  http       Jetty 9.4.39.v20210325
+61616/tcp open  apachemq   ActiveMQ OpenWire transport 5.15.15
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5672-TCP:V=7.99%I=7%D=11/22%Time=6B033819%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10
+SF:\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x0
+SF:1\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20cl
+SF:ient\x20using\x20unsupported\x20AMQP\x20attempted")%r(HTTPOptions,89,"A
+SF:MQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa
+SF:1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x
+SF:02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20client\x20using\x
+SF:20unsupported\x20AMQP\x20attempted")%r(RTSPRequest,89,"AMQP\x03\x01\0\0
+SF:AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0
+SF:`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:
+SF:decode-error\xa17Connection\x20from\x20client\x20using\x20unsupported\x
+SF:20AMQP\x20attempted")%r(RPCCheck,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0
+SF:\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x
+SF:02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17C
+SF:onnection\x20from\x20client\x20using\x20unsupported\x20AMQP\x20attempte
+SF:d")%r(DNSVersionBindReqTCP,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19
+SF:\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0
+SF:\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connect
+SF:ion\x20from\x20client\x20using\x20unsupported\x20AMQP\x20attempted")%r(
+SF:DNSStatusRequestTCP,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\
+SF:0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x
+SF:18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20
+SF:from\x20client\x20using\x20unsupported\x20AMQP\x20attempted")%r(SSLSess
+SF:ionReq,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc
+SF:0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0
+SF:S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20clien
+SF:t\x20using\x20unsupported\x20AMQP\x20attempted")%r(TerminalServerCookie
+SF:,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\
+SF:x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\
+SF:xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20client\x20u
+SF:sing\x20unsupported\x20AMQP\x20attempted");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port61613-TCP:V=7.99%I=7%D=11/22%Time=6B033814%P=x86_64-pc-linux-gnu%r(
+SF:HELP4STOMP,289,"ERROR\ncontent-type:text/plain\nmessage:Unknown\x20STOM
+SF:P\x20action:\x20HELP\n\norg\.apache\.activemq\.transport\.stomp\.Protoc
+SF:olException:\x20Unknown\x20STOMP\x20action:\x20HELP\n\tat\x20org\.apach
+SF:e\.activemq\.transport\.stomp\.ProtocolConverter\.onStompCommand\(Proto
+SF:colConverter\.java:258\)\n\tat\x20org\.apache\.activemq\.transport\.sto
+SF:mp\.StompTransportFilter\.onCommand\(StompTransportFilter\.java:85\)\n\
+SF:tat\x20org\.apache\.activemq\.transport\.TransportSupport\.doConsume\(T
+SF:ransportSupport\.java:83\)\n\tat\x20org\.apache\.activemq\.transport\.t
+SF:cp\.TcpTransport\.doRun\(TcpTransport\.java:233\)\n\tat\x20org\.apache\
+SF:.activemq\.transport\.tcp\.TcpTransport\.run\(TcpTransport\.java:215\)\
+SF:n\tat\x20java\.base/java\.lang\.Thread\.run\(Thread\.java:840\)\n\0\n");
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 31.85 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mcurl -s -I -m 5 http://172.17.0.5:8161/[27m[C[C[C[Ccurl -s -I -m 5 http://172.17.0.5:8161/
+[?2004lHTTP/1.1 401 Unauthorized
+[1mWWW-Authenticate[0m: basic realm="ActiveMQRealm"
+[1mCache-Control[0m: must-revalidate,no-cache,no-store
+[1mContent-Type[0m: text/html;charset=iso-8859-1
+[1mContent-Length[0m: 447
+[1mServer[0m: Jetty(9.4.39.v20210325)
+
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [Ca[;32m└─[1;34m$[0m [C[Cte
+[?2004lSun Nov 22 06:47:53 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m grep -A8 "OS information" enum_samba_172.17.0.8.txt[27m[C[C[C[C grep -A8 "OS information" enum_samba_172.17.0.8.txt
+[?2004l[34m ====================================( [0m[32m[01;31m[KOS information[m[K on 172.17.0.8[0m[34m )====================================
+
+[0m[33m
+[E] [0m[31mCan't get OS info with smbclient
+
+[0m[33m
+[+] [0m[32mGot OS info for 172.17.0.8 from srvinfo: 
+[0m	SAMBASERVER    Wk Sv PrQ Unx NT SNT EseEmeB Samba Server
+	platform_id     :	500
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [Ca[;32m└─[1;34m$[0m [C[Cte
+[?2004lSun Nov 22 06:48:06 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m cut -d. -f2 access.txt | tr '_-' '/+' | base64 -d 2>/dev/null; echo[27m[C[C[C[C cut -d. -f2 access.txt | tr '_-' '/+' | base64 -d 2>/dev/null; echo
+[?2004l{"email":"satriani7@eseemeb.dl","role":"user","iat":1728160373,"exp":1728163973,"jwk":{"kty":"RSA","n":"63585299807980387262423612765866173553521316548264258884935554615225755006648660389688305989646519464133589253569380401152430881845853413695425815409772332541417497734428906778662277523133869957058017346064156925392027799732738825755501200786534741552322900016385201115526154902429620082614287042016709844522657707","e":65537}}
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [Ca[;32m└─[1;34m$[0m [C[Cte
+[?2004lSun Nov 22 06:48:18 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m date -u -d @1728163973[27m[C[C[C[C date -u -d @1728163973
+[?2004lSat Oct  5 09:32:53 PM UTC 2024
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m d[;32m└─[1;34m$[0m [Ca[;32m└─[1;34m$[0m [C[Cte
+[?2004lSun Nov 22 06:48:31 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7m  nmap -sU --top-ports 100 -T3 --max-rate 100 -oN udp_top100.txt 172.17.0.3-10[27m[C[C[C[C  nmap -sU --top-ports 100 -T3 --max-rate 100 -oN udp_top100.txt 172.17.0.3-10
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:48 +0000
+Nmap scan report for 172.17.0.3
+Host is up (0.000056s latency).
+All 100 scanned ports on 172.17.0.3 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: CA:FE:B6:52:C6:19 (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up (0.000040s latency).
+All 100 scanned ports on 172.17.0.4 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: 8E:5E:DA:02:E7:38 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up (0.000054s latency).
+All 100 scanned ports on 172.17.0.5 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: CE:02:DE:5E:7E:D9 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up (0.000059s latency).
+All 100 scanned ports on 172.17.0.6 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: 56:C7:70:33:A0:74 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up (0.000066s latency).
+All 100 scanned ports on 172.17.0.7 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: EA:3E:61:5A:87:6B (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up (0.000024s latency).
+Not shown: 54 closed udp ports (port-unreach), 45 open|filtered udp ports (no-response)
+PORT    STATE SERVICE
+137/udp open  netbios-ns
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up (0.000065s latency).
+All 100 scanned ports on 172.17.0.9 are in ignored states.
+Not shown: 100 closed udp ports (port-unreach)
+MAC Address: 62:7D:79:49:2A:A1 (Unknown)
+
+Nmap scan report for 172.17.0.10
+Host is up (0.000072s latency).
+Not shown: 99 closed udp ports (port-unreach)
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+MAC Address: 4A:BC:BA:2E:3F:B3 (Unknown)
+
+Nmap done: 8 IP addresses (8 hosts up) scanned in 107.41 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap --script-help smb-os-discovery[27m[C[C[C[Cnmap --script-help smb-os-discovery
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:53 +0000
+
+smb-os-discovery
+Categories: default discovery safe
+https://nmap.org/nsedoc/scripts/smb-os-discovery.html
+  Attempts to determine the operating system, computer name, domain, workgroup, and current
+  time over the SMB protocol (ports 445 or 139).
+  This is done by starting a session with the anonymous
+  account (or with a proper user account, if one is given; it likely doesn't make
+  a difference); in response to a session starting, the server will send back all this
+  information.
+
+  The following fields may be included in the output, depending on the
+  circumstances (e.g. the workgroup name is mutually exclusive with domain and forest
+  names) and the information available:
+  * OS
+  * Computer name
+  * Domain name
+  * Forest name
+  * FQDN
+  * NetBIOS computer name
+  * NetBIOS domain name
+  * Workgroup
+  * System time
+
+  Some systems, like Samba, will blank out their name (and only send their domain).
+  Other systems (like embedded printers) will simply leave out the information. Other
+  systems will blank out various pieces (some will send back 0 for the current
+  time, for example).
+
+  If this script is used in conjunction with version detection it can augment the
+  standard nmap version detection information with data that this script has discovered.
+
+  Retrieving the name and operating system of a server is a vital step in targeting
+  an attack against it, and this script makes that retrieval easy. Additionally, if
+  a penetration tester is choosing between multiple targets, the time can help identify
+  servers that are being poorly maintained (for more information/random thoughts on
+  using the time, see http://www.skullsecurity.org/blog/?p=76.
+
+  Although the standard <code>smb*</code> script arguments can be used,
+  they likely won't change the outcome in any meaningful way. However, <code>smbnoguest</code>
+  will speed up the script on targets that do not allow guest access.
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mdate[27mdate
+[?2004lSun Nov 22 06:53:37 PM UTC 2026
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m [7mnmap -p445 -T3 --script smb-os-discovery -oN smb_os_discovery_172.17.0.8.txt 172.17.0.8[27m[C[C[C[Cnmap -p445 -T3 --script smb-os-discovery -oN smb_os_discovery_172.17.0.8.txt 172.17.0.8
+[?2004lStarting Nmap 7.99 ( https://nmap.org ) at 2026-11-22 18:53 +0000
+Nmap scan report for 172.17.0.8
+Host is up (0.000053s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 5A:E3:10:CE:34:7F (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.71 seconds
+
+[?2004h]0;alumno@alumno20: ~[;32m┌──([1;34malumno㉿alumno20[;32m)-[[0;1m~[;32m]
+[;32m└─[1;34m$[0m [;32m└─[1;34m$[0m e[;32m└─[1;34m$[0m [Cx[;32m└─[1;34m$[0m [C[Cit
+[?2004lexit
+
+Script done on 2026-11-22 18:55:22+00:00 [COMMAND_EXIT_CODE="0"]
