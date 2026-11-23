@@ -42,12 +42,12 @@ mapping-the-maze/
 Además, `comparativa.md` (mano vs agente) se entregará en la raíz con la Fase 5.
 
 ### Acceso directo a los entregables
-- 📋 **[Frontera legal (scope.txt)](./scope.txt):** subred `172.17.0.0/24`.
-- 📓 **[Cuaderno de trabajo individual](./cuadernos/natalia-alejo.md):** trazabilidad con las cinco notas de la UD1, desde la conexión al laboratorio hasta la consulta de fuentes públicas.
-- 🖥️ **[Inventario de equipos, servicios y cuentas](./inventario.md):** 8 equipos vivos con **mapa TCP completo** y UDP, enumeración por servicio, cuentas descubiertas sin autenticar y la corrección a la hoja del cliente (*qué sobra, qué falta y qué está mal*).
-- 🛡️ **[Registro priorizado de vulnerabilidades](./registro-vulns.md):** ActiveMQ (CVE-2023-46604), Jenkins (CVE-2024-23897), Ghostcat en Tomcat (CVE-2020-1938), "sshole" en OpenSSH (CVE-2026-123158), IPMI (CVE-2013-4786), vsftpd (CVE-2011-2523), exposición en Samba y OpenSSH 7.7 (CVE-2018-15473), con CVSS, EPSS y KEV consultados el 2026-11-22.
-- 📄 **[Informe para la dirección](./informe-cliente.md):** resumen ejecutivo, plan de tres medidas para el trimestre y respuesta a la noticia de OpenSSH.
-- 📁 **[Evidencias](./evidencias/):** capturas, los registros de sesión y las salidas de cada escaneo ([`salidas-laboratorio/`](./evidencias/salidas-laboratorio/)). Los registros de sesión (`script`) permiten comprobar cada comando y su hora.
+- **[Frontera legal (scope.txt)](./scope.txt):** subred `172.17.0.0/24`.
+- **[Cuaderno de trabajo individual](./cuadernos/natalia-alejo.md):** trazabilidad con las cinco notas de la UD1, desde la conexión al laboratorio hasta la consulta de fuentes públicas.
+- **[Inventario de equipos, servicios y cuentas](./inventario.md):** 8 equipos vivos con **mapa TCP completo** y UDP, enumeración por servicio, cuentas descubiertas sin autenticar y la corrección a la hoja del cliente (*qué sobra, qué falta y qué está mal*).
+- **[Registro priorizado de vulnerabilidades](./registro-vulns.md):** ActiveMQ (CVE-2023-46604), Jenkins (CVE-2024-23897), Ghostcat en Tomcat (CVE-2020-1938), "sshole" en OpenSSH (CVE-2026-123158), IPMI (CVE-2013-4786), vsftpd (CVE-2011-2523), exposición en Samba y OpenSSH 7.7 (CVE-2018-15473), con CVSS, EPSS y KEV consultados el 2026-11-22.
+- **[Informe para la dirección](./informe-cliente.md):** resumen ejecutivo, plan de tres medidas para el trimestre y respuesta a la noticia de OpenSSH.
+- **[Evidencias](./evidencias/):** capturas, los registros de sesión y las salidas de cada escaneo ([`salidas-laboratorio/`](./evidencias/salidas-laboratorio/)). Los registros de sesión (`script`) permiten comprobar cada comando y su hora.
 
 ---
 
