@@ -1,0 +1,28 @@
+# Nmap 7.99 scan initiated Mon Nov 16 09:03:19 2026 as: /usr/lib/nmap/nmap -sn -PR --reason -oN descubrimiento.txt 172.17.0.0/24
+Nmap scan report for 172.17.0.3
+Host is up, received arp-response (0.000020s latency).
+MAC Address: E2:44:1D:DB:0B:9A (Unknown)
+Nmap scan report for 172.17.0.4
+Host is up, received arp-response (0.000012s latency).
+MAC Address: E6:84:B1:1D:B3:48 (Unknown)
+Nmap scan report for 172.17.0.5
+Host is up, received arp-response (0.000011s latency).
+MAC Address: 2A:23:0F:10:A4:F1 (Unknown)
+Nmap scan report for 172.17.0.6
+Host is up, received arp-response (0.000011s latency).
+MAC Address: F6:B4:75:9F:B0:84 (Unknown)
+Nmap scan report for 172.17.0.7
+Host is up, received arp-response (0.000013s latency).
+MAC Address: CE:8C:75:39:9F:86 (Unknown)
+Nmap scan report for 172.17.0.8
+Host is up, received arp-response (0.000011s latency).
+MAC Address: EE:B6:41:03:D8:E8 (Unknown)
+Nmap scan report for 172.17.0.9
+Host is up, received arp-response (0.000011s latency).
+MAC Address: 7A:F0:C0:AF:43:E6 (Unknown)
+Nmap scan report for 172.17.0.10
+Host is up, received arp-response (0.000014s latency).
+MAC Address: 3E:09:A0:45:BB:DC (Unknown)
+Nmap scan report for 172.17.0.1
+Host is up, received localhost-response.
+# Nmap done at Mon Nov 16 09:03:23 2026 -- 256 IP addresses (9 hosts up) scanned in 4.01 seconds

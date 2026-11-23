@@ -1,0 +1,10 @@
+# Nmap 7.99 scan initiated Tue Nov 17 14:34:53 2026 as: /usr/lib/nmap/nmap -sV --version-light -T3 -p 22 --reason -oA versiones-172-17-0-7 172.17.0.7
+Nmap scan report for 172.17.0.7
+Host is up, received arp-response (0.000055s latency).
+
+PORT   STATE SERVICE REASON         VERSION
+22/tcp open  ssh     syn-ack ttl 64 OpenSSH 7.7 (protocol 2.0)
+MAC Address: CE:8C:75:39:9F:86 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Nov 17 14:34:53 2026 -- 1 IP address (1 host up) scanned in 0.80 seconds

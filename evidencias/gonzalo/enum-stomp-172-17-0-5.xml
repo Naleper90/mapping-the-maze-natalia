@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Tue Nov 17 22:45:40 2026 as: /usr/lib/nmap/nmap -sV -&#45;version-light -T2 -p 61613 -&#45;reason -oA enum-stomp-172-17-0-5 172.17.0.5 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sV -&#45;version-light -T2 -p 61613 -&#45;reason -oA enum-stomp-172-17-0-5 172.17.0.5" start="1794955540" startstr="Tue Nov 17 22:45:40 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1" services="61613"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1794955542" endtime="1794955548"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="61613"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="stomp" product="Apache ActiveMQ" method="probed" conf="10"><cpe>cpe:/a:apache:activemq</cpe></service></port>
+</ports>
+<times srtt="61" rttvar="3750" to="400000"/>
+</host>
+<runstats><finished time="1794955548" timestr="Tue Nov 17 22:45:48 2026" summary="Nmap done at Tue Nov 17 22:45:48 2026; 1 IP address (1 host up) scanned in 7.62 seconds" elapsed="7.62" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

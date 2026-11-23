@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Tue Nov 17 22:47:42 2026 as: /usr/lib/nmap/nmap -sV --version-light -T2 -p 61616 --reason -oA enum-openwire-172-17-0-5 172.17.0.5
+Host: 172.17.0.5 ()	Status: Up
+Host: 172.17.0.5 ()	Ports: 61616/open/tcp//apachemq//ActiveMQ OpenWire transport 5.15.15/
+# Nmap done at Tue Nov 17 22:47:43 2026 -- 1 IP address (1 host up) scanned in 1.57 seconds

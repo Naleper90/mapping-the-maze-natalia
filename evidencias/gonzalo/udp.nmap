@@ -1,0 +1,53 @@
+# Nmap 7.99 scan initiated Tue Nov 17 20:55:35 2026 as: /usr/lib/nmap/nmap -sU --top-ports 1000 -T3 --reason -iL hosts_ips_limpio.txt -oA udp
+Nmap scan report for 172.17.0.3
+Host is up, received arp-response (0.000069s latency).
+All 1000 scanned ports on 172.17.0.3 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+MAC Address: E2:44:1D:DB:0B:9A (Unknown)
+
+Nmap scan report for 172.17.0.4
+Host is up, received arp-response (0.000037s latency).
+All 1000 scanned ports on 172.17.0.4 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+MAC Address: E6:84:B1:1D:B3:48 (Unknown)
+
+Nmap scan report for 172.17.0.5
+Host is up, received arp-response (0.000053s latency).
+All 1000 scanned ports on 172.17.0.5 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+MAC Address: 2A:23:0F:10:A4:F1 (Unknown)
+
+Nmap scan report for 172.17.0.6
+Host is up, received arp-response (0.000066s latency).
+All 1000 scanned ports on 172.17.0.6 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+MAC Address: F6:B4:75:9F:B0:84 (Unknown)
+
+Nmap scan report for 172.17.0.7
+Host is up, received arp-response (0.000072s latency).
+All 1000 scanned ports on 172.17.0.7 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+MAC Address: CE:8C:75:39:9F:86 (Unknown)
+
+Nmap scan report for 172.17.0.8
+Host is up, received arp-response (0.000075s latency).
+Not shown: 998 closed udp ports (port-unreach)
+PORT    STATE         SERVICE     REASON
+137/udp open          netbios-ns  udp-response ttl 64
+138/udp open|filtered netbios-dgm no-response
+MAC Address: EE:B6:41:03:D8:E8 (Unknown)
+
+Nmap scan report for 172.17.0.9
+Host is up, received arp-response (0.000021s latency).
+All 1000 scanned ports on 172.17.0.9 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+MAC Address: 7A:F0:C0:AF:43:E6 (Unknown)
+
+Nmap scan report for 172.17.0.10
+Host is up, received arp-response (0.000017s latency).
+Not shown: 999 closed udp ports (port-unreach)
+PORT    STATE SERVICE  REASON
+623/udp open  asf-rmcp udp-response ttl 64
+MAC Address: 3E:09:A0:45:BB:DC (Unknown)
+
+# Nmap done at Tue Nov 17 21:13:41 2026 -- 8 IP addresses (8 hosts up) scanned in 1086.47 seconds

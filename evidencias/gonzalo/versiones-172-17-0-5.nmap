@@ -1,0 +1,32 @@
+# Nmap 7.99 scan initiated Tue Nov 17 14:28:39 2026 as: /usr/lib/nmap/nmap -sV --version-light -T3 -p 80,443,1883,5672,8161,39223,61613,61614,61616 --reason -oA versiones-172-17-0-5 172.17.0.5
+Nmap scan report for 172.17.0.5
+Host is up, received arp-response (0.000025s latency).
+
+PORT      STATE SERVICE    REASON         VERSION
+80/tcp    open  http       syn-ack ttl 64 Apache httpd 2.4.59 ((Debian))
+443/tcp   open  ssl/http   syn-ack ttl 64 Apache httpd 2.4.59 ((Debian))
+1883/tcp  open  mqtt       syn-ack ttl 64
+5672/tcp  open  amqp?      syn-ack ttl 64
+8161/tcp  open  http       syn-ack ttl 64 Jetty 9.4.39.v20210325
+39223/tcp open  tcpwrapped syn-ack ttl 64
+61613/tcp open  stomp      syn-ack ttl 64 Apache ActiveMQ
+61614/tcp open  http       syn-ack ttl 64 Jetty 9.4.39.v20210325
+61616/tcp open  apachemq   syn-ack ttl 64 ActiveMQ OpenWire transport 5.15.15
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5672-TCP:V=7.99%I=2%D=11/17%Time=6AFC64A2%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10
+SF:\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x0
+SF:1\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20cl
+SF:ient\x20using\x20unsupported\x20AMQP\x20attempted")%r(SSLSessionReq,89,
+SF:"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\
+SF:xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M
+SF:\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20client\x20using
+SF:\x20unsupported\x20AMQP\x20attempted")%r(TLSSessionReq,89,"AMQP\x03\x01
+SF:\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02
+SF:\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11a
+SF:mqp:decode-error\xa17Connection\x20from\x20client\x20using\x20unsupport
+SF:ed\x20AMQP\x20attempted");
+MAC Address: 2A:23:0F:10:A4:F1 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Nov 17 14:28:51 2026 -- 1 IP address (1 host up) scanned in 12.97 seconds

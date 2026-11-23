@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Thu Nov 19 12:27:09 2026 as: /usr/lib/nmap/nmap -O --osscan-limit -T3 --reason -oA os-172-17-0-4 172.17.0.4
+Host: 172.17.0.4 ()	Status: Up
+Host: 172.17.0.4 ()	Ports: 22/open/tcp//ssh///, 8009/open/tcp//ajp13///, 8080/open/tcp//http-proxy///	Ignored State: closed (997)	OS: Linux 4.15 - 5.19	Seq Index: 253	IP ID Seq: All zeros
+# Nmap done at Thu Nov 19 12:27:11 2026 -- 1 IP address (1 host up) scanned in 1.98 seconds

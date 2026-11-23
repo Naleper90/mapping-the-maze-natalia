@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Thu Nov 19 08:15:46 2026 as: /usr/lib/nmap/nmap -T2 -p 21 -&#45;script ftp-anon -&#45;reason -oA enum-ftp-anon-172-17-0-3 172.17.0.3 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -T2 -p 21 -&#45;script ftp-anon -&#45;reason -oA enum-ftp-anon-172-17-0-3 172.17.0.3" start="1795076146" startstr="Thu Nov 19 08:15:46 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1" services="21"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="E2:44:1D:DB:0B:9A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1795076147" endtime="1795076147"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="E2:44:1D:DB:0B:9A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ftp" method="table" conf="3"/><script id="ftp-anon" output="got code 500 &quot;OOPS: cannot change directory:/var/ftp&quot;."/></port>
+</ports>
+<times srtt="57" rttvar="3752" to="400000"/>
+</host>
+<runstats><finished time="1795076147" timestr="Thu Nov 19 08:15:47 2026" summary="Nmap done at Thu Nov 19 08:15:47 2026; 1 IP address (1 host up) scanned in 1.47 seconds" elapsed="1.47" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

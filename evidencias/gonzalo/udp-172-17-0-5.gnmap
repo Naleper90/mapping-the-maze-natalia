@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Tue Nov 17 15:02:00 2026 as: /usr/lib/nmap/nmap -sU -p 161 -T3 --reason -oA udp-172-17-0-5 172.17.0.5
+Host: 172.17.0.5 ()	Status: Up
+Host: 172.17.0.5 ()	Ports: 161/closed/udp//snmp///
+# Nmap done at Tue Nov 17 15:02:01 2026 -- 1 IP address (1 host up) scanned in 0.74 seconds

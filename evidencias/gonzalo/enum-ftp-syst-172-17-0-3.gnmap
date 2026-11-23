@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Thu Nov 19 08:14:47 2026 as: /usr/lib/nmap/nmap -sV -T2 -p 21 --script ftp-syst --reason -oA enum-ftp-syst-172-17-0-3 172.17.0.3
+Host: 172.17.0.3 ()	Status: Up
+Host: 172.17.0.3 ()	Ports: 21/open/tcp//ftp//vsftpd 2.3.4/
+# Nmap done at Thu Nov 19 08:14:49 2026 -- 1 IP address (1 host up) scanned in 1.62 seconds

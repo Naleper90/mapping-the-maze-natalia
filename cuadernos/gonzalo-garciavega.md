@@ -8,7 +8,7 @@
 - Qué hice: ejecuté `sudo nmap -sn -PR --reason 172.17.0.0/24 -oN descubrimiento.txt` para buscar respuestas ARP, sin escanear puertos.
 - Qué salió: Nmap informó respuestas ARP de 172.17.0.3 a 172.17.0.10; 172.17.0.1 aparece como `localhost-response`. La salida final indica 9 hosts activos entre 256 direcciones examinadas.
 - Siguiente paso: confirmar que las IP detectadas corresponden a los equipos de mi copia autorizada; después continuar con el mapeo prudente de puertos.
-- Evidencia: `descubrimiento.txt`.![nmap](../capturas/parte1/01.png)
+- Evidencia: `descubrimiento.txt`.![nmap](../capturas/gonzalo/parte1/01.png)
 
 ## Preparación de la lista de equipos detectados
 - Cuándo: 16/11/2026, 10:03 (hora local; Nmap registró 9:03 UTC)
@@ -16,7 +16,7 @@
 - Qué hice: extraje las IP detectadas desde `descubrimiento.txt` y preparé `hosts_ips_limpio.txt`, excluyendo `172.17.0.1`, que Nmap marcó como `localhost-response`.
 - Qué salió: la lista contiene `172.17.0.3`–`172.17.0.10`.
 - Siguiente paso: usar la lista solo para organizar el mapeo de los equipos del laboratorio confirmados por el profesor.
-- Evidencia: `descubrimiento.txt`.![descubrimiento](../capturas/parte1/02.png)
+- Evidencia: `descubrimiento.txt`.![descubrimiento](../capturas/gonzalo/parte1/02.png)
 
 ## Preparación de lista de IP detectadas
 - Cuándo: 16/11/2026, 10:49.
@@ -25,7 +25,7 @@
 - Qué salió: el archivo contiene las IP `172.17.0.3`–`172.17.0.10`. La `.1` se excluyó porque en `descubrimiento.txt` Nmap la marcó como `localhost-response`.
 - Siguiente paso: usar la lista para organizar el mapeo de puertos de los equipos confirmados como objetivos del laboratorio.
 - Evidencia: `hosts_ips_limpio.txt`
-![hostips](../capturas/parte1/03.png)
+![hostips](../capturas/gonzalo/parte1/03.png)
 
 ## Escaneo completo de puertos TCP
 - Cuándo: 17/11/2026, 12:24.
@@ -34,12 +34,12 @@
 - Qué salió: Nmap informó que los ocho hosts estaban activos y encontró puertos TCP abiertos. La salida muestra, entre otros, puertos altos como `8009/tcp`, `8161/tcp`, `39223/tcp` y `61613–61616/tcp`. Las etiquetas `SERVICE` son identificaciones preliminares por número de puerto; esta comprobación aún no determina las versiones.
 - Siguiente paso: consultar de forma moderada los servicios y versiones de los puertos abiertos; planificar UDP por separado y con cuidado para el equipo delicado.
 - Evidencia: archivos `tcp-lab.nmap`, `tcp-lab.gnmap` y `tcp-lab.xml`.
-![nmap](../capturas/parte1/04.png)
-![nmap](../capturas/parte1/05.png)
-![tcp-lab.gnmap](../capturas/parte1/06.png)
-![tcp-lab.nmap](../capturas/parte1/07.png)
-![tcp-lab.nmap](../capturas/parte1/08.png)
-![tcp-lab.xml](../capturas/parte1/09.png)
+![nmap](../capturas/gonzalo/parte1/04.png)
+![nmap](../capturas/gonzalo/parte1/05.png)
+![tcp-lab.gnmap](../capturas/gonzalo/parte1/06.png)
+![tcp-lab.nmap](../capturas/gonzalo/parte1/07.png)
+![tcp-lab.nmap](../capturas/gonzalo/parte1/08.png)
+![tcp-lab.xml](../capturas/gonzalo/parte1/09.png)
 
 ## Detección del SO
 - Cuándo: 19/11/2026,12:29 UTC, horario mi máquina 13:29.
@@ -47,14 +47,14 @@
 - Qué hice: ejecuté `sudo nmap -O --osscan-limit -T3 --reason -oA os-172-17-0-X 172.17.0.X` individualmente contra cada equipo.
 - Qué salió: Nmap estimó en los ocho equipos un dispositivo de propósito general con Linux, kernel entre `4.15` y `5.19`. No identificó la distribución ni la versión exacta del sistema operativo.
 - Evidencias:`os-172-17-0-3.nmap/.gnmap/.xml` hasta `os-172-17-0-10.nmap/.gnmap/.xml`.
-![deteccion](../capturas/parte1/9.1.png)
-![deteccion](../capturas/parte1/9.2.png)
-![deteccion](../capturas/parte1/9.3.png)
-![deteccion](../capturas/parte1/9.4.png)
-![deteccion](../capturas/parte1/9.5.png)
-![deteccion](../capturas/parte1/9.6.png)
-![deteccion](../capturas/parte1/9.7.png)
-![deteccion](../capturas/parte1/9.8.png)
+![deteccion](../capturas/gonzalo/parte1/9.1.png)
+![deteccion](../capturas/gonzalo/parte1/9.2.png)
+![deteccion](../capturas/gonzalo/parte1/9.3.png)
+![deteccion](../capturas/gonzalo/parte1/9.4.png)
+![deteccion](../capturas/gonzalo/parte1/9.5.png)
+![deteccion](../capturas/gonzalo/parte1/9.6.png)
+![deteccion](../capturas/gonzalo/parte1/9.7.png)
+![deteccion](../capturas/gonzalo/parte1/9.8.png)
 
 ## Detección de servicios y versiones — 172.17.0.3
 - Cuándo: 17/11/2026, 15:16 (hora local; Nmap registró 14:16 UTC).
@@ -63,9 +63,9 @@
 - Qué salió: `21/tcp` aparece como FTP, `vsftpd 2.3.4`; `80/tcp` aparece como HTTP, `Apache httpd 2.4.58 (Ubuntu)`. Nmap reporta información de servicio `OS: Unix`.
 - Siguiente paso: identificar de la misma forma los servicios y versiones en los puertos abiertos del siguiente equipo autorizado; revisar UDP por separado.
 - Evidencia: `versiones-172-17-0-3.nmap`, `versiones-172-17-0-3.gnmap`, `versiones-172-17-0-3.xml`.
-![nmap](../capturas/parte1/10.png)
+![nmap](../capturas/gonzalo/parte1/10.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/11.png)
+![evidencias](../capturas/gonzalo/parte1/11.png)
 
 ## Detección de servicios y versiones — 172.17.0.4
 - Cuándo: 17/11/2026, 15:23 (hora local; Nmap registró 14:23 UTC).
@@ -74,9 +74,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `22/tcp` OpenSSH 7.9p1 Debian 10+deb10u4; `8009/tcp` Apache JServ Protocol v1.3, sin versión de producto identificada; `8080/tcp` Apache Tomcat 9.0.30. Nmap reportó Linux.
 - Siguiente paso: registrar los productos y versiones observados en `inventario.md` y continuar con el siguiente equipo confirmado; revisar UDP por separado.
 - Evidencia: archivos `versiones-172-17-0-4.nmap`, `versiones-172-17-0-4.gnmap`, `versiones-172-17-0-4.xml`.
-![nmap](../capturas/parte1/12.png)
+![nmap](../capturas/gonzalo/parte1/12.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/13.png)
+![evidencias](../capturas/gonzalo/parte1/13.png)
 
 ## Detección de servicios y versiones — 172.17.0.5
 - Cuándo: 17/11/2026, 15:28 (hora local; Nmap registró 14:28 UTC).
@@ -85,9 +85,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `80/tcp` y `443/tcp`, Apache httpd 2.4.59 (Debian); `1883/tcp`, MQTT sin versión identificada; `5672/tcp`, posible AMQP, sin identificación confirmada; `8161/tcp` y `61614/tcp`, Jetty 9.4.39.v20210325; `39223/tcp`, tcpwrapped, sin producto identificado; `61613/tcp`, STOMP/Apache ActiveMQ; `61616/tcp`, Apache ActiveMQ OpenWire Transport 5.15.15.
 - Siguiente paso: incorporar estos datos y sus incertidumbres a `inventario.md`; continuar con el siguiente equipo y revisar UDP por separado con el ritmo autorizado por el profesor.
 - Evidencia: `versiones-172-17-0-5.nmap`, `versiones-172-17-0-5.gnmap`, `versiones-172-17-0-5.xml`.
-![nmap](../capturas/parte1/14.png)
+![nmap](../capturas/gonzalo/parte1/14.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/15.png)
+![evidencias](../capturas/gonzalo/parte1/15.png)
 
 ## Detección de servicios y versiones — 172.17.0.6
 - Cuándo: 17/11/2026, 15:32 (hora local; Nmap registró 14:32 UTC).
@@ -96,9 +96,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `22/tcp` OpenSSH 9.2p1 Debian 2+deb12u2 (protocolo 2.0); `8080/tcp` HTTP, Jetty 10.0.18. Nmap reportó Linux.
 - Siguiente paso: registrar estos datos en `inventario.md` y continuar con los siguientes equipos confirmados; revisar UDP por separado.
 - Evidencia: `versiones-172-17-0-6.nmap`, `versiones-172-17-0-6.gnmap`, `versiones-172-17-0-6.xml`.
-![nmap](../capturas/parte1/16.png)
+![nmap](../capturas/gonzalo/parte1/16.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/17.png)
+![evidencias](../capturas/gonzalo/parte1/17.png)
 
 ## Detección de servicios y versiones — 172.17.0.7
 - Cuándo: 17/11/2026, 15:34 (hora local; Nmap registró 14:34 UTC).
@@ -107,9 +107,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `22/tcp` abierto, servicio SSH, OpenSSH 7.7 (protocolo 2.0). Nmap no indicó distribución o sistema operativo en esta salida.
 - Siguiente paso: registrar el resultado en `inventario.md` y continuar con `172.17.0.8`; revisar UDP por separado.
 - Evidencia: `versiones-172-17-0-7.nmap`, `versiones-172-17-0-7.gnmap`, `versiones-172-17-0-7.xml`.
-![nmap](../capturas/parte1/18.png)
+![nmap](../capturas/gonzalo/parte1/18.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/19.png)
+![evidencias](../capturas/gonzalo/parte1/19.png)
 
 ## Detección de servicios y versiones — 172.17.0.8
 - Cuándo: 17/11/2026, 15:37 (hora local; Nmap registró 14:37 UTC).
@@ -118,9 +118,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `22/tcp` OpenSSH 9.6p1 Ubuntu 3ubuntu13.5; `80/tcp` Apache httpd 2.4.58 (Ubuntu); `139/tcp` y `445/tcp` Samba smbd 4 (sin versión menor identificada). Nmap reportó Linux.
 - Siguiente paso: registrar estos resultados en `inventario.md` y continuar con el siguiente equipo confirmado; revisar UDP por separado.
 - Evidencia: `versiones-172-17-0-8.nmap`, `versiones-172-17-0-8.gnmap`, `versiones-172-17-0-8.xml`.
-![nmap](../capturas/parte1/20.png)
+![nmap](../capturas/gonzalo/parte1/20.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/21.png)
+![evidencias](../capturas/gonzalo/parte1/21.png)
 
 ## Detección de servicios y versiones — 172.17.0.9
 - Cuándo: 17/11/2026, 15:40 (hora local; Nmap registró 14:40 UTC).
@@ -129,9 +129,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `22/tcp` OpenSSH 9.2p1 Debian 2+deb12u10; `80/tcp` Apache httpd 2.4.68 (Debian). Nmap reportó Linux.
 - Siguiente paso: registrar los resultados en `inventario.md` y continuar con `172.17.0.10`; revisar UDP por separado.
 - Evidencia: `versiones-172-17-0-9.nmap`, `versiones-172-17-0-9.gnmap`, `versiones-172-17-0-9.xml`.
-![nmap](../capturas/parte1/22.png)
+![nmap](../capturas/gonzalo/parte1/22.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/23.png)
+![evidencias](../capturas/gonzalo/parte1/23.png)
 
 ## Detección de servicios y versiones — 172.17.0.10
 - Cuándo: 17/11/2026, 15:51 (hora local; Nmap registró 14:51 UTC).
@@ -140,9 +140,9 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `80/tcp` abierto, HTTP, SimpleHTTPServer 0.6 (Python 3.11.2).
 - Siguiente paso: registrar los servicios y versiones detectados en `inventario.md`; después revisar UDP según la cobertura y el ritmo autorizados por el profesor.
 - Evidencia: `versiones-172-17-0-10.nmap`, `versiones-172-17-0-10.gnmap`, `versiones-172-17-0-10.xml`.
-![nmap](../capturas/parte1/24.png)
+![nmap](../capturas/gonzalo/parte1/24.png)
 Aqui la comprobación de que se guardaron los tres archivos.
-![evidencias](../capturas/parte1/25.png)
+![evidencias](../capturas/gonzalo/parte1/25.png)
 
 ## Escaneo de los puertos UDP
 - Cuándo: 17/11/2026. Nmap comenzó a las 20:55 UTC es decir las 21:55 de mi equipo; terminó en 1086,47 segundos (unos 18 min 6 s).
@@ -151,12 +151,12 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: revisé los 1.000 puertos UDP más comunes de cada equipo, con Nmap en modo UDP y registrando la razón de cada estado. No ejecuté scripts NSE ni comprobaciones de vulnerabilidades.
 - Siguiente paso: comprobar que se guardaron los tres archivos de resultados y enlazarlos como evidencia. Después continuar con la enumeración sin autenticación de los servicios TCP pendientes.
 - Evidencia: udp.nmap, udp.gnmap y udp.xml.
-![udp.gnmap](../capturas/parte1/27.2.png)
+![udp.gnmap](../capturas/gonzalo/parte1/27.2.png)
 -UDP.NMAP
-![udp.nmap](../capturas/parte1/27.3.png)
-![udp.nmap](../capturas/parte1/27.4.png)
+![udp.nmap](../capturas/gonzalo/parte1/27.3.png)
+![udp.nmap](../capturas/gonzalo/parte1/27.4.png)
 -UDP.XML
-![udp.xml](../capturas/parte1/27.5.png)
+![udp.xml](../capturas/gonzalo/parte1/27.5.png)
 
 ## Parte 2 · Enumerar sin autenticar
 
@@ -167,8 +167,8 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: respuesta `HTTP/1.1 200 OK`; cabecera `Server: Apache/2.4.58 (Ubuntu)`, `Content-Type: text/html` y `Content-Length: 10671`.
 - Siguiente paso: revisar qué contenido público ofrece la página y documentar lo que se observa, sin intentar acceder a funciones que pidan autenticación.
 - Evidencia: `enum-172-17-0-3-http.txt`.
-![nmap](../capturas/parte2/28.png)
-![evidencias](../capturas/parte2/29.png)
+![nmap](../capturas/gonzalo/parte2/28.png)
+![evidencias](../capturas/gonzalo/parte2/29.png)
 
 ## Inspección del contenido HTTP — 172.17.0.3
 - Cuándo: 17/11/2026, 16:51 (hora local).
@@ -177,8 +177,8 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: el HTML contiene el título `Apache2 Ubuntu Default Page: It works` y un comentario que indica que la página fue modificada para Ubuntu, con última actualización indicada como 2022-03-22.
 - Siguiente paso: anotar que la página predeterminada de Apache está publicada; continuar con el siguiente servicio TCP, sin probar formularios ni credenciales.
 - Evidencia: `pagina-172-17-0-3.html`.
-![nmap](../capturas/parte2/30.png)
-![evidencias](../capturas/parte2/31.png)
+![nmap](../capturas/gonzalo/parte2/30.png)
+![evidencias](../capturas/gonzalo/parte2/31.png)
 
 ## Banner FTP — 172.17.0.3
 - Cuándo: 17/11/2026, 17:00 (hora local).
@@ -187,7 +187,7 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: el puerto respondió abierto y el servidor mostró `220 (vsFTPd 2.3.4)`.
 - Siguiente paso: continuar con la enumeración sin autenticación de los servicios detectados.
 - Evidencia: captura `capturas/28.png`.
-![nc](../capturas/parte2/32.png)
+![nc](../capturas/gonzalo/parte2/32.png)
 
 ## Enumeración FTP sin autenticación — 172.17.0.3
 - Cuándo: 19/11/2026, 09:17.
@@ -196,8 +196,8 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: Nmap identificó `vsFTPd 2.3.4`; `ftp-syst` no mostró información adicional de `SYST` ni `STAT`. La comprobación `ftp-anon` recibió `500 "OOPS: cannot change directory:/var/ftp"`.
 - Conclusión y limitaciones: la respuesta `500` no confirma que se permita el acceso anónimo ni permite determinar si hay archivos accesibles. No se intentó iniciar sesión manualmente, acceder a archivos ni probar credenciales.
 - Evidencias: `enum-ftp-syst-172-17-0-3.nmap`, `enum-ftp-syst-172-17-0-3.xml`, `enum-ftp-anon-172-17-0-3.nmap`, `enum-ftp-anon-172-17-0-3.xml`.
-![evidencias](../capturas/parte2/78.png)
-![evidencias](../capturas/parte2/79.png)
+![evidencias](../capturas/gonzalo/parte2/78.png)
+![evidencias](../capturas/gonzalo/parte2/79.png)
 
 ## Banner SSH — 172.17.0.4
 - Cuándo: 17/11/2026, 17:04 (hora local).
@@ -206,7 +206,7 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: el servicio presentó `SSH-2.0-OpenSSH_7.9p1 Debian-10+deb10u4`. Después apareció `Protocol mismatch`, al no continuar `nc` el intercambio SSH.
 - Siguiente paso: consultar las cabeceras HTTP del puerto `8080/tcp` de este equipo, sin autenticación.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:05.
-![nc](../capturas/parte2/33.png)
+![nc](../capturas/gonzalo/parte2/33.png)
 
 ## Enumeración SSH sin autenticación — 172.17.0.4
 - Cuándo: 19/11/2026, 09:21.
@@ -218,8 +218,8 @@ Aqui la comprobación de que se guardaron los tres archivos.
   - ED25519 (256 bits): `1e:eb:63:bd:b9:87:72:43:49:6c:76:e1:45:69:ca:75`
 - Limitación: la enumeración identifica algoritmos y huellas de claves públicas; no enumera cuentas ni demuestra acceso al sistema.
 - Evidencia: `enum-ssh-172-17-0-4.nmap`, `enum-ssh-172-17-0-4.xml`.
-![evi](../capturas/parte2/80.png)
-![evi](../capturas/parte2/81.png)
+![evi](../capturas/gonzalo/parte2/80.png)
+![evi](../capturas/gonzalo/parte2/81.png)
 
 ## Cabeceras HTTP — 172.17.0.4:8080
 - Cuándo: 17/11/2026, 17:06 (hora local aproximada; la respuesta muestra 16:06 GMT).
@@ -228,7 +228,7 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: respuesta `HTTP/1.1 200`; `Content-Type: text/html; charset=UTF-8`; `Transfer-Encoding: chunked`. Las cabeceras consultadas no muestran el contenido ni identifican la aplicación.
 - Siguiente paso: si está permitido, descargar e inspeccionar la página pública; no enviar formularios ni credenciales.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:07.
-![nc](../capturas/parte2/34.png)
+![nc](../capturas/gonzalo/parte2/34.png)
 
 ## Descarga de página HTTP — 172.17.0.4:8080
 - Cuándo: 17/11/2026, 17:10 (hora local).
@@ -237,8 +237,8 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: se recibieron 11.196 bytes y se guardaron en `pagina-172-17-0-4-8080.html`.
 - Siguiente paso: inspeccionar el archivo local para identificar el contenido público; no enviar formularios ni credenciales.
 - Evidencia: `pagina-172-17-0-4-8080.html` y captura de pantalla del 17/11/2026 a las 17:10.
-![nc](../capturas/parte2/35.png)
-![evidencia](../capturas/parte2/36.png)
+![nc](../capturas/gonzalo/parte2/35.png)
+![evidencia](../capturas/gonzalo/parte2/36.png)
 
 ## Identificación de AJP — 172.17.0.4
 - Cuándo: 17/11/2026, 23:25 (hora local; Nmap indicó 22:25 UTC).
@@ -247,13 +247,13 @@ Aqui la comprobación de que se guardaron los tres archivos.
 - Qué salió: `8009/tcp` abierto; servicio `ajp13`, identificado como Apache JServ Protocol v1.3. La comprobación no reveló más información sobre recursos o configuración.
 - Siguiente paso: registrar el resultado y su límite en `inventario.md`; continuar con el siguiente servicio pendiente mediante una comprobación específica y prudente.
 - Evidencia: `enum-ajp-172-17-0-4.nmap`, `enum-ajp-172-17-0-4.gnmap`, `enum-ajp-172-17-0-4.xml` y la captura `/capturas/58.png`.
-![identificación](../capturas/parte2/58.png)
+![identificación](../capturas/gonzalo/parte2/58.png)
 AJP.NMAP
-![enum](../capturas/parte2/59.png)
+![enum](../capturas/gonzalo/parte2/59.png)
 AJP.GNMAP
-![enum](../capturas/parte2/60.png)
+![enum](../capturas/gonzalo/parte2/60.png)
 AJP.XML
-![enum](../capturas/parte2/61.png)
+![enum](../capturas/gonzalo/parte2/61.png)
 
 ## Enumeración AJP sin autenticación — 172.17.0.4
 - Cuándo: 19/11/2026, 09:29.
@@ -262,7 +262,7 @@ AJP.XML
 - Qué salió: puerto `8009/tcp` abierto, identificado como `ajp13`. La respuesta mostró `Content-Type: text/html; charset=UTF-8`.
 - Limitación: no se obtuvo más información sobre contenido o configuración. No se probaron vulnerabilidades AJP ni se solicitaron archivos.
 - Evidencia: `enum-ajp-172-17-0-4.nmap`, `enum-ajp-172-17-0-4.xml`.
-![enum](../capturas/parte2/84.png)
+![enum](../capturas/gonzalo/parte2/84.png)
 
 ## Inspección de la página de Tomcat — 172.17.0.4:8080
 - Cuándo: 19/11/2026, 09:31.
@@ -272,8 +272,8 @@ AJP.XML
 - Limitación: el HTML confirma que esas rutas aparecen enlazadas, pero no que sean accesibles ni qué información devuelven. No se abrieron las rutas de administración ni se probaron credenciales.
 - Siguiente paso: documentar que esas rutas están enlazadas en la página. No abrir las rutas de administración ni probar credenciales.
 - Evidencia: `pagina-172-17-0-4-8080.html`, salida de `grep`.
-![enum](../capturas/parte2/85.png)
-![enum](../capturas/parte2/86.png)
+![enum](../capturas/gonzalo/parte2/85.png)
+![enum](../capturas/gonzalo/parte2/86.png)
 
 ## Cabeceras HTTP — 172.17.0.5:80
 - Cuándo: 17/11/2026, 17:15 (hora local; la respuesta muestra 16:15 GMT).
@@ -284,8 +284,8 @@ AJP.XML
 El archivo local contiene el título `Apache2 Debian Default Page: It works`, correspondiente a la página predeterminada de Apache en Debian. El fragmento compartido muestra HTML y estilos; no se observaron cuentas de usuario en ese fragmento.
 - Siguiente paso: continuar con otro servicio HTTP identificado, sin enviar formularios ni credenciales.
 - Evidencia: `pagina-172-17-0-5.html` y el texto inspeccionado con `less`.
-![nc](../capturas/parte2/37.png)
-![evidencia](../capturas/parte2/38.png)
+![nc](../capturas/gonzalo/parte2/37.png)
+![evidencia](../capturas/gonzalo/parte2/38.png)
 
 ## Comprobación HTTPS y certificado — 172.17.0.5:443
 - Cuándo: 17/11/2026, 17:22 (hora local); comprobación repetida el 23/11/2026, 10:43 hora local (09:43 GMT).
@@ -294,7 +294,7 @@ El archivo local contiene el título `Apache2 Debian Default Page: It works`, co
 - Qué salió: Con `-k` el servidor respondió `HTTP/1.1 200 OK` con `Server: Apache/2.4.59 (Debian)` —corroboración de la versión ya detectada con Nmap—, `Content-Type: text/html` y longitud de contenido 7219; la página es una plantilla de restaurante («DockerLabs», Bootstrap 4.3.x de DevCRUD) guardada como evidencia.
 - Siguiente paso: conservar la discrepancia del certificado (`example.com`) como observación de la configuración TLS de `172.17.0.5:443` y continuar con otro servicio que permita una consulta no autenticada.
 - Limitación: `-k` omitió únicamente la validación del certificado para inspeccionar contenido público; la discrepancia del nombre del certificado queda documentada como defecto de configuración TLS, no como vulnerabilidad explotada. Las librerías client-side que referencia la página (p. ej. jQuery `3.4.1`) no se valoran como candidatas: el registro cataloga los fallos de los servicios detectados con Nmap.
-- Evidencia: [cabeceras con `-k` del 23/11/2026 a las 10:45](../capturas/parte2/39.1.png); página guardada en [`pagina-172-17-0-5-443.html`](../evidencias/pagina-172-17-0-5-443.html).
+- Evidencia: [cabeceras con `-k` del 23/11/2026 a las 10:45](../capturas/gonzalo/parte2/39.1.png); página guardada en [`pagina-172-17-0-5-443.html`](../evidencias/gonzalo/pagina-172-17-0-5-443.html).
 
 ## Cabeceras HTTP — 172.17.0.5:8161
 - Cuándo: 17/11/2026, 17:24 (hora local).
@@ -303,7 +303,7 @@ El archivo local contiene el título `Apache2 Debian Default Page: It works`, co
 - Qué salió: respuesta `HTTP/1.1 401 Unauthorized`; el servidor solicita autenticación básica (`realm="ActiveMQReal"`). La cabecera `Server` declara `Jetty(9.4.39.v20210325)`.
 - Siguiente paso: registrar que este servicio requiere autenticación y detener la consulta aquí; no probar credenciales. Continuar con otro servicio público.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:24.
-![cabeceras](../capturas/parte2/40.png)
+![cabeceras](../capturas/gonzalo/parte2/40.png)
 
 ## Cabeceras HTTP — 172.17.0.5:61614
 - Cuándo: 17/11/2026, 17:25 (hora local; la respuesta muestra 16:25 GMT).
@@ -312,7 +312,7 @@ El archivo local contiene el título `Apache2 Debian Default Page: It works`, co
 - Qué salió: `HTTP/1.1 200 OK`; `Server: Jetty(9.4.39.v20210325)` y `Content-Length: 0`. La respuesta no incluyó contenido.
 - Siguiente paso: documentar esta respuesta y continuar con otro servicio TCP; no inferir qué aplicación utiliza este puerto solo por las cabeceras.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:25.
-![cabeceras](../capturas/parte2/41.png)
+![cabeceras](../capturas/gonzalo/parte2/41.png)
 
 ## Enumeración de ActiveMQ y NetBIOS
 ### ActiveMQ OpenWire — 172.17.0.5
@@ -322,9 +322,9 @@ El archivo local contiene el título `Apache2 Debian Default Page: It works`, co
 - Qué salió: `61616/tcp` está abierto; Nmap identificó `ActiveMQ OpenWire transport 5.15.15`.
 - Siguiente paso: completar `inventario.md` con los resultados de enumeración recogidos y registrar que no se obtuvo información de colas ni mensajes.
 - Evidencia: `enum-openwire-172-17-0-5.nmap`, `enum-openwire-172-17-0-5.gnmap`, `enum-openwire-172-17-0-5.xml`.
-![nmap](../capturas/parte2/76.png)
+![nmap](../capturas/gonzalo/parte2/76.png)
 NMAP - GNMAP - XML
-![nmap-gnmap-xml](../capturas/parte2/77.png)
+![nmap-gnmap-xml](../capturas/gonzalo/parte2/77.png)
 
 ## Identificación de MQTT — 172.17.0.5
 - Cuándo: 17/11/2026, 23:31 (hora local; Nmap indicó 22:31 UTC).
@@ -333,13 +333,13 @@ NMAP - GNMAP - XML
 - Qué salió: `1883/tcp` aparece abierto y Nmap lo identifica como `mqtt`; no identificó una versión.
 - Siguiente paso: registrar que el puerto corresponde a MQTT y que la versión quedó sin identificar. Continuar con la identificación ligera de `5672/tcp` en `172.17.0.5`.
 - Evidencia: `enum-mqtt-172-17-0-5.nmap`, `enum-mqtt-172-17-0-5.gnmap`, `enum-mqtt-172-17-0-5.xml` y la captura `/capturas/59.png`.
-![identificación](../capturas/parte2/62.png)
+![identificación](../capturas/gonzalo/parte2/62.png)
 MQT.NMAP
-![namp](../capturas/parte2/63.png)
+![namp](../capturas/gonzalo/parte2/63.png)
 MQT.GNMAP
-![gnmap](../capturas/parte2/64.png)
+![gnmap](../capturas/gonzalo/parte2/64.png)
 MQT.XML
-![xml](../capturas/parte2/65.png)
+![xml](../capturas/gonzalo/parte2/65.png)
 
 ## Enumeración MQTT sin autenticación — 172.17.0.5
 - Cuándo: 19/11/2026, 09:36.
@@ -348,7 +348,7 @@ MQT.XML
 - Qué salió: el puerto `1883/tcp` está abierto y Nmap lo identifica como `mqtt`; no identificó una versión.
 - Siguiente paso: registrar que la versión y la información adicional del broker no se pudieron obtener con esta comprobación. No suscribirse a temas ni leer mensajes.
 - Evidencia: `enum-mqtt-172-17-0-5.nmap`, `enum-mqtt-172-17-0-5.xml` y la captura de la salida.
-![evi](../capturas/parte2/87.png)
+![evi](../capturas/gonzalo/parte2/87.png)
 
 ## Identificación y enumeración AMQP — 172.17.0.5
 - Cuándo: primera comprobación: 17/11/2026, 22:36 UTC; segunda comprobación: 19/11/2026, 08:43 UTC (09:43, hora local).
@@ -357,14 +357,14 @@ MQT.XML
 - Qué salió: el puerto `5672/tcp` está abierto. La primera prueba lo marcó como `amqp?` y no identificó versión. En la segunda, Nmap lo identificó como `amqp`, pero `amqp-info` informó `AMQP: handshake expected header (1) frame, but was 65`. No se obtuvieron producto, versión ni capacidades; el resultado de la enumeración AMQP es inconcluso.
 - Siguiente paso: continuar con la identificación de `172.17.0.5:39223/tcp`, sin enviar más consultas AMQP a este puerto.
 - Evidencias: archivos `.nmap`, `.gnmap` y `.xml` de ambas ejecuciones, y capturas correspondientes.
-![identificación](../capturas/parte2/66.png)
+![identificación](../capturas/gonzalo/parte2/66.png)
 AMPQ.GNMAP
-![gnmap](../capturas/parte2/67.png)
+![gnmap](../capturas/gonzalo/parte2/67.png)
 AMPQ.NMAP
-![nmap](../capturas/parte2/68.png)
+![nmap](../capturas/gonzalo/parte2/68.png)
 AMPQ.XML
-![xml](../capturas/parte2/69.png)
-![evi](../capturas/parte2/88.png)
+![xml](../capturas/gonzalo/parte2/69.png)
+![evi](../capturas/gonzalo/parte2/88.png)
 
 ## Identificación de servicio — 172.17.0.5:39223/tcp
 - Cuándo: 17/11/2026, 23:42 (hora local; Nmap indicó 22:42 UTC).
@@ -373,11 +373,11 @@ AMPQ.XML
 - Qué salió: el puerto está abierto, pero Nmap lo marcó como `tcpwrapped`; no pudo identificar el servicio ni su versión. Nmap lo identificó como tcpwrapped; no se obtuvo más información.
 - Siguiente paso: revisar `172.17.0.5:61613/tcp` con detección ligera de servicio y versión.
 - Evidencia: `enum-39223-172-17-0-5.nmap`, `enum-39223-172-17-0-5.gnmap`, `enum-39223-172-17-0-5.xml`.
-![nmap](../capturas/parte2/70.png)
+![nmap](../capturas/gonzalo/parte2/70.png)
 NMAP Y GNMAP
-![nmap-gnmap](../capturas/parte2/71.png)
+![nmap-gnmap](../capturas/gonzalo/parte2/71.png)
 XML
-![xml](../capturas/parte2/72.png)
+![xml](../capturas/gonzalo/parte2/72.png)
 
 ## Identificación de STOMP — 172.17.0.5
 - Cuándo: 17/11/2026, 23:45 (hora local; Nmap indicó 22:45 UTC).
@@ -386,11 +386,11 @@ XML
 - Qué salió: `61613/tcp` está abierto; Nmap identificó STOMP y Apache ActiveMQ, pero no indicó una versión concreta.
 - Siguiente paso: identificar de forma ligera `172.17.0.5:61616/tcp` y documentar si Nmap obtiene versión.
 - Evidencia: `enum-stomp-172-17-0-5.nmap`, `enum-stomp-172-17-0-5.gnmap`, `enum-stomp-172-17-0-5.xml`.
-![nmap](../capturas/parte2/73.png)
+![nmap](../capturas/gonzalo/parte2/73.png)
 NMAP Y GNMAP
-![nmap-gnmap](../capturas/parte2/74.png)
+![nmap-gnmap](../capturas/gonzalo/parte2/74.png)
 XML
-![xml](../capturas/parte2/75.png)
+![xml](../capturas/gonzalo/parte2/75.png)
 
 ## Comprobación de conexión STOMP anónima — 172.17.0.5
 - Cuándo: 19/11/2026, 09:56 (hora local).
@@ -400,7 +400,7 @@ XML
 - Limitación y alcance: no se enviaron comandos `SUBSCRIBE` ni `SEND`; por tanto, no se comprobó acceso a colas ni se leyeron o publicaron mensajes. Se detuvo la prueba tras recibir la respuesta.
 - Siguiente paso: registrar este hallazgo y comunicar al profesor que STOMP aceptó una conexión anónima; no continuar interactuando con el broker.
 - Evidencia: `enum-stomp-anon-172-17-0-5.txt`.
-![compro](../capturas/parte2/89.png)
+![compro](../capturas/gonzalo/parte2/89.png)
 
 ## Banner SSH — 172.17.0.6
 - Cuándo: 17/11/2026, 17:27 (hora local).
@@ -409,7 +409,7 @@ XML
 - Qué salió: el servicio presentó `SSH-2.0-OpenSSH_9.2p1 Debian-2+deb12u2`.
 - Siguiente paso: registrar el banner y continuar con otro servicio TCP sin autenticación.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:27.
-![banner](../capturas/parte2/42.png)
+![banner](../capturas/gonzalo/parte2/42.png)
 
 ## Enumeración SSH sin autenticación — 172.17.0.6
 - Cuándo: 19/11/2026, 08:25 UTC.
@@ -428,7 +428,7 @@ XML
 - Qué salió: respuesta `HTTP/1.1 403 Forbidden`. Las cabeceras muestran `Server: Jetty(10.0.18)`, `X-Jenkins: 2.441` y `X-Hudson: 1.395`. También se envió una cookie de sesión; su valor se omite del registro.
 - Siguiente paso: documentar la información visible y la limitación de acceso; no intentar sortear el 403. Continuar con otro servicio que permita consulta pública.
 - Evidencia: captura del 17/11/2026 a las 17:29.
-![cabecera](../capturas/parte2/43.png)
+![cabecera](../capturas/gonzalo/parte2/43.png)
 
 ## Banner SSH — 172.17.0.7
 - Cuándo: 17/11/2026, 17:32 (hora local).
@@ -437,7 +437,7 @@ XML
 - Qué salió: el servidor presentó `SSH-2.0-OpenSSH_7.7`. Después apareció `Protocol mismatch` porque `nc` no continúa el intercambio SSH.
 - Siguiente paso: continuar con `172.17.0.8`, consultando solo el listado SMB sin contraseña.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:32.
-![banner](../capturas/parte2/44.png)
+![banner](../capturas/gonzalo/parte2/44.png)
 
 ## Enumeración SSH sin autenticación — 172.17.0.7
 - Cuándo: 19/11/2026, 10:06 (hora local; Nmap indicó 09:06 UTC).
@@ -450,8 +450,8 @@ XML
 - Limitación: no se enumeraron cuentas ni se probó el acceso al sistema.
 - Siguiente paso: repetir esta enumeración en `172.17.0.8:22`.
 - Evidencia: `enum-ssh-172-17-0-7.nmap`, `enum-ssh-172-17-0-7.xml`.
-![cabecera](../capturas/parte2/91.png)
-![cabecera](../capturas/parte2/92.png)
+![cabecera](../capturas/gonzalo/parte2/91.png)
+![cabecera](../capturas/gonzalo/parte2/92.png)
 
 ## Listado SMB sin contraseña — 172.17.0.8
 - Cuándo: 17/11/2026, 17:34 (hora local).
@@ -460,7 +460,7 @@ XML
 - Qué salió: sesión anónima aceptada. Se listaron `myshare` (“Carpeta compartida sin restricciones”), `backup24` (“Privado”), `home` (“Produccion”) e `IPC$` (“IPC Service (EseEmeB Samba Server)”). Después falló la negociación SMB1 para el listado del grupo de trabajo (`NT_STATUS_INVALID_NETWORK_RESPONSE`). Los comentarios no prueban los permisos efectivos de los recursos.
 - Siguiente paso: documentar el listado y la limitación; no abrir los recursos. Consultar si SMB permite revelar cuentas mediante una consulta nula autorizada.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:35.
-![cabecera](../capturas/parte2/45.png)
+![cabecera](../capturas/gonzalo/parte2/45.png)
 
 ## Enumeración de cuentas SMB sin credenciales — 172.17.0.8
 - Cuándo: 17/11/2026, 17:38 (hora local).
@@ -469,7 +469,7 @@ XML
 - Qué salió: el servicio reveló `usuario1` (RID `0x3e8`), `usuario3` (`0x3ea`), `administrador` (`0x3ec`), `usuario2` (`0x3e9`) y `Satriani7` (`0x3eb`). Esto solo confirma que SMB expuso esos nombres; no que se pueda autenticar con ellos.
 - Siguiente paso: registrar las cuentas y la evidencia; continuar con la web pública de `172.17.0.8:80` sin autenticación.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:38.
-![enumeracion](../capturas/parte2/46.png)
+![enumeracion](../capturas/gonzalo/parte2/46.png)
 
 ## Cabeceras HTTP — 172.17.0.8:80
 - Cuándo: 17/11/2026, 17:39 (hora local; la respuesta muestra 16:39 GMT).
@@ -478,7 +478,7 @@ XML
 - Qué salió: respuesta `HTTP/1.1 200 OK`; el servidor declara `Apache/2.4.58 (Ubuntu)` y `Content-Type: text/html; charset=UTF-8`.
 - Siguiente paso: inspeccionar el contenido público de la página principal, sin enviar formularios ni credenciales.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:39.
-![cabeceras](../capturas/parte2/47.png)
+![cabeceras](../capturas/gonzalo/parte2/47.png)
 
 ## Descarga de página HTTP — 172.17.0.8:80
 - Cuándo: 17/11/2026, aproximadamente 17:40.
@@ -487,7 +487,7 @@ XML
 - Qué salió: se guardó la página HTML en `pagina-172-17-0-8.html`.
 - Siguiente paso: inspeccionar el archivo localmente.
 - Evidencia: `pagina-172-17-0-8.html` y la salida de terminal compartida.
-![cabeceras](../capturas/parte2/48.png)
+![cabeceras](../capturas/gonzalo/parte2/48.png)
 
 ## Inspección local de página HTTP — 172.17.0.8
 - Cuándo: 17/11/2026, aproximadamente 17:40.
@@ -496,7 +496,7 @@ XML
 - Qué salió: el título es `Login`. El HTML muestra campos de correo y contraseña, un formulario `POST` y un enlace “Regístrate”. No se enviaron datos ni se observaron nombres de cuentas en el fragmento compartido.
 - Siguiente paso: documentar que la página presenta un formulario y detener la interacción con él; continuar con otro servicio público.
 - Evidencia: `pagina-172-17-0-8.html` y el texto inspeccionado.
-![inspeccion](../capturas/parte2/49.png)
+![inspeccion](../capturas/gonzalo/parte2/49.png)
 
 ### NetBIOS — 172.17.0.8
 - Cuándo: 19/11/2026, 10:04.
@@ -505,7 +505,7 @@ XML
 - Qué salió: se anunciaron los nombres `SAMBASERVER` y `ESEEMEB.DL`, además de entradas asociadas a los servicios de servidor y explorador. La consulta no enumeró archivos ni cuentas.
 - Siguiente paso: conservar el resultado como información de identificación NetBIOS. El puerto `138/udp` quedó `open|filtered` y no respondió en el escaneo; no se obtuvo información adicional.
 - Evidencia: `enum-netbios-172-17-0-8.txt`.
-![evi](../capturas/parte2/90.png)
+![evi](../capturas/gonzalo/parte2/90.png)
 
 ## Enumeración SSH sin autenticación — 172.17.0.8
 - Cuándo: 19/11/2026, 10:15 (hora local; Nmap indicó 09:15 UTC).
@@ -517,8 +517,8 @@ XML
 - Limitación: no se enumeraron cuentas ni se probó el acceso al sistema.
 - Siguiente paso: repetir esta enumeración en `172.17.0.9:22`.
 - Evidencia: `enum-ssh-172-17-0-8.nmap`, `enum-ssh-172-17-0-8.xml`.
-![evi](../capturas/parte2/95.png)
-![evi](../capturas/parte2/96.png)
+![evi](../capturas/gonzalo/parte2/95.png)
+![evi](../capturas/gonzalo/parte2/96.png)
 
 ## Banner SSH — 172.17.0.9
 - Cuándo: 17/11/2026, 17:43 (hora local).
@@ -527,7 +527,7 @@ XML
 - Qué salió: el servidor presentó `SSH-2.0-OpenSSH_9.2p1 Debian-2+deb12u10`. Después apareció `Invalid SSH identification string` porque `nc` no continúa el protocolo SSH.
 - Siguiente paso: consultar las cabeceras HTTP públicas de `172.17.0.9:80`.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:43.
-![banner](../capturas/parte2/50.png)
+![banner](../capturas/gonzalo/parte2/50.png)
 
 ## Enumeración SSH sin autenticación — 172.17.0.9
 - Cuándo: 19/11/2026, 10:20 (hora local; Nmap indicó 09:20 UTC).
@@ -547,7 +547,7 @@ XML
 - Qué salió: `HTTP/1.1 200 OK`; el servidor declara `Apache/2.4.68 (Debian)`, con contenido HTML y longitud de 537 bytes.
 - Siguiente paso: guardar e inspeccionar localmente la página principal, sin enviar formularios ni credenciales.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:45.
-![cabecera](../capturas/parte2/51.png)
+![cabecera](../capturas/gonzalo/parte2/51.png)
 
 ## Descarga de página HTTP — 172.17.0.9:80
 - Cuándo: 17/11/2026, 17:46 (hora local).
@@ -556,7 +556,7 @@ XML
 - Qué salió: se recibieron 537 bytes y se guardaron en `pagina-172-17-0-9.html`.
 - Siguiente paso: inspeccionar el archivo local para describir el contenido público.
 - Evidencia: `pagina-172-17-0-9.html` y captura de pantalla del 17/11/2026 a las 17:46.
-![cabecera](../capturas/parte2/52.png)
+![cabecera](../capturas/gonzalo/parte2/52.png)
 
 ## Inspección local de página HTTP — 172.17.0.9
 - Cuándo: 17/11/2026, 17:46.
@@ -565,7 +565,7 @@ XML
 - Qué salió: título `test page`, mensaje `Under Development` y enlaces `Home Page` y `Login`. No se observaron cuentas en el fragmento compartido.
 - Siguiente paso: registrar lo observado; no abrir el enlace de Login ni enviar credenciales. Continuar con el siguiente equipo.
 - Evidencia: `pagina-172-17-0-9.html`.
-![cabecera](../capturas/parte2/53.png)
+![cabecera](../capturas/gonzalo/parte2/53.png)
 
 ## Cabeceras HTTP — 172.17.0.10:80
 - Cuándo: 17/11/2026, 17:48 (hora local; la respuesta indica 16:48 GMT).
@@ -574,7 +574,7 @@ XML
 - Qué salió: `HTTP/1.0 200 OK`; el servidor declara `SimpleHTTP/0.6 Python/3.11.2`; `Content-Type: text/html`; longitud 10.398 bytes.
 - Siguiente paso: guardar y revisar localmente el contenido público de la página principal; no enviar formularios ni credenciales.
 - Evidencia: captura de pantalla del 17/11/2026 a las 17:48.
-![cabecera](../capturas/parte2/54.png)
+![cabecera](../capturas/gonzalo/parte2/54.png)
 
 ## Descarga de página HTTP — 172.17.0.10:80
 - Cuándo: 17/11/2026, 17:49 (hora local, según la captura).
@@ -583,7 +583,7 @@ XML
 - Qué salió: se recibieron 10.398 bytes y se guardaron en `pagina-172-17-0-10.html`.
 - Siguiente paso: inspeccionar el archivo local para describir el contenido público.
 - Evidencia: `pagina-172-17-0-10.html`.
-![cabecera](../capturas/parte2/55.png)
+![cabecera](../capturas/gonzalo/parte2/55.png)
 
 ## Inspección local de página HTTP — 172.17.0.10
 - Cuándo: 17/11/2026, 17:51.
@@ -592,7 +592,7 @@ XML
 - Qué salió: el fragmento muestra el título `CTG · IPMI bajo exposición` y una página en español. El contenido principal no está incluido en el fragmento compartido, por lo que queda pendiente de observar.
 - Siguiente paso: revisar localmente el resto del HTML y anotar solo el texto y enlaces visibles; no interactuar con formularios o funciones de gestión.
 - Evidencia: `pagina-172-17-0-10.html`.
-![inspeccion](../capturas/parte2/56.png)
+![inspeccion](../capturas/gonzalo/parte2/56.png)
 
 ## Inspección local de página HTTP — 172.17.0.10
 - Cuándo: 17/11/2026; hora exacta no visible en la salida.
@@ -601,7 +601,7 @@ XML
 - Qué salió: la página titulada `CTG · IPMI bajo exposición` explica IPMI, BMC, SOL y menciona UDP 623 como puerto habitual. Es contenido informativo y no confirma que IPMI esté activo en este equipo.
 - Siguiente paso: documentar el contenido como información publicada por la web; no atribuir IPMI ni UDP 623 al host sin evidencia de red.
 - Evidencia: `pagina-172-17-0-10.html` y la salida de `grep`.
-![inspeccion](../capturas/parte2/57.png)
+![inspeccion](../capturas/gonzalo/parte2/57.png)
 
 ## Enumeración IPMI sin autenticación — 172.17.0.10
 - Cuándo: 19/11/2026, 10:25 (hora local; Nmap indicó 09:25 UTC).
@@ -610,35 +610,35 @@ XML
 - Qué salió: `623/udp` está abierto. Nmap identificó IPMI `2.0` y reportó los métodos `password`, `md5`, `md2` y `null` en `UserAuth`; también mostró `auth_msg`, `auth_user` y `non_null_user` en `PassAuth`.
 - Limitación y precaución: que aparezca `null` no confirma que se pueda administrar el BMC sin autenticación. No se intentó iniciar sesión ni acceder a funciones de gestión. Se detienen las pruebas de IPMI y se informa al profesor para que valore el indicio.
 - Evidencia: `enum-ipmi-172-17-0-10.nmap`, `enum-ipmi-172-17-0-10.xml`.
-![enumer](../capturas/parte2/97.png)
+![enumer](../capturas/gonzalo/parte2/97.png)
 
 ### Archivos de evidencia guardados en `evidencias/`
 
 Salidas asociadas a las comprobaciones de esta parte:
 
-- **FTP — 172.17.0.3:21:** [enum-ftp-syst-172-17-0-3.nmap](../evidencias/enum-ftp-syst-172-17-0-3.nmap), [enum-ftp-syst-172-17-0-3.gnmap](../evidencias/enum-ftp-syst-172-17-0-3.gnmap), [enum-ftp-syst-172-17-0-3.xml](../evidencias/enum-ftp-syst-172-17-0-3.xml), [enum-ftp-anon-172-17-0-3.nmap](../evidencias/enum-ftp-anon-172-17-0-3.nmap), [enum-ftp-anon-172-17-0-3.gnmap](../evidencias/enum-ftp-anon-172-17-0-3.gnmap), [enum-ftp-anon-172-17-0-3.xml](../evidencias/enum-ftp-anon-172-17-0-3.xml).
-- **HTTP — 172.17.0.3:80:** [enum-172-17-0-3-http.txt](../evidencias/enum-172-17-0-3-http.txt), [pagina-172-17-0-3.html](../evidencias/pagina-172-17-0-3.html).
-- **SSH — 172.17.0.4:22:** [enum-ssh-172-17-0-4.nmap](../evidencias/enum-ssh-172-17-0-4.nmap), [enum-ssh-172-17-0-4.gnmap](../evidencias/enum-ssh-172-17-0-4.gnmap), [enum-ssh-172-17-0-4.xml](../evidencias/enum-ssh-172-17-0-4.xml).
-- **AJP — 172.17.0.4:8009:** [enum-ajp-172-17-0-4.nmap](../evidencias/enum-ajp-172-17-0-4.nmap), [enum-ajp-172-17-0-4.gnmap](../evidencias/enum-ajp-172-17-0-4.gnmap), [enum-ajp-172-17-0-4.xml](../evidencias/enum-ajp-172-17-0-4.xml).
-- **HTTP/Tomcat — 172.17.0.4:8080:** [pagina-172-17-0-4-8080.html](../evidencias/pagina-172-17-0-4-8080.html).
-- **HTTP — 172.17.0.5:80:** [pagina-172-17-0-5.html](../evidencias/pagina-172-17-0-5.html).
-- **HTTPS — 172.17.0.5:443:** [pagina-172-17-0-5-443.html](../evidencias/pagina-172-17-0-5-443.html).
-- **MQTT — 172.17.0.5:1883:** [enum-mqtt-172-17-0-5.nmap](../evidencias/enum-mqtt-172-17-0-5.nmap), [enum-mqtt-172-17-0-5.gnmap](../evidencias/enum-mqtt-172-17-0-5.gnmap), [enum-mqtt-172-17-0-5.xml](../evidencias/enum-mqtt-172-17-0-5.xml).
-- **AMQP — 172.17.0.5:5672:** [enum-amqp-172-17-0-5.nmap](../evidencias/enum-amqp-172-17-0-5.nmap), [enum-amqp-172-17-0-5.gnmap](../evidencias/enum-amqp-172-17-0-5.gnmap), [enum-amqp-172-17-0-5.xml](../evidencias/enum-amqp-172-17-0-5.xml), [enum-amqp-info-172-17-0-5.nmap](../evidencias/enum-amqp-info-172-17-0-5.nmap), [enum-amqp-info-172-17-0-5.gnmap](../evidencias/enum-amqp-info-172-17-0-5.gnmap), [enum-amqp-info-172-17-0-5.xml](../evidencias/enum-amqp-info-172-17-0-5.xml).
-- **Servicio no identificado — 172.17.0.5:39223:** [enum-39223-172-17-0-5.nmap](../evidencias/enum-39223-172-17-0-5.nmap), [enum-39223-172-17-0-5.gnmap](../evidencias/enum-39223-172-17-0-5.gnmap), [enum-39223-172-17-0-5.xml](../evidencias/enum-39223-172-17-0-5.xml).
-- **STOMP — 172.17.0.5:61613:** [enum-stomp-172-17-0-5.nmap](../evidencias/enum-stomp-172-17-0-5.nmap), [enum-stomp-172-17-0-5.gnmap](../evidencias/enum-stomp-172-17-0-5.gnmap), [enum-stomp-172-17-0-5.xml](../evidencias/enum-stomp-172-17-0-5.xml), [enum-stomp-anon-172-17-0-5.txt](../evidencias/enum-stomp-anon-172-17-0-5.txt).
-- **OpenWire — 172.17.0.5:61616:** [enum-openwire-172-17-0-5.nmap](../evidencias/enum-openwire-172-17-0-5.nmap), [enum-openwire-172-17-0-5.gnmap](../evidencias/enum-openwire-172-17-0-5.gnmap), [enum-openwire-172-17-0-5.xml](../evidencias/enum-openwire-172-17-0-5.xml).
-- **SSH — 172.17.0.6:22:** [enum-ssh-172-17-0-6.nmap](../evidencias/enum-ssh-172-17-0-6.nmap), [enum-ssh-172-17-0-6.gnmap](../evidencias/enum-ssh-172-17-0-6.gnmap), [enum-ssh-172-17-0-6.xml](../evidencias/enum-ssh-172-17-0-6.xml).
-- **SSH — 172.17.0.7:22:** [enum-ssh-172-17-0-7.nmap](../evidencias/enum-ssh-172-17-0-7.nmap), [enum-ssh-172-17-0-7.gnmap](../evidencias/enum-ssh-172-17-0-7.gnmap), [enum-ssh-172-17-0-7.xml](../evidencias/enum-ssh-172-17-0-7.xml).
-- **SSH — 172.17.0.8:22:** [enum-ssh-172-17-0-8.nmap](../evidencias/enum-ssh-172-17-0-8.nmap), [enum-ssh-172-17-0-8.gnmap](../evidencias/enum-ssh-172-17-0-8.gnmap), [enum-ssh-172-17-0-8.xml](../evidencias/enum-ssh-172-17-0-8.xml).
-- **HTTP — 172.17.0.8:80:** [pagina-172-17-0-8.html](../evidencias/pagina-172-17-0-8.html).
-- **NetBIOS — 172.17.0.8:137/udp:** [enum-netbios-172-17-0-8.txt](../evidencias/enum-netbios-172-17-0-8.txt).
-- **SSH — 172.17.0.9:22:** [enum-ssh-172-17-0-9.nmap](../evidencias/enum-ssh-172-17-0-9.nmap), [enum-ssh-172-17-0-9.gnmap](../evidencias/enum-ssh-172-17-0-9.gnmap), [enum-ssh-172-17-0-9.xml](../evidencias/enum-ssh-172-17-0-9.xml).
-- **HTTP — 172.17.0.9:80:** [pagina-172-17-0-9.html](../evidencias/pagina-172-17-0-9.html).
-- **HTTP — 172.17.0.10:80:** [pagina-172-17-0-10.html](../evidencias/pagina-172-17-0-10.html).
-- **UDP/IPMI — 172.17.0.10:623:** [enum-ipmi-172-17-0-10.nmap](../evidencias/enum-ipmi-172-17-0-10.nmap), [enum-ipmi-172-17-0-10.gnmap](../evidencias/enum-ipmi-172-17-0-10.gnmap), [enum-ipmi-172-17-0-10.xml](../evidencias/enum-ipmi-172-17-0-10.xml).
-- **Escaneo UDP / comprobaciones NetBIOS:** [udp.nmap](../evidencias/udp.nmap), [udp.gnmap](../evidencias/udp.gnmap), [udp.xml](../evidencias/udp.xml).
-- **SMB anónimo y enumeración de cuentas — `172.17.0.8:445`:** la evidencia conservada son las capturas [listado SMB](../capturas/parte2/45.png) y [cuentas](../capturas/parte2/46.png); no hay una salida de texto separada en `evidencias/`.
+- **FTP — 172.17.0.3:21:** [enum-ftp-syst-172-17-0-3.nmap](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.nmap), [enum-ftp-syst-172-17-0-3.gnmap](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.gnmap), [enum-ftp-syst-172-17-0-3.xml](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.xml), [enum-ftp-anon-172-17-0-3.nmap](../evidencias/gonzalo/enum-ftp-anon-172-17-0-3.nmap), [enum-ftp-anon-172-17-0-3.gnmap](../evidencias/gonzalo/enum-ftp-anon-172-17-0-3.gnmap), [enum-ftp-anon-172-17-0-3.xml](../evidencias/gonzalo/enum-ftp-anon-172-17-0-3.xml).
+- **HTTP — 172.17.0.3:80:** [enum-172-17-0-3-http.txt](../evidencias/gonzalo/enum-172-17-0-3-http.txt), [pagina-172-17-0-3.html](../evidencias/gonzalo/pagina-172-17-0-3.html).
+- **SSH — 172.17.0.4:22:** [enum-ssh-172-17-0-4.nmap](../evidencias/gonzalo/enum-ssh-172-17-0-4.nmap), [enum-ssh-172-17-0-4.gnmap](../evidencias/gonzalo/enum-ssh-172-17-0-4.gnmap), [enum-ssh-172-17-0-4.xml](../evidencias/gonzalo/enum-ssh-172-17-0-4.xml).
+- **AJP — 172.17.0.4:8009:** [enum-ajp-172-17-0-4.nmap](../evidencias/gonzalo/enum-ajp-172-17-0-4.nmap), [enum-ajp-172-17-0-4.gnmap](../evidencias/gonzalo/enum-ajp-172-17-0-4.gnmap), [enum-ajp-172-17-0-4.xml](../evidencias/gonzalo/enum-ajp-172-17-0-4.xml).
+- **HTTP/Tomcat — 172.17.0.4:8080:** [pagina-172-17-0-4-8080.html](../evidencias/gonzalo/pagina-172-17-0-4-8080.html).
+- **HTTP — 172.17.0.5:80:** [pagina-172-17-0-5.html](../evidencias/gonzalo/pagina-172-17-0-5.html).
+- **HTTPS — 172.17.0.5:443:** [pagina-172-17-0-5-443.html](../evidencias/gonzalo/pagina-172-17-0-5-443.html).
+- **MQTT — 172.17.0.5:1883:** [enum-mqtt-172-17-0-5.nmap](../evidencias/gonzalo/enum-mqtt-172-17-0-5.nmap), [enum-mqtt-172-17-0-5.gnmap](../evidencias/gonzalo/enum-mqtt-172-17-0-5.gnmap), [enum-mqtt-172-17-0-5.xml](../evidencias/gonzalo/enum-mqtt-172-17-0-5.xml).
+- **AMQP — 172.17.0.5:5672:** [enum-amqp-172-17-0-5.nmap](../evidencias/gonzalo/enum-amqp-172-17-0-5.nmap), [enum-amqp-172-17-0-5.gnmap](../evidencias/gonzalo/enum-amqp-172-17-0-5.gnmap), [enum-amqp-172-17-0-5.xml](../evidencias/gonzalo/enum-amqp-172-17-0-5.xml), [enum-amqp-info-172-17-0-5.nmap](../evidencias/gonzalo/enum-amqp-info-172-17-0-5.nmap), [enum-amqp-info-172-17-0-5.gnmap](../evidencias/gonzalo/enum-amqp-info-172-17-0-5.gnmap), [enum-amqp-info-172-17-0-5.xml](../evidencias/gonzalo/enum-amqp-info-172-17-0-5.xml).
+- **Servicio no identificado — 172.17.0.5:39223:** [enum-39223-172-17-0-5.nmap](../evidencias/gonzalo/enum-39223-172-17-0-5.nmap), [enum-39223-172-17-0-5.gnmap](../evidencias/gonzalo/enum-39223-172-17-0-5.gnmap), [enum-39223-172-17-0-5.xml](../evidencias/gonzalo/enum-39223-172-17-0-5.xml).
+- **STOMP — 172.17.0.5:61613:** [enum-stomp-172-17-0-5.nmap](../evidencias/gonzalo/enum-stomp-172-17-0-5.nmap), [enum-stomp-172-17-0-5.gnmap](../evidencias/gonzalo/enum-stomp-172-17-0-5.gnmap), [enum-stomp-172-17-0-5.xml](../evidencias/gonzalo/enum-stomp-172-17-0-5.xml), [enum-stomp-anon-172-17-0-5.txt](../evidencias/gonzalo/enum-stomp-anon-172-17-0-5.txt).
+- **OpenWire — 172.17.0.5:61616:** [enum-openwire-172-17-0-5.nmap](../evidencias/gonzalo/enum-openwire-172-17-0-5.nmap), [enum-openwire-172-17-0-5.gnmap](../evidencias/gonzalo/enum-openwire-172-17-0-5.gnmap), [enum-openwire-172-17-0-5.xml](../evidencias/gonzalo/enum-openwire-172-17-0-5.xml).
+- **SSH — 172.17.0.6:22:** [enum-ssh-172-17-0-6.nmap](../evidencias/gonzalo/enum-ssh-172-17-0-6.nmap), [enum-ssh-172-17-0-6.gnmap](../evidencias/gonzalo/enum-ssh-172-17-0-6.gnmap), [enum-ssh-172-17-0-6.xml](../evidencias/gonzalo/enum-ssh-172-17-0-6.xml).
+- **SSH — 172.17.0.7:22:** [enum-ssh-172-17-0-7.nmap](../evidencias/gonzalo/enum-ssh-172-17-0-7.nmap), [enum-ssh-172-17-0-7.gnmap](../evidencias/gonzalo/enum-ssh-172-17-0-7.gnmap), [enum-ssh-172-17-0-7.xml](../evidencias/gonzalo/enum-ssh-172-17-0-7.xml).
+- **SSH — 172.17.0.8:22:** [enum-ssh-172-17-0-8.nmap](../evidencias/gonzalo/enum-ssh-172-17-0-8.nmap), [enum-ssh-172-17-0-8.gnmap](../evidencias/gonzalo/enum-ssh-172-17-0-8.gnmap), [enum-ssh-172-17-0-8.xml](../evidencias/gonzalo/enum-ssh-172-17-0-8.xml).
+- **HTTP — 172.17.0.8:80:** [pagina-172-17-0-8.html](../evidencias/gonzalo/pagina-172-17-0-8.html).
+- **NetBIOS — 172.17.0.8:137/udp:** [enum-netbios-172-17-0-8.txt](../evidencias/gonzalo/enum-netbios-172-17-0-8.txt).
+- **SSH — 172.17.0.9:22:** [enum-ssh-172-17-0-9.nmap](../evidencias/gonzalo/enum-ssh-172-17-0-9.nmap), [enum-ssh-172-17-0-9.gnmap](../evidencias/gonzalo/enum-ssh-172-17-0-9.gnmap), [enum-ssh-172-17-0-9.xml](../evidencias/gonzalo/enum-ssh-172-17-0-9.xml).
+- **HTTP — 172.17.0.9:80:** [pagina-172-17-0-9.html](../evidencias/gonzalo/pagina-172-17-0-9.html).
+- **HTTP — 172.17.0.10:80:** [pagina-172-17-0-10.html](../evidencias/gonzalo/pagina-172-17-0-10.html).
+- **UDP/IPMI — 172.17.0.10:623:** [enum-ipmi-172-17-0-10.nmap](../evidencias/gonzalo/enum-ipmi-172-17-0-10.nmap), [enum-ipmi-172-17-0-10.gnmap](../evidencias/gonzalo/enum-ipmi-172-17-0-10.gnmap), [enum-ipmi-172-17-0-10.xml](../evidencias/gonzalo/enum-ipmi-172-17-0-10.xml).
+- **Escaneo UDP / comprobaciones NetBIOS:** [udp.nmap](../evidencias/gonzalo/udp.nmap), [udp.gnmap](../evidencias/gonzalo/udp.gnmap), [udp.xml](../evidencias/gonzalo/udp.xml).
+- **SMB anónimo y enumeración de cuentas — `172.17.0.8:445`:** la evidencia conservada son las capturas [listado SMB](../capturas/gonzalo/parte2/45.png) y [cuentas](../capturas/gonzalo/parte2/46.png); no hay una salida de texto separada en `evidencias/`.
 
 ## Parte 3 · De la versión al CVE
 
@@ -647,7 +647,7 @@ Salidas asociadas a las comprobaciones de esta parte:
 - **Qué hice:** revisé los campos `<service>` y `<cpe>` de los XML de Nmap y contrasté producto/versión con NVD y avisos de fabricantes o distribuciones. Para cada candidato anoté CVE, explicación, CWE, técnica ATT&CK, evidencia, condiciones de aplicación y limitaciones. Consulté CVSS, EPSS y CISA KEV como datos del registro, sin asignar prioridad en esta fase. No probé vulnerabilidades ni envié comprobaciones a los servicios para confirmar fallos.
 - **Qué salió:** preparé doce fichas de candidatos en `registro-vulns.md`. Las fichas se consideran posibilidades, no vulnerabilidades confirmadas; la versión o el CPE por sí solos no prueban que el paquete instalado carezca de parches ni que se cumplan las condiciones de configuración. Dejé aparte los falsos positivos o casos sin versión suficiente, explicando el motivo.
 - **Siguiente paso:** conservar `registro-vulns.md` como borrador del registro de Parte 3. Si en una fase siguiente se autoriza nuevas comprobaciones, verificar únicamente las revisiones de paquete y condiciones de configuración permitidas.
-- **Evidencias:** [registro de vulnerabilidades](../registro-vulns.md); XML de versiones de Nmap: [`.3`](../evidencias/versiones-172-17-0-3.xml), [`.4`](../evidencias/versiones-172-17-0-4.xml), [`.5`](../evidencias/versiones-172-17-0-5.xml), [`.6`](../evidencias/versiones-172-17-0-6.xml), [`.7`](../evidencias/versiones-172-17-0-7.xml), [`.8`](../evidencias/versiones-172-17-0-8.xml), [`.9`](../evidencias/versiones-172-17-0-9.xml) y [`.10`](../evidencias/versiones-172-17-0-10.xml); resultados de EPSS/KEV: [todos los CVE consultados](../evidencias/epss-kev-todos.txt) y [V-11/V-12](../evidencias/epss-kev-ssh-jetty.txt). Capturas de apoyo: [resumen de versiones](../capturas/parte3/1.png)y [consulta de EPSS/KEV](../capturas/parte3/8.png)[consulta de EPSS/KEV](../capturas/parte3/8.1.1.png).
+- **Evidencias:** [registro de vulnerabilidades](../registro-vulns.md); XML de versiones de Nmap: [`.3`](../evidencias/gonzalo/versiones-172-17-0-3.xml), [`.4`](../evidencias/gonzalo/versiones-172-17-0-4.xml), [`.5`](../evidencias/gonzalo/versiones-172-17-0-5.xml), [`.6`](../evidencias/gonzalo/versiones-172-17-0-6.xml), [`.7`](../evidencias/gonzalo/versiones-172-17-0-7.xml), [`.8`](../evidencias/gonzalo/versiones-172-17-0-8.xml), [`.9`](../evidencias/gonzalo/versiones-172-17-0-9.xml) y [`.10`](../evidencias/gonzalo/versiones-172-17-0-10.xml); resultados de EPSS/KEV: [todos los CVE consultados](../evidencias/gonzalo/epss-kev-todos.txt) y [V-11/V-12](../evidencias/gonzalo/epss-kev-ssh-jetty.txt). Capturas de apoyo: [resumen de versiones](../capturas/gonzalo/parte3/1.png)y [consulta de EPSS/KEV](../capturas/gonzalo/parte3/8.png)[consulta de EPSS/KEV](../capturas/gonzalo/parte3/8.1.1.png).
 
 ## Parte 4 · Priorizar e informar
 
@@ -656,7 +656,7 @@ Salidas asociadas a las comprobaciones de esta parte:
 - **Qué hice:** contrasté los CVSS y sus vectores C/I/A con NVD/CNA, revisé EPSS de FIRST (fecha de los datos: 19/11/2026) y el catálogo CISA KEV versión `2026.11.18`, incluidos sus campos de uso en ransomware. Ordené los candidatos considerando explotación conocida, impacto, puntuación, EPSS, servicio/versión observados y condiciones todavía no verificadas. Revisé el aviso «SSHole» con la ficha NVD, las notas oficiales de OpenSSH y el aviso de Alpine.
 - **Qué salió:** añadí a [registro-vulns.md](../registro-vulns.md) la priorización de Parte 4 y la ficha V-13 para SSHole. La CVE está en KEV desde el 09/11/2026, tiene EPSS 18,9 % (dato del 19/11) y el campo de ransomware aparece como `Unknown`. Los banners muestran cinco servicios SSH anteriores a `10.6p2`, pero no revelan libc, PAM ni la configuración/cuentas necesarias para determinar aplicabilidad; por tanto, no concluyo que los equipos sean vulnerables. Preparé [informe-cliente.md](../informe-cliente.md) con el orden recomendado y la respuesta al cliente.
 - **Siguiente paso:** que el cliente/administrador autorizado verifique en los hosts las revisiones de paquetes y condiciones de configuración señaladas; no hacer pruebas de acceso ni explotación dentro de esta fase.
-- **Evidencias:** [registro de vulnerabilidades](../registro-vulns.md), [informe para el cliente](../informe-cliente.md), [EPSS y consultas KEV](../evidencias/epss-kev-todos.txt), y los XML/Nmap de versiones enlazados en V-13. Fuentes: [NVD CVE-2026-123158](https://nvd.nist.gov/vuln/detail/CVE-2026-123158), [OpenSSH 10.6p2](https://www.openssh.org/releasenotes.html#10.6p2), [Alpine Linux](https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/) y [catálogo CISA KEV](https://github.com/cisagov/kev-data/blob/develop/known_exploited_vulnerabilities.json).
+- **Evidencias:** [registro de vulnerabilidades](../registro-vulns.md), [informe para el cliente](../informe-cliente.md), [EPSS y consultas KEV](../evidencias/gonzalo/epss-kev-todos.txt), y los XML/Nmap de versiones enlazados en V-13. Fuentes: [NVD CVE-2026-123158](https://nvd.nist.gov/vuln/detail/CVE-2026-123158), [OpenSSH 10.6p2](https://www.openssh.org/releasenotes.html#10.6p2), [Alpine Linux](https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/) y [catálogo CISA KEV](https://github.com/cisagov/kev-data/blob/develop/known_exploited_vulnerabilities.json).
 
 ## Valoración de CVE-2013-4786 (IPMI 2.0) — 172.17.0.10
 
@@ -666,4 +666,4 @@ Salidas asociadas a las comprobaciones de esta parte:
 - **Qué salió:** CVE-2013-4786 afecta a la autenticación RAKP de IPMI 2.0: permite obtener el resumen de la contraseña del BMC y adivinarla fuera de línea. Nmap identificó IPMI `2.0` en `172.17.0.10:623/udp`, así que la plataforma detectada coincide con la afectada. Datos: CVSS 7,5 alta (CVSS 3.0, NVD; C:H/I:N/A:N), EPSS 98,385 % (FIRST, dato del 22/11/2026) y no figura en CISA KEV (catálogo `2026.11.20`, consultado el 23/11/2026). Se añade como ficha **V-14** a `registro-vulns.md` y pasa a la posición 8 de la priorización de Parte 4 (las anteriores posiciones 8–13 pasan a 9–14).
 - **Siguiente paso:** conservarlo como candidata a verificar administrativamente (fabricante/firmware del BMC y exposición de UDP 623), sin más pruebas de red ni captura de tráfico RAKP.
 - **Limitación:** no se identificó producto ni firmware del BMC (sin CPE) ni se confirmó que RAKP esté habilitado; no se probó nada sobre el equipo.
-- **Evidencias:** consultas EPSS/KEV en [epss-kev-ipmi-4786.txt](../evidencias/epss-kev-ipmi-4786.txt); enumeración IPMI en [enum-ipmi-172-17-0-10.nmap](../evidencias/enum-ipmi-172-17-0-10.nmap) y [XML](../evidencias/enum-ipmi-172-17-0-10.xml); página con la referencia en [pagina-172-17-0-10.html](../evidencias/pagina-172-17-0-10.html); ficha en [registro-vulns.md](../registro-vulns.md).
+- **Evidencias:** consultas EPSS/KEV en [epss-kev-ipmi-4786.txt](../evidencias/gonzalo/epss-kev-ipmi-4786.txt); enumeración IPMI en [enum-ipmi-172-17-0-10.nmap](../evidencias/gonzalo/enum-ipmi-172-17-0-10.nmap) y [XML](../evidencias/gonzalo/enum-ipmi-172-17-0-10.xml); página con la referencia en [pagina-172-17-0-10.html](../evidencias/gonzalo/pagina-172-17-0-10.html); ficha en [registro-vulns.md](../registro-vulns.md).

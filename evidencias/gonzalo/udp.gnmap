@@ -1,0 +1,18 @@
+# Nmap 7.99 scan initiated Tue Nov 17 20:55:35 2026 as: /usr/lib/nmap/nmap -sU --top-ports 1000 -T3 --reason -iL hosts_ips_limpio.txt -oA udp
+Host: 172.17.0.3 ()	Status: Up
+Host: 172.17.0.3 ()	Ports: 	Ignored State: closed (1000)
+Host: 172.17.0.4 ()	Status: Up
+Host: 172.17.0.4 ()	Ports: 	Ignored State: closed (1000)
+Host: 172.17.0.5 ()	Status: Up
+Host: 172.17.0.5 ()	Ports: 	Ignored State: closed (1000)
+Host: 172.17.0.6 ()	Status: Up
+Host: 172.17.0.6 ()	Ports: 	Ignored State: closed (1000)
+Host: 172.17.0.7 ()	Status: Up
+Host: 172.17.0.7 ()	Ports: 	Ignored State: closed (1000)
+Host: 172.17.0.8 ()	Status: Up
+Host: 172.17.0.8 ()	Ports: 137/open/udp//netbios-ns///, 138/open|filtered/udp//netbios-dgm///	Ignored State: closed (998)
+Host: 172.17.0.9 ()	Status: Up
+Host: 172.17.0.9 ()	Ports: 	Ignored State: closed (1000)
+Host: 172.17.0.10 ()	Status: Up
+Host: 172.17.0.10 ()	Ports: 623/open/udp//asf-rmcp///	Ignored State: closed (999)
+# Nmap done at Tue Nov 17 21:13:41 2026 -- 8 IP addresses (8 hosts up) scanned in 1086.47 seconds

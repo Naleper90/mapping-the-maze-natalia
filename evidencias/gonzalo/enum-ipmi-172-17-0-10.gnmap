@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Thu Nov 19 09:25:20 2026 as: /usr/lib/nmap/nmap -sU -T2 -p 623 --script ipmi-version --reason -oA enum-ipmi-172-17-0-10 172.17.0.10
+Host: 172.17.0.10 ()	Status: Up
+Host: 172.17.0.10 ()	Ports: 623/open/udp//asf-rmcp///
+# Nmap done at Thu Nov 19 09:25:22 2026 -- 1 IP address (1 host up) scanned in 1.47 seconds

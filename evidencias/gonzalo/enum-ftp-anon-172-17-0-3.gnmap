@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Thu Nov 19 08:15:46 2026 as: /usr/lib/nmap/nmap -T2 -p 21 --script ftp-anon --reason -oA enum-ftp-anon-172-17-0-3 172.17.0.3
+Host: 172.17.0.3 ()	Status: Up
+Host: 172.17.0.3 ()	Ports: 21/open/tcp//ftp///
+# Nmap done at Thu Nov 19 08:15:47 2026 -- 1 IP address (1 host up) scanned in 1.47 seconds

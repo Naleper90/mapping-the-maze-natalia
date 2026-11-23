@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Tue Nov 17 14:34:53 2026 as: /usr/lib/nmap/nmap -sV --version-light -T3 -p 22 --reason -oA versiones-172-17-0-7 172.17.0.7
+Host: 172.17.0.7 ()	Status: Up
+Host: 172.17.0.7 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.7 (protocol 2.0)/
+# Nmap done at Tue Nov 17 14:34:53 2026 -- 1 IP address (1 host up) scanned in 0.80 seconds

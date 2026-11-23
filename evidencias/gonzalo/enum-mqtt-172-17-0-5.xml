@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Thu Nov 19 08:36:15 2026 as: /usr/lib/nmap/nmap -sV -&#45;version-light -T2 -p 1883 -&#45;reason -oA enum-mqtt-172-17-0-5 172.17.0.5 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sV -&#45;version-light -T2 -p 1883 -&#45;reason -oA enum-mqtt-172-17-0-5 172.17.0.5" start="1795077375" startstr="Thu Nov 19 08:36:15 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1" services="1883"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1795077376" endtime="1795077382"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="1883"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="mqtt" method="probed" conf="10"/></port>
+</ports>
+<times srtt="68" rttvar="3767" to="400000"/>
+</host>
+<runstats><finished time="1795077382" timestr="Thu Nov 19 08:36:22 2026" summary="Nmap done at Thu Nov 19 08:36:22 2026; 1 IP address (1 host up) scanned in 7.56 seconds" elapsed="7.56" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

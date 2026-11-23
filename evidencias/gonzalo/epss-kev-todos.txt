@@ -1,0 +1,53 @@
+=== CVE-2011-2523 ===
+EPSS: 96.184% | Percentil: 99.87899999999999% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2023-38709 ===
+EPSS: 3.914% | Percentil: 90.52799999999999% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2023-43622 ===
+EPSS: 68.818% | Percentil: 99.36% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2022-34305 ===
+EPSS: 6.714% | Percentil: 94.06% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2020-1935 ===
+EPSS: 9.386% | Percentil: 95.509% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2019-17569 ===
+EPSS: 8.872% | Percentil: 95.32300000000001% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2023-51385 ===
+EPSS: 19.753% | Percentil: 97.461% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2023-36478 ===
+EPSS: 4.832% | Percentil: 92.175% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2018-15473 ===
+EPSS: 98.675% | Percentil: 99.925% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2024-38475 ===
+EPSS: 99.957% | Percentil: 99.97500000000001% | Fecha: 2026-11-19
+KEV: incluido
+=== CVE-2026-119618 ===
+EPSS: 1.583% | Percentil: 76.08200000000001% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2026-56154 ===
+EPSS: 0.536% | Percentil: 45.975% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2020-1938 ===
+EPSS: 99.27% | Percentil: 99.937% | Fecha: 2026-11-19
+KEV: incluido
+=== CVE-2023-46604 ===
+EPSS: 99.992% | Percentil: 99.98599999999999% | Fecha: 2026-11-19
+KEV: incluido
+
+=== CVE-2026-123158 ===
+EPSS: 18.900% | Percentil: 97.354% | Fecha del dato: 2026-11-19
+KEV: incluido (fecha de alta: 2026-11-09)
+
+CISA KEV — uso conocido en campañas de ransomware (catálogo 2026.11.18, revisado 2026-11-20):
+CVE-2024-38475: Unknown
+CVE-2020-1938: Unknown
+CVE-2023-46604: Known
+CVE-2026-123158: Unknown
+Fuente: https://github.com/cisagov/kev-data/blob/develop/known_exploited_vulnerabilities.json

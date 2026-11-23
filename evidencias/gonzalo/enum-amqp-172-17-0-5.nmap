@@ -1,0 +1,24 @@
+# Nmap 7.99 scan initiated Tue Nov 17 22:36:11 2026 as: /usr/lib/nmap/nmap -sV --version-light -T3 -p 5672 --reason -oA enum-amqp-172-17-0-5 172.17.0.5
+Nmap scan report for 172.17.0.5
+Host is up, received arp-response (0.000050s latency).
+
+PORT     STATE SERVICE REASON         VERSION
+5672/tcp open  amqp?   syn-ack ttl 64
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5672-TCP:V=7.99%I=2%D=11/17%Time=6AFCD6E7%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,89,"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10
+SF:\xc0\x0c\x04\xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x0
+SF:1\0S\x1d\xc0M\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20cl
+SF:ient\x20using\x20unsupported\x20AMQP\x20attempted")%r(SSLSessionReq,89,
+SF:"AMQP\x03\x01\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\
+SF:xa1\0@p\0\x02\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M
+SF:\x02\xa3\x11amqp:decode-error\xa17Connection\x20from\x20client\x20using
+SF:\x20unsupported\x20AMQP\x20attempted")%r(TLSSessionReq,89,"AMQP\x03\x01
+SF:\0\0AMQP\0\x01\0\0\0\0\0\x19\x02\0\0\0\0S\x10\xc0\x0c\x04\xa1\0@p\0\x02
+SF:\0\0`\x7f\xff\0\0\0`\x02\0\0\0\0S\x18\xc0S\x01\0S\x1d\xc0M\x02\xa3\x11a
+SF:mqp:decode-error\xa17Connection\x20from\x20client\x20using\x20unsupport
+SF:ed\x20AMQP\x20attempted");
+MAC Address: 2A:23:0F:10:A4:F1 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Nov 17 22:36:23 2026 -- 1 IP address (1 host up) scanned in 11.91 seconds

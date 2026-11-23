@@ -1,0 +1,18 @@
+# Nmap 7.99 scan initiated Tue Nov 17 11:23:33 2026 as: /usr/lib/nmap/nmap -sS -p- -T3 --reason -iL hosts_ips_limpio.txt -oA tcp-lab
+Host: 172.17.0.3 ()	Status: Up
+Host: 172.17.0.3 ()	Ports: 21/open/tcp//ftp///, 80/open/tcp//http///	Ignored State: closed (65533)
+Host: 172.17.0.4 ()	Status: Up
+Host: 172.17.0.4 ()	Ports: 22/open/tcp//ssh///, 8009/open/tcp//ajp13///, 8080/open/tcp//http-proxy///	Ignored State: closed (65532)
+Host: 172.17.0.5 ()	Status: Up
+Host: 172.17.0.5 ()	Ports: 80/open/tcp//http///, 443/open/tcp//https///, 1883/open/tcp//mqtt///, 5672/open/tcp//amqp///, 8161/open/tcp//patrol-snmp///, 39223/open/tcp/////, 61613/open/tcp/////, 61614/open/tcp/////, 61616/open/tcp/////	Ignored State: closed (65526)
+Host: 172.17.0.6 ()	Status: Up
+Host: 172.17.0.6 ()	Ports: 22/open/tcp//ssh///, 8080/open/tcp//http-proxy///	Ignored State: closed (65533)
+Host: 172.17.0.7 ()	Status: Up
+Host: 172.17.0.7 ()	Ports: 22/open/tcp//ssh///	Ignored State: closed (65534)
+Host: 172.17.0.8 ()	Status: Up
+Host: 172.17.0.8 ()	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///	Ignored State: closed (65531)
+Host: 172.17.0.9 ()	Status: Up
+Host: 172.17.0.9 ()	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///	Ignored State: closed (65533)
+Host: 172.17.0.10 ()	Status: Up
+Host: 172.17.0.10 ()	Ports: 80/open/tcp//http///	Ignored State: closed (65534)
+# Nmap done at Tue Nov 17 11:23:40 2026 -- 8 IP addresses (8 hosts up) scanned in 6.54 seconds

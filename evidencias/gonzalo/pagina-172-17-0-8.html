@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+       .border-animation {
+ 		    position: relative;
+		    overflow: hidden;
+		    border-radius: 1rem; /* Para esquinas redondeadas */
+		    z-index: 1; /* Asegura que el contenedor esté por encima */
+		}
+		
+        .border-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 4px solid white; /* Color de la línea */
+            border-radius: 1rem; /* Esquinas redondeadas */
+            animation: rotate 7s linear infinite; /* Animación de rotación */
+            pointer-events: none; /* Permite clics a los elementos debajo */
+        }
+        
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-cover" style="background-image: url('back.png');">
+    <div class="backdrop-blur-md bg-white/70 rounded-lg shadow-lg p-10 max-w-md w-full animate-fadeIn border-animation"> <!-- Añadido border-animation -->
+        <h1 class="text-3xl font-bold text-center text-black mb-6">Iniciar Sesión</h1>
+        <form method="POST" action="">
+            <div class="mb-4">
+                <label class="block text-black text-sm font-bold mb-2" for="email">Correo Electrónico</label>
+                <input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    placeholder="ejemplo@correo.com" 
+                    required 
+                />
+            </div>
+            <div class="mb-6">
+                <label class="block text-black text-sm font-bold mb-2" for="password">Contraseña</label>
+                <input 
+                    id="password" 
+                    name="password" 
+                    type="password" 
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    placeholder="********" 
+                    required 
+                />
+            </div>
+            <button 
+                type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out"
+            >
+                Iniciar Sesión
+            </button>
+        </form>
+        <p class="mt-4 text-center text-black-600 text-sm">
+            ¿No tienes una cuenta? <a href="#" class="text-gray-900 hover:underline">Regístrate</a>
+        </p>
+    </div>
+</body>
+</html>

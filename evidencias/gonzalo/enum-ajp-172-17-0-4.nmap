@@ -1,0 +1,11 @@
+# Nmap 7.99 scan initiated Thu Nov 19 08:29:08 2026 as: /usr/lib/nmap/nmap -T2 -p 8009 --script ajp-headers --reason -oA enum-ajp-172-17-0-4 172.17.0.4
+Nmap scan report for 172.17.0.4
+Host is up, received arp-response (0.000097s latency).
+
+PORT     STATE SERVICE REASON
+8009/tcp open  ajp13   syn-ack ttl 64
+| ajp-headers: 
+|_  Content-Type: text/html;charset=UTF-8
+MAC Address: E6:84:B1:1D:B3:48 (Unknown)
+
+# Nmap done at Thu Nov 19 08:29:10 2026 -- 1 IP address (1 host up) scanned in 1.77 seconds

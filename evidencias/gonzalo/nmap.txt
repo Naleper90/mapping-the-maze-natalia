@@ -1,0 +1,46 @@
+# Nmap 7.99 scan initiated Tue Nov 10 09:01:35 2026 as: /usr/lib/nmap/nmap --script "default and safe" -p 21,22,80,445 -oN nmap.txt 10.50.0.10
+Nmap scan report for 10.50.0.10
+Host is up (0.00027s latency).
+
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+| ssh-hostkey: 
+|   1024 2b:2e:1f:a4:54:26:87:76:12:26:59:58:0d:da:3b:04 (DSA)
+|   2048 c9:ac:70:ef:f8:de:8b:a3:a3:44:ab:3d:32:0a:5c:6a (RSA)
+|   256 c0:49:cc:18:7b:27:a4:07:0d:2a:0d:bb:42:4c:36:17 (ECDSA)
+|_  256 a0:76:f3:76:f8:f0:70:4d:09:ca:e1:10:fd:a9:cc:0a (ED25519)
+80/tcp  open  http
+|_http-title: Index of /
+| http-ls: Volume /
+| SIZE  TIME              FILENAME
+| -     2020-10-29 19:37  chat/
+| -     2011-07-27 20:17  drupal/
+| 1.7K  2020-10-29 19:37  payroll_app.php
+| -     2013-04-08 12:06  phpmyadmin/
+|_
+445/tcp open  microsoft-ds
+MAC Address: BC:24:11:10:9A:B1 (Proxmox Server Solutions GmbH)
+
+Host script results:
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2026-11-10T09:01:26
+|_  start_date: N/A
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_clock-skew: mean: -13s, deviation: 1s, median: -14s
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+|   Computer name: metasploitable3-ub1404
+|   NetBIOS computer name: METASPLOITABLE3-UB1404\x00
+|   Domain name: \x00
+|   FQDN: metasploitable3-ub1404
+|_  System time: 2026-11-10T09:01:24+00:00
+
+# Nmap done at Tue Nov 10 09:02:16 2026 -- 1 IP address (1 host up) scanned in 40.90 seconds

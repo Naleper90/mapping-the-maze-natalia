@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Tue Nov 17 11:23:33 2026 as: /usr/lib/nmap/nmap -sS -p- -T3 -&#45;reason -iL hosts_ips_limpio.txt -oA tcp-lab -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sS -p- -T3 -&#45;reason -iL hosts_ips_limpio.txt -oA tcp-lab" start="1794914613" startstr="Tue Nov 17 11:23:33 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.4" addrtype="ipv4"/>
+<address addr="E6:84:B1:1D:B3:48" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.6" addrtype="ipv4"/>
+<address addr="F6:B4:75:9F:B0:84" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.7" addrtype="ipv4"/>
+<address addr="CE:8C:75:39:9F:86" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.8" addrtype="ipv4"/>
+<address addr="EE:B6:41:03:D8:E8" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.9" addrtype="ipv4"/>
+<address addr="7A:F0:C0:AF:43:E6" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.10" addrtype="ipv4"/>
+<address addr="3E:09:A0:45:BB:DC" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="E2:44:1D:DB:0B:9A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1794914615" endtime="1794914617"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="E2:44:1D:DB:0B:9A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65533">
+<extrareasons reason="reset" count="65533" proto="tcp" ports="1-20,22-79,81-65535"/>
+</extraports>
+<port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ftp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914615" endtime="1794914617"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.4" addrtype="ipv4"/>
+<address addr="E6:84:B1:1D:B3:48" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65532">
+<extrareasons reason="reset" count="65532" proto="tcp" ports="1-21,23-8008,8010-8079,8081-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8009"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ajp13" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914615" endtime="1794914617"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65526">
+<extrareasons reason="reset" count="65526" proto="tcp" ports="1-79,81-442,444-1882,1884-5671,5673-8160,8162-39222,39224-61612,61615,61617-65535"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="1883"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="mqtt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5672"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="amqp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8161"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="patrol-snmp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="39223"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="tcp" portid="61613"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="tcp" portid="61614"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="tcp" portid="61616"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914615" endtime="1794914617"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.6" addrtype="ipv4"/>
+<address addr="F6:B4:75:9F:B0:84" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65533">
+<extrareasons reason="reset" count="65533" proto="tcp" ports="1-21,23-8079,8081-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914617" endtime="1794914620"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.7" addrtype="ipv4"/>
+<address addr="CE:8C:75:39:9F:86" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65534">
+<extrareasons reason="reset" count="65534" proto="tcp" ports="1-21,23-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914617" endtime="1794914620"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.8" addrtype="ipv4"/>
+<address addr="EE:B6:41:03:D8:E8" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65531">
+<extrareasons reason="reset" count="65531" proto="tcp" ports="1-21,23-79,81-138,140-444,446-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914617" endtime="1794914620"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.9" addrtype="ipv4"/>
+<address addr="7A:F0:C0:AF:43:E6" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65533">
+<extrareasons reason="reset" count="65533" proto="tcp" ports="1-21,23-79,81-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<host starttime="1794914617" endtime="1794914620"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.10" addrtype="ipv4"/>
+<address addr="3E:09:A0:45:BB:DC" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65534">
+<extrareasons reason="reset" count="65534" proto="tcp" ports="1-79,81-65535"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+</ports>
+<times srtt="4" rttvar="0" to="100000"/>
+</host>
+<runstats><finished time="1794914620" timestr="Tue Nov 17 11:23:40 2026" summary="Nmap done at Tue Nov 17 11:23:40 2026; 8 IP addresses (8 hosts up) scanned in 6.54 seconds" elapsed="6.54" exit="success"/><hosts up="8" down="0" total="8"/>
+</runstats>
+</nmaprun>

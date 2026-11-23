@@ -1,0 +1,3 @@
+=== CVE-2013-4786 ===
+EPSS: 98.385% | Percentil: 99.919% | Fecha: 2026-11-22
+KEV: no incluido (catálogo CISA 2026.11.20, consultado el 23/11/2026)

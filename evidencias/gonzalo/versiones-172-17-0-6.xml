@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Tue Nov 17 14:32:29 2026 as: /usr/lib/nmap/nmap -sV -&#45;version-light -T3 -p 22,8080 -&#45;reason -oA versiones-172-17-0-6 172.17.0.6 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sV -&#45;version-light -T3 -p 22,8080 -&#45;reason -oA versiones-172-17-0-6 172.17.0.6" start="1794925949" startstr="Tue Nov 17 14:32:29 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="2" services="22,8080"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.6" addrtype="ipv4"/>
+<address addr="F6:B4:75:9F:B0:84" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1794925950" endtime="1794925956"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.6" addrtype="ipv4"/>
+<address addr="F6:B4:75:9F:B0:84" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="9.2p1 Debian 2+deb12u2" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:9.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Jetty" version="10.0.18" method="probed" conf="10"><cpe>cpe:/a:mortbay:jetty:10.0.18</cpe></service></port>
+</ports>
+<times srtt="47" rttvar="2824" to="100000"/>
+</host>
+<runstats><finished time="1794925956" timestr="Tue Nov 17 14:32:36 2026" summary="Nmap done at Tue Nov 17 14:32:36 2026; 1 IP address (1 host up) scanned in 7.28 seconds" elapsed="7.28" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

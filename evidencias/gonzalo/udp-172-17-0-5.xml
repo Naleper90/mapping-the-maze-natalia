@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Tue Nov 17 15:02:00 2026 as: /usr/lib/nmap/nmap -sU -p 161 -T3 -&#45;reason -oA udp-172-17-0-5 172.17.0.5 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sU -p 161 -T3 -&#45;reason -oA udp-172-17-0-5 172.17.0.5" start="1794927720" startstr="Tue Nov 17 15:02:00 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="1" services="161"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1794927721" endtime="1794927721"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="2A:23:0F:10:A4:F1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="161"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+</ports>
+<times srtt="49" rttvar="3750" to="100000"/>
+</host>
+<runstats><finished time="1794927721" timestr="Tue Nov 17 15:02:01 2026" summary="Nmap done at Tue Nov 17 15:02:01 2026; 1 IP address (1 host up) scanned in 0.74 seconds" elapsed="0.74" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

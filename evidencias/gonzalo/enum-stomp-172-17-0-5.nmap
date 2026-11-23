@@ -1,0 +1,10 @@
+# Nmap 7.99 scan initiated Tue Nov 17 22:45:40 2026 as: /usr/lib/nmap/nmap -sV --version-light -T2 -p 61613 --reason -oA enum-stomp-172-17-0-5 172.17.0.5
+Nmap scan report for 172.17.0.5
+Host is up, received arp-response (0.000061s latency).
+
+PORT      STATE SERVICE REASON         VERSION
+61613/tcp open  stomp   syn-ack ttl 64 Apache ActiveMQ
+MAC Address: 2A:23:0F:10:A4:F1 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Nov 17 22:45:48 2026 -- 1 IP address (1 host up) scanned in 7.62 seconds

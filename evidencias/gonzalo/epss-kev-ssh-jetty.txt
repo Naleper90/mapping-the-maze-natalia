@@ -1,0 +1,6 @@
+=== CVE-2023-36478 ===
+EPSS: 4.832% | Percentil: 92.175% | Fecha: 2026-11-19
+KEV: no incluido
+=== CVE-2018-15473 ===
+EPSS: 98.675% | Percentil: 99.925% | Fecha: 2026-11-19
+KEV: no incluido
