@@ -192,12 +192,11 @@ Aqui la comprobación de que se guardaron los tres archivos.
 ## Enumeración FTP sin autenticación — 172.17.0.3
 - Cuándo: 19/11/2026, 09:17.
 - Objetivo y por qué está en alcance: `172.17.0.3:21/tcp`, dentro del rango autorizado `172.17.0.0/24`.
-- Qué hice: ejecuté `sudo nmap -sV -T2 -p 21 --script ftp-syst --reason -oA enum-ftp-syst-172-17-0-3 172.17.0.3` para consultar `SYST` y `STAT` sin introducir credenciales. Después comprobé el acceso anónimo con `sudo nmap -T2 -p 21 --script ftp-anon --reason -oA enum-ftp-anon-172-17-0-3 172.17.0.3`.
-- Qué salió: Nmap identificó `vsFTPd 2.3.4`; `ftp-syst` no mostró información adicional de `SYST` ni `STAT`. La comprobación `ftp-anon` recibió `500 "OOPS: cannot change directory:/var/ftp"`.
-- Conclusión y limitaciones: la respuesta `500` no confirma que se permita el acceso anónimo ni permite determinar si hay archivos accesibles. No se intentó iniciar sesión manualmente, acceder a archivos ni probar credenciales.
-- Evidencias: `enum-ftp-syst-172-17-0-3.nmap`, `enum-ftp-syst-172-17-0-3.xml`, `enum-ftp-anon-172-17-0-3.nmap`, `enum-ftp-anon-172-17-0-3.xml`.
+- Qué hice: ejecuté `sudo nmap -sV -T2 -p 21 --script ftp-syst --reason -oA enum-ftp-syst-172-17-0-3 172.17.0.3` para consultar `SYST` y `STAT` sin introducir credenciales.
+- Qué salió: Nmap identificó `vsFTPd 2.3.4`; `ftp-syst` no mostró información adicional de `SYST` ni `STAT`.
+- Conclusión y limitaciones: `ftp-syst` no aportó información adicional de configuración. No se intentó iniciar sesión, acceder a archivos ni probar credenciales.
+- Evidencias: `enum-ftp-syst-172-17-0-3.nmap`, `enum-ftp-syst-172-17-0-3.xml`.
 ![evidencias](../capturas/gonzalo/parte2/78.png)
-![evidencias](../capturas/gonzalo/parte2/79.png)
 
 ## Banner SSH — 172.17.0.4
 - Cuándo: 17/11/2026, 17:04 (hora local).
@@ -616,7 +615,7 @@ XML
 
 Salidas asociadas a las comprobaciones de esta parte:
 
-- **FTP — 172.17.0.3:21:** [enum-ftp-syst-172-17-0-3.nmap](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.nmap), [enum-ftp-syst-172-17-0-3.gnmap](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.gnmap), [enum-ftp-syst-172-17-0-3.xml](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.xml), [enum-ftp-anon-172-17-0-3.nmap](../evidencias/gonzalo/enum-ftp-anon-172-17-0-3.nmap), [enum-ftp-anon-172-17-0-3.gnmap](../evidencias/gonzalo/enum-ftp-anon-172-17-0-3.gnmap), [enum-ftp-anon-172-17-0-3.xml](../evidencias/gonzalo/enum-ftp-anon-172-17-0-3.xml).
+- **FTP — 172.17.0.3:21:** [enum-ftp-syst-172-17-0-3.nmap](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.nmap), [enum-ftp-syst-172-17-0-3.gnmap](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.gnmap), [enum-ftp-syst-172-17-0-3.xml](../evidencias/gonzalo/enum-ftp-syst-172-17-0-3.xml).
 - **HTTP — 172.17.0.3:80:** [enum-172-17-0-3-http.txt](../evidencias/gonzalo/enum-172-17-0-3-http.txt), [pagina-172-17-0-3.html](../evidencias/gonzalo/pagina-172-17-0-3.html).
 - **SSH — 172.17.0.4:22:** [enum-ssh-172-17-0-4.nmap](../evidencias/gonzalo/enum-ssh-172-17-0-4.nmap), [enum-ssh-172-17-0-4.gnmap](../evidencias/gonzalo/enum-ssh-172-17-0-4.gnmap), [enum-ssh-172-17-0-4.xml](../evidencias/gonzalo/enum-ssh-172-17-0-4.xml).
 - **AJP — 172.17.0.4:8009:** [enum-ajp-172-17-0-4.nmap](../evidencias/gonzalo/enum-ajp-172-17-0-4.nmap), [enum-ajp-172-17-0-4.gnmap](../evidencias/gonzalo/enum-ajp-172-17-0-4.gnmap), [enum-ajp-172-17-0-4.xml](../evidencias/gonzalo/enum-ajp-172-17-0-4.xml).
