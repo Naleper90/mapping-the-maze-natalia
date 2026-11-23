@@ -1,0 +1,16 @@
+2.4.71-1  forky,sid
+2.4.71-1~deb13u1  trixie-proposed-updates
+2.4.68-1~deb13u1  trixie
+2.4.68-1~deb12u1  bookworm,bookworm-proposed-updates
+2.4.62-1~deb11u1  bullseye
+2.4.38-3+deb10u8  buster
+2.4.25-3+deb9u9  stretch
+2.4.10-10+deb8u12  jessie
+2.4.10-10  jessie-kfreebsd
+2.2.22-13+deb7u6  wheezy
+2.2.16-6+squeeze15  squeeze-lts
+2.2.16-6+squeeze12  squeeze
+2.2.9-10+lenny12  lenny
+2.2.3-4+etch11  etch
+2.2.3-4  etch-m68k
+2.0.54-5sarge2  sarge

@@ -1,0 +1,14 @@
+CVE-2011-2523 | NO esta en KEV
+CVE-2013-4786 | NO esta en KEV
+CVE-2018-15473 | NO esta en KEV
+CVE-2020-1938 | SI desde 2022-03-03 | ransomware: Unknown | accion: Apply updates per vendor instructions.
+CVE-2021-34429 | NO esta en KEV
+CVE-2022-41678 | NO esta en KEV
+CVE-2023-38408 | NO esta en KEV
+CVE-2023-46604 | SI desde 2023-11-02 | ransomware: Known | accion: Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.
+CVE-2023-48795 | NO esta en KEV
+CVE-2024-23897 | SI desde 2024-08-19 | ransomware: Known | accion: Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.
+CVE-2024-38476 | NO esta en KEV
+CVE-2024-50379 | NO esta en KEV
+CVE-2024-6387 | NO esta en KEV
+CVE-2025-24813 | SI desde 2025-04-01 | ransomware: Unknown | accion: Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.

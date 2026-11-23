@@ -1,0 +1,20 @@
+CVE            | Equipos                  | Rango de versiones                        | Afecta a | Condiciones                  | CWE            | ATT&CK            | Decision
+---------------|--------------------------|-------------------------------------------|----------|------------------------------|----------------|-------------------|-------------------------
+CVE-2011-2523  | .3 vsftpd 2.3.4          | SI (version exacta)                       | servidor | sin condiciones              | CWE-78         | T1195.002 + T1210 | SE QUEDA
+CVE-2023-46604 | .5 ActiveMQ 5.15.15      | SI (anterior a 5.15.16)                   | servidor | sin autenticacion            | CWE-502        | T1190             | SE QUEDA
+CVE-2020-1938  | .4 Tomcat 9.0.30         | SI (9.0.0 a anterior a 9.0.31)            | servidor | AJP 8009 expuesto            | CWE-284 (eleg) | T1210 + T1005     | SE QUEDA
+CVE-2021-34429 | .5 Jetty 9.4.39          | SI (9.4.37 a anterior a 9.4.43)           | servidor | sin condiciones              | CWE-200        | T1190 + T1005     | SE QUEDA
+CVE-2018-15473 | .7 OpenSSH 7.7           | SI (hasta 7.7 incluida)                   | servidor | sin distro que parchee       | CWE-362        | T1087             | SE QUEDA
+CVE-2024-6387  | .6 .8 .9 OpenSSH         | SI (8.5p1, y 8.6 a 9.8 incl); .4 .7 FUERA | servidor | sin autenticacion            | CWE-362/364    | T1210             | PASO 5 backport
+CVE-2023-48795 | .4 .6 .7 .9 OpenSSH      | SI (anterior a 9.6); .8 FUERA             | servidor | requiere MITM                | CWE-354        | T1557             | PASO 5 backport
+CVE-2024-38476 | .3 .5 .8 Apache          | SI (anterior a 2.4.60); .9 FUERA          | servidor | requiere proxy a backends    | CWE-829        | T1190 / T1210     | PASO 5 backport + config
+CVE-2022-41678 | .5 ActiveMQ 5.15.15      | SI (anterior a 5.16.6)                    | servidor | requiere autenticacion       | CWE-287        | T1078 + T1190     | PENDIENTE
+CVE-2025-24813 | .4 Tomcat 9.0.30         | SI (anterior a 9.0.99)                    | servidor | escritura activada (no std)  | CWE-44/502/706 | T1190             | PENDIENTE config
+CVE-2024-50379 | .4 Tomcat 9.0.30         | SI (anterior a 9.0.98)                    | servidor | solo FS insensible (Windows) | CWE-367        | -                 | DESCARTE
+CVE-2023-38408 | .4 .6 .7 .9 OpenSSH      | SI (anterior a 9.3p2)                     | CLIENTE  | ssh-agent reenviado          | CWE-428        | -                 | DESCARTE
+SAMBA 4 (.8)   | 300+ CVE de vulners      | version imprecisa ("4")                   | -        | -                            | -              | -                 | DESCARTE en bloque
+
+Fuentes: fichas NVD en evidencias/p3/33-nvd-*.json (capturas p3-03-nvd-*), vulners en evidencias/p3/31-vulners-*.nmap,
+searchsploit en evidencias/p3/32-searchsploit.txt, consulta NVD de la .7 en evidencias/p3/31-nvd-openssh-7.7-172.17.0.7.*
+CWE-284 de CVE-2020-1938 elegida por mi (NVD da NVD-CWE-Other): Tomcat confia en las conexiones AJP mas que en las HTTP.
+ATT&CK: T1190 para la .5 (portal de clientes y broker con operadores, expuestos hacia fuera); T1210 para equipos internos.

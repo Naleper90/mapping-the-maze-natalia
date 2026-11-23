@@ -1,0 +1,5 @@
+# Nmap 7.99 scan initiated Tue Nov 17 20:41:52 2026 as: /usr/lib/nmap/nmap -Pn -sV --version-light -T2 --max-retries 1 -p 22 --script "default and safe and not (intrusive or exploit or dos or brute or malware or
+broadcast or external or auth)" -oA evidencias/p2/20-nse-172.17.0.7 172.17.0.7
+Host: 172.17.0.7 ()	Status: Up
+Host: 172.17.0.7 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.7 (protocol 2.0)/
+# Nmap done at Tue Nov 17 20:41:54 2026 -- 1 IP address (1 host up) scanned in 1.86 seconds

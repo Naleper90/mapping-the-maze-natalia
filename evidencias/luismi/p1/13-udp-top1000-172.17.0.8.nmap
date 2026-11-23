@@ -1,0 +1,12 @@
+# Nmap 7.99 scan initiated Thu Nov 19 23:23:11 2026 as: /usr/lib/nmap/nmap -Pn -sU --top-ports 1000 --max-retries 1 --max-rate 100 -sV --version-intensity 0 -oA evidencias/p1/13-udp-top1000-172.17.0.8 172.17.0.8
+Warning: 172.17.0.8 giving up on port because retransmission cap hit (1).
+Nmap scan report for 172.17.0.8
+Host is up (0.000061s latency).
+Not shown: 970 open|filtered udp ports (no-response), 29 closed udp ports (port-unreach)
+PORT    STATE SERVICE    VERSION
+137/udp open  netbios-ns Samba nmbd netbios-ns (workgroup: DL)
+MAC Address: 1E:5A:CF:72:E2:CE (Unknown)
+Service Info: Host: SAMBASERVER
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 19 23:25:06 2026 -- 1 IP address (1 host up) scanned in 115.73 seconds

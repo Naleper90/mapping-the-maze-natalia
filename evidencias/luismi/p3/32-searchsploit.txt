@@ -1,0 +1,157 @@
+##### vsftpd 2.3.4 #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[Kvsftpd[m[K [01;31m[K2.3.4[m[K - Backdoor Command Execution                                                                                                             | unix/remote/49757.py
+[01;31m[Kvsftpd[m[K [01;31m[K2.3.4[m[K - Backdoor Command Execution (Metasploit)                                                                                                | unix/remote/17491.rb
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+##### ActiveMQ #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[KActiveMQ[m[K < 5.14.0 - Web Shell Upload (Metasploit)                                                                                                     | java/remote/42283.rb
+Apache [01;31m[KActiveMQ[m[K 5.11.1/5.13.2 - Directory Traversal / Command Execution                                                                               | windows/remote/40857.txt
+Apache [01;31m[KActiveMQ[m[K 5.2/5.3 - Source Code Information Disclosure                                                                                          | multiple/remote/33868.txt
+Apache [01;31m[KActiveMQ[m[K 5.3 - 'admin/queueBrowse' Cross-Site Scripting                                                                                        | multiple/remote/33905.txt
+Apache [01;31m[KActiveMQ[m[K 5.x-5.11.1 - Directory Traversal Shell Upload (Metasploit)                                                                            | windows/remote/48181.rb
+Apache [01;31m[KActiveMQ[m[K 6.1.6 - Denial of Service (DOS)                                                                                                       | multiple/remote/52288.py
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+##### Tomcat 9.0 #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Apache [01;31m[KTomcat[m[K [01;31m[K9.0[m[K.0.M1 - Cross-Site Scripting (XSS)                                                                                                   | multiple/webapps/50119.txt
+Apache [01;31m[KTomcat[m[K [01;31m[K9.0[m[K.0.M1 - Open Redirect                                                                                                                | multiple/webapps/50118.txt
+Apache [01;31m[KTomcat[m[K < [01;31m[K9.0[m[K.1 (Beta) / < 8.5.23 / < 8.0.47 / < 7.0.8 - JSP Upload Bypass / Remote Code Execution (1)                                          | windows/webapps/42953.txt
+Apache [01;31m[KTomcat[m[K < [01;31m[K9.0[m[K.1 (Beta) / < 8.5.23 / < 8.0.47 / < 7.0.8 - JSP Upload Bypass / Remote Code Execution (2)                                          | jsp/webapps/42966.py
+[01;31m[KTomcat[m[K proprietaryEvaluate [01;31m[K9.0[m[K.0.M1 - Sandbox Escape                                                                                                  | java/webapps/47892.txt
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+##### Jetty 9.4 #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[KJetty[m[K [01;31m[K9.4[m[K.37.v20210219 - Information Disclosure                                                                                                       | java/webapps/50438.txt
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+##### Jetty 10.0 #####
+Exploits: No Results
+Shellcodes: No Results
+##### OpenSSH 7.7 #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[KOpenSSH[m[K 2.3 < [01;31m[K7.7[m[K - Username Enumeration                                                                                                              | linux/remote/45233.py
+[01;31m[KOpenSSH[m[K 2.3 < [01;31m[K7.7[m[K - Username Enumeration (PoC)                                                                                                        | linux/remote/45210.py
+[01;31m[KOpenSSH[m[K < [01;31m[K7.7[m[K - User Enumeration (2)                                                                                                                  | linux/remote/45939.py
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+##### OpenSSH 7.9 #####
+Exploits: No Results
+Shellcodes: No Results
+##### Apache 2.4.5 #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[KApache[m[K + PHP < 5.3.12 / < 5.4.2 - cgi-bin Remote Code Execution                                                                                       | php/remote/29290.c
+[01;31m[KApache[m[K + PHP < 5.3.12 / < 5.4.2 - Remote Code Execution + Scanner                                                                                     | php/remote/29316.py
+[01;31m[KApache[m[K < 2.2.34 / < 2.4.27 - OPTIONS Memory Leak                                                                                                      | linux/webapps/42745.py
+[01;31m[KApache[m[K CXF < 2.5.10/2.6.7/2.7.4 - Denial of Service                                                                                                   | multiple/dos/26710.txt
+[01;31m[KApache[m[K HTTP Server [01;31m[K2.4.5[m[K0 - Path Traversal & Remote Code Execution (RCE)                                                                              | multiple/webapps/50406.sh
+[01;31m[KApache[m[K HTTP Server [01;31m[K2.4.5[m[K0 - Remote Code Execution (RCE) (2)                                                                                           | multiple/webapps/50446.sh
+[01;31m[KApache[m[K HTTP Server [01;31m[K2.4.5[m[K0 - Remote Code Execution (RCE) (3)                                                                                           | multiple/webapps/50512.py
+[01;31m[KApache[m[K mod_ssl < 2.8.7 OpenSSL - 'OpenFuck.c' Remote Buffer Overflow                                                                                  | unix/remote/21671.c
+[01;31m[KApache[m[K mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Buffer Overflow (1)                                                                            | unix/remote/764.c
+[01;31m[KApache[m[K mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Buffer Overflow (2)                                                                            | unix/remote/47080.c
+[01;31m[KApache[m[K OpenMeetings 1.9.x < 3.1.0 - '.ZIP' File Directory Traversal                                                                                   | linux/webapps/39642.txt
+[01;31m[KApache[m[K Tomcat < 5.5.17 - Remote Directory Listing                                                                                                     | multiple/remote/2061.txt
+[01;31m[KApache[m[K Tomcat < 6.0.18 - 'utf8' Directory Traversal                                                                                                   | unix/remote/14489.c
+[01;31m[KApache[m[K Tomcat < 6.0.18 - 'utf8' Directory Traversal (PoC)                                                                                             | multiple/remote/6229.txt
+[01;31m[KApache[m[K Tomcat < 9.0.1 (Beta) / < 8.5.23 / < 8.0.47 / < 7.0.8 - JSP Upload Bypass / Remote Code Execution (1)                                          | windows/webapps/42953.txt
+[01;31m[KApache[m[K Tomcat < 9.0.1 (Beta) / < 8.5.23 / < 8.0.47 / < 7.0.8 - JSP Upload Bypass / Remote Code Execution (2)                                          | jsp/webapps/42966.py
+[01;31m[KApache[m[K Xerces-C XML Parser < 3.1.2 - Denial of Service (PoC)                                                                                          | linux/dos/36906.txt
+Webfroot Shoutbox < 2.32 ([01;31m[KApache[m[K) - Local File Inclusion / Remote Code Execution                                                                      | linux/remote/34.pl
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+##### Samba 4 #####
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Go[01;31m[KSamba[m[K 1.0.1 - 'INCLUDE_PATH' Multiple Remote File Inclusions                                                                                        | php/webapps/[01;31m[K4[m[K575.txt
+Microsoft Windows XP/2003 - [01;31m[KSamba[m[K Share Resource Exhaustion (Denial of Service)                                                                       | windows/dos/1[01;31m[K4[m[K8.sh
+[01;31m[KSamba[m[K 2.0.7 - SWAT Logfile Permissions                                                                                                                | linux/local/203[01;31m[K4[m[K1.sh
+[01;31m[KSamba[m[K 2.0.7 - SWAT Logging Failure                                                                                                                    | unix/remote/203[01;31m[K4[m[K0.c
+[01;31m[KSamba[m[K 2.0.x - Insecure TMP File Symbolic Link                                                                                                         | linux/local/20776.c
+[01;31m[KSamba[m[K 2.2.0 < 2.2.8 (OSX) - trans2open Overflow (Metasploit)                                                                                          | osx/remote/992[01;31m[K4[m[K.rb
+[01;31m[KSamba[m[K 2.2.2 < 2.2.6 - 'nttrans' Remote Buffer Overflow (Metasploit) (1)                                                                               | linux/remote/16321.rb
+[01;31m[KSamba[m[K 2.2.8 (BSD x86) - 'trans2open' Remote Overflow (Metasploit)                                                                                     | bsd_x86/remote/16880.rb
+[01;31m[KSamba[m[K 2.2.8 (Linux Kernel 2.6 / Debian / Mandrake) - Share Privilege Escalation                                                                       | linux/local/2367[01;31m[K4[m[K.txt
+[01;31m[KSamba[m[K 2.2.8 (Linux x86) - 'trans2open' Remote Overflow (Metasploit)                                                                                   | linux_x86/remote/16861.rb
+[01;31m[KSamba[m[K 2.2.8 (OSX/PPC) - 'trans2open' Remote Overflow (Metasploit)                                                                                     | osx_ppc/remote/16876.rb
+[01;31m[KSamba[m[K 2.2.8 (Solaris SPARC) - 'trans2open' Remote Overflow (Metasploit)                                                                               | solaris_sparc/remote/16330.rb
+[01;31m[KSamba[m[K 2.2.8 - Brute Force Method Remote Command Execution                                                                                             | linux/remote/55.c
+[01;31m[KSamba[m[K 2.2.x - 'call_trans2open' Remote Buffer Overflow (1)                                                                                            | unix/remote/22[01;31m[K4[m[K68.c
+[01;31m[KSamba[m[K 2.2.x - 'call_trans2open' Remote Buffer Overflow (2)                                                                                            | unix/remote/22[01;31m[K4[m[K69.c
+[01;31m[KSamba[m[K 2.2.x - 'call_trans2open' Remote Buffer Overflow (3)                                                                                            | unix/remote/22[01;31m[K4[m[K70.c
+[01;31m[KSamba[m[K 2.2.x - 'call_trans2open' Remote Buffer Overflow ([01;31m[K4[m[K)                                                                                            | unix/remote/22[01;31m[K4[m[K71.txt
+[01;31m[KSamba[m[K 2.2.x - 'nttrans' Remote Overflow (Metasploit)                                                                                                  | linux/remote/9936.rb
+[01;31m[KSamba[m[K 2.2.x - Remote Buffer Overflow                                                                                                                  | linux/remote/7.pl
+[01;31m[KSamba[m[K 3.0.10 (OSX) - 'lsa_io_trans_names' Heap Overflow (Metasploit)                                                                                  | osx/remote/16875.rb
+[01;31m[KSamba[m[K 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploit)                                                                      | unix/remote/16320.rb
+[01;31m[KSamba[m[K 3.0.21 < 3.0.2[01;31m[K4[m[K - LSA trans names Heap Overflow (Metasploit)                                                                                    | linux/remote/9950.rb
+[01;31m[KSamba[m[K 3.0.2[01;31m[K4[m[K (Linux) - 'lsa_io_trans_names' Heap Overflow (Metasploit)                                                                                | linux/remote/16859.rb
+[01;31m[KSamba[m[K 3.0.2[01;31m[K4[m[K (Solaris) - 'lsa_io_trans_names' Heap Overflow (Metasploit)                                                                              | solaris/remote/16329.rb
+[01;31m[KSamba[m[K 3.0.27a - 'send_mailslot()' Remote Buffer Overflow                                                                                              | linux/dos/[01;31m[K4[m[K732.c
+[01;31m[KSamba[m[K 3.0.29 (Client) - 'receive_smb_raw()' Buffer Overflow (PoC)                                                                                     | multiple/dos/5712.pl
+[01;31m[KSamba[m[K 3.0.[01;31m[K4[m[K - SWAT Authorisation Buffer Overflow                                                                                                      | linux/remote/36[01;31m[K4[m[K.pl
+[01;31m[KSamba[m[K 3.3.12 (Linux x86) - 'chain_reply' Memory Corruption (Metasploit)                                                                               | linux_x86/remote/16860.rb
+[01;31m[KSamba[m[K 3.3.5 - Format String / Security Bypass                                                                                                         | linux/remote/33053.txt
+[01;31m[KSamba[m[K 3.[01;31m[K4[m[K.16/3.5.1[01;31m[K4[m[K/3.6.[01;31m[K4[m[K - SetInformationPolicy AuditEventsInfo Heap Overflow (Metasploit)                                                           | linux/remote/21850.rb
+[01;31m[KSamba[m[K 3.[01;31m[K4[m[K.5 - Symlink Directory Traversal                                                                                                             | linux/remote/33599.txt
+[01;31m[KSamba[m[K 3.[01;31m[K4[m[K.5 - Symlink Directory Traversal (Metasploit)                                                                                                | linux/remote/33598.rb
+[01;31m[KSamba[m[K 3.[01;31m[K4[m[K.7/3.5.1 - Denial of Service                                                                                                                 | linux/dos/12588.txt
+[01;31m[KSamba[m[K 3.5.0 - Remote Code Execution                                                                                                                   | linux/remote/[01;31m[K4[m[K2060.py
+[01;31m[KSamba[m[K 3.5.0 < [01;31m[K4[m[K.[01;31m[K4[m[K.1[01;31m[K4[m[K/[01;31m[K4[m[K.5.10/[01;31m[K4[m[K.6.[01;31m[K4[m[K - 'is_known_pipename()' Arbitrary Module Load (Metasploit)                                                          | linux/remote/[01;31m[K4[m[K208[01;31m[K4[m[K.rb
+[01;31m[KSamba[m[K 3.5.11/3.6.3 - Remote Code Execution                                                                                                            | linux/remote/3783[01;31m[K4[m[K.py
+[01;31m[KSamba[m[K 3.5.22/3.6.17/[01;31m[K4[m[K.0.8 - nttrans Reply Integer Overflow                                                                                            | linux/dos/27778.txt
+[01;31m[KSamba[m[K [01;31m[K4[m[K.5.2 - Symlink Race Permits Opening Files Outside Share Directory                                                                              | multiple/remote/[01;31m[K4[m[K17[01;31m[K4[m[K0.txt
+[01;31m[KSamba[m[K < 2.0.5 - Local Overflow                                                                                                                        | linux/local/19[01;31m[K4[m[K28.c
+[01;31m[KSamba[m[K < 2.2.8 (Linux/BSD) - Remote Code Execution                                                                                                     | multiple/remote/10.c
+[01;31m[KSamba[m[K < 3.0.20 - Remote Heap Overflow                                                                                                                 | linux/remote/7701.txt
+[01;31m[KSamba[m[K < 3.6.2 (x86) - Denial of Service (PoC)                                                                                                         | linux_x86/dos/367[01;31m[K4[m[K1.py
+[01;31m[KSamba[m[Kr FTP Server 6.[01;31m[K4[m[K - 'SIZE' Remote Denial of Service                                                                                               | windows/dos/293[01;31m[K4[m[K.php
+[01;31m[KSamba[m[Kr Server [01;31m[K4[m[K.1 Beta - Admin Access                                                                                                                 | cgi/remote/20570.txt
+[01;31m[KSamba[m[Kr Server [01;31m[K4[m[K.2 Beta 7 - Batch CGI                                                                                                                  | windows/remote/19761.txt
+[01;31m[KSamba[m[Kr Server [01;31m[K4[m[K.3/[01;31m[K4[m[K.[01;31m[K4[m[K Beta 3 - Search CGI                                                                                                             | windows/remote/20223.txt
+[01;31m[KSamba[m[Kr Server [01;31m[K4[m[K.[01;31m[K4[m[K/5.0 - 'pagecount' File Overwrite                                                                                                    | multiple/remote/21026.txt
+[01;31m[KSamba[m[Kr Server [01;31m[K4[m[K.x/5.0 - Insecure Default Password Protection                                                                                          | multiple/remote/21027.txt
+[01;31m[KSamba[m[Kr Server 5.1 - Sample Script Denial of Service                                                                                                   | windows/dos/21228.c
+[01;31m[KSamba[m[Kr Server 5.1 - Script Source Disclosure                                                                                                          | cgi/remote/21390.txt
+[01;31m[KSamba[m[Kr Server 5.x - 'results.stm' Cross-Site Scripting                                                                                                | windows/remote/22185.txt
+[01;31m[KSamba[m[Kr Server 5.x - Information Disclosure                                                                                                            | windows/remote/22[01;31m[K4[m[K3[01;31m[K4[m[K.txt
+[01;31m[KSamba[m[Kr Server 5.x - Open Proxy / Authentication Bypass                                                                                                | windows/remote/2[01;31m[K4[m[K076.txt
+[01;31m[KSamba[m[Kr Server 5.x/6.0/6.1 - 'results.stm' indexname Cross-Site Scripting                                                                              | windows/remote/2569[01;31m[K4[m[K.txt
+[01;31m[KSamba[m[Kr Server 5.x/6.0/6.1 - logout RCredirect Cross-Site Scripting                                                                                    | windows/remote/25695.txt
+[01;31m[KSamba[m[Kr Server 5.x/6.0/6.1 - Server Referer Cross-Site Scripting                                                                                       | windows/remote/25696.txt
+[01;31m[KSamba[m[Kr Server 6 - Search Results Buffer Overflow (Metasploit)                                                                                         | windows/remote/16756.rb
+[01;31m[KSamba[m[Kr Server 6.0 - 'results.stm' POST Buffer Overflow                                                                                                | windows/dos/2366[01;31m[K4[m[K.py
+[01;31m[KSamba[m[Kr Server 6.1 Beta 2 - 'show.asp?show' Cross-Site Scripting                                                                                       | windows/remote/2[01;31m[K4[m[K161.txt
+[01;31m[KSamba[m[Kr Server 6.1 Beta 2 - 'showini.asp' Arbitrary File Access                                                                                        | windows/remote/2[01;31m[K4[m[K163.txt
+[01;31m[KSamba[m[Kr Server 6.1 Beta 2 - 'showperf.asp?title' Cross-Site Scripting                                                                                  | windows/remote/2[01;31m[K4[m[K162.txt
+SWAT [01;31m[KSamba[m[K Web Administration Tool - Cross-Site Request Forgery                                                                                       | cgi/webapps/17577.txt
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[KJenkins[m[K [01;31m[K2.441[m[K - Local File Inclusion                                                                                                                  | java/webapps/51993.py
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+ Exploit Title                                                                                                                                        |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+[01;31m[KJenkins[m[K [01;31m[K2.441[m[K - Local File Inclusion                                                                                                                  | java/webapps/51993.py
+------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
+Shellcodes: No Results

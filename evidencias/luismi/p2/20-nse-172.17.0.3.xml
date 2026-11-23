@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Tue Nov 17 20:38:23 2026 as: /usr/lib/nmap/nmap -Pn -sV -p 21,80 -&#45;script &quot;default and safe and not (intrusive or exploit or dos or brute or malware or&#xa;broadcast or external or auth)&quot; -oA evidencias/p2/20-nse-172.17.0.3 172.17.0.3 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -Pn -sV -p 21,80 -&#45;script &quot;default and safe and not (intrusive or exploit or dos or brute or malware or&#xa;broadcast or external or auth)&quot; -oA evidencias/p2/20-nse-172.17.0.3 172.17.0.3" start="1794947903" startstr="Tue Nov 17 20:38:23 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="2" services="21,80"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="4A:88:C9:B8:E1:7B" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1794947904" endtime="1794947910"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="4A:88:C9:B8:E1:7B" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ftp" product="vsftpd" version="2.3.4" ostype="Unix" method="probed" conf="10"><cpe>cpe:/a:vsftpd:vsftpd:2.3.4</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Apache httpd" version="2.4.58" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.58</cpe></service><script id="http-server-header" output="Apache/2.4.58 (Ubuntu)"><elem>Apache/2.4.58 (Ubuntu)</elem>
+</script><script id="http-title" output="Apache2 Ubuntu Default Page: It works"><elem key="title">Apache2 Ubuntu Default Page: It works</elem>
+</script></port>
+</ports>
+<times srtt="66" rttvar="2837" to="100000"/>
+</host>
+<runstats><finished time="1794947910" timestr="Tue Nov 17 20:38:30 2026" summary="Nmap done at Tue Nov 17 20:38:30 2026; 1 IP address (1 host up) scanned in 7.02 seconds" elapsed="7.02" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

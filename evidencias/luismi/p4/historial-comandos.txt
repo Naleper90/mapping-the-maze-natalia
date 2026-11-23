@@ -1,0 +1,41 @@
+  222  2026-11-18 00:12  git pull
+  223  2026-11-18 00:12  grep -oE "CVE-[0-9]{4}-[0-9]+" registro-vulns.md | sort -u | tee evidencias/p4/39-cves.txt\ndate "+%F" | tee evidencias/p4/fecha-consulta.txt
+  224  2026-11-18 00:13  for CVE in $(cat evidencias/p4/39-cves.txt); do\n[ -f evidencias/p3/33-nvd-$CVE.json ] || { curl -s\n"https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=$CVE" -o evidencias/p3/33-nvd-$CVE.json;\nsleep 6; }\ndone
+  225  2026-11-18 00:13  for CVE in $(cat evidencias/p4/39-cves.txt); do\njq -r --arg c "$CVE" '.vulnerabilities[0].cve.metrics\n| (.cvssMetricV40 // .cvssMetricV31 // .cvssMetricV30 // .cvssMetricV2 // [{}])[0]\n| "\($c) v\(.cvssData.version // "n/d") \(.cvssData.baseScore // "n/d") \\n(.cvssData.baseSeverity // .baseSeverity // "") \(.cvssData.vectorString // "")"' \\nevidencias/p3/33-nvd-$CVE.json\ndone | tee evidencias/p4/40-cvss.txt
+  227  2026-11-18 00:14  for CVE in $(cat evidencias/p4/39-cves.txt); do jq -r --arg c "$CVE" '.vulnerabilities[0].cve.metrics | (.cvssMetricV31 // .cvssMetricV30 // .cvssMetricV40 // .cvssMetricV2 // [{}]) | (map(select(.type=="Primary"))[0] // .[0]) | "\($c) | v\(.cvssData.version // "n/d") | \(.cvssData.baseScore // "n/d") \(.cvssData.baseSeverity // .baseSeverity // "") | \(.cvssData.vectorString // "sin vector") | fuente: \(.source // "n/d")"' "evidencias/p3/33-nvd-$CVE.json"; done | tee evidencias/p4/40-cvss.txt
+  228  2026-11-18 00:14  cat evidencias/p4/40-cvss.txt
+  229  2026-11-18 00:15  git pull
+  230  2026-11-18 00:15  LISTA=$(paste -sd, evidencias/p4/39-cves.txt)\ncurl -s "https://api.first.org/data/v1/epss?cve=$LISTA" -o evidencias/p4/41-epss.json\njq -r '.data[] | "\(.cve) EPSS=\(.epss) percentil=\(.percentile) fecha=\(.date)"'\nevidencias/p4/41-epss.json \\n| tee evidencias/p4/41-epss.txt
+  232  2026-11-18 00:16  LISTA=$(paste -sd, evidencias/p4/39-cves.txt) && echo "$LISTA" && curl -s "https://api.first.org/data/v1/epss?cve=$LISTA" -o evidencias/p4/41-epss.json && jq -r '.data[] | "\(.cve) | EPSS=\(.epss) | percentil=\(.percentile) | fecha=\(.date)"' evidencias/p4/41-epss.json | tee evidencias/p4/41-epss.txt
+  233  2026-11-18 00:16  jq -r '.total' evidencias/p4/41-epss.json
+  234  2026-11-18 00:18  F="evidencias/p4/42-kev-$(date +%F).json" && curl -s "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json" -o "$F" && jq -r '.catalogVersion + " | " + (.count|tostring) + " entradas"' "$F" && for CVE in $(cat evidencias/p4/39-cves.txt); do r=$(jq -r --arg c "$CVE" '.vulnerabilities[] | select(.cveID==$c) | "SI desde \(.dateAdded) | ransomware: \(.knownRansomwareCampaignUse) | accion: \(.requiredAction)"' "$F"); echo "$CVE | ${r:-NO esta en KEV}"; done | tee evidencias/p4/42-kev.txt
+  235  2026-11-18 00:20  git add .
+  236  2026-11-18 00:20  git commit -m "Añadida evidencias prueba 4"
+  237  2026-11-18 00:20  git push
+  238  2026-11-18 00:30  git pull
+  245  2026-11-18 08:02  git pull
+  535  2026-11-21 11:33  date '+%F %H:%M %Z'
+  536  2026-11-21 11:33  CVE=CVE-2026-123158
+  537  2026-11-21 11:34  curl -s "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=$CVE" -o evidencias/p4/43-aviso-nvd.json
+  538  2026-11-21 11:34  jq -r '"Resultados en NVD: \(.totalResults)"' evidencias/p4/43-aviso-nvd.json
+  539  2026-11-21 11:34  jq -r '.vulnerabilities[0].cve | "\(.id) | publicado \(.published) | estado \(.vulnStatus)", (.descriptions[] | select(.lang=="en") | .value)' evidencias/p4/43-aviso-nvd.json
+  540  2026-11-21 11:35  jq -r '.vulnerabilities[0].cve.metrics | (.cvssMetricV31 // .cvssMetricV30 // .cvssMetricV40 // [{}])[0] | "CVSS v\(.cvssData.version // "n/d") \(.cvssData.baseScore // "n/d") \(.cvssData.baseSeverity // "") \(.cvssData.vectorString
+  541  2026-11-21 11:35  jq -r '.vulnerabilities[0].cve.metrics | (.cvssMetricV31 // .cvssMetricV30 // .cvssMetricV40 // [{}])[0] | "CVSS v\(.cvssData.version // "n/d") \(.cvssData.baseScore // "n/d") \(.cvssData.baseSeverity // "") \(.cvssData.vectorString // "sin vector")"' evidencias/p4/43-aviso-nvd.json
+  542  2026-11-21 11:35  jq -r '.vulnerabilities[0].cve.weaknesses[]?.description[]?.value' evidencias/p4/43-aviso-nvd.json
+  543  2026-11-21 11:35  jq -r '.vulnerabilities[0].cve.configurations[]?.nodes[]?.cpeMatch[]? | "\(.criteria) desde:\(.versionStartIncluding // "-") hasta(sin incluir):\(.versionEndExcluding // "-") hasta(incluida):\(.versionEndIncluding // "-")"'
+  544  2026-11-21 11:36  jq -r '.vulnerabilities[0].cve.configurations[]?.nodes[]?.cpeMatch[]? | "\(.criteria) desde:\(.versionStartIncluding // "-") hasta(sin incluir):\(.versionEndExcluding // "-") hasta(incluida):\(.versionEndIncluding // "-")"' evidencias/p4/43-aviso-nvd.json
+  545  2026-11-21 11:36  curl -s "https://api.first.org/data/v1/epss?cve=$CVE" -o evidencias/p4/43-aviso-epss.json
+  546  2026-11-21 11:36  jq -r '"Resultados en EPSS: \(.total)", (.data[]? | "EPSS=\(.epss) percentil=\(.percentile) fecha=\(.date)")' evidencias/p4/43-aviso-epss.json
+  547  2026-11-21 11:36  F="evidencias/p4/43-aviso-kev-$(date +%F).json"
+  548  2026-11-21 11:36  curl -s "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json" -o "$F"
+  549  2026-11-21 11:37  jq -r '"Catálogo KEV " + .catalogVersion + " | " + (.count|tostring) + " entradas"' "$F"
+  550  2026-11-21 11:37  jq -r --arg c "$CVE" '.vulnerabilities[] | select(.cveID==$c) | "SI desde \(.dateAdded) | ransomware: \(.knownRansomwareCampaignUse) | \(.vulnerabilityName) | acción: \(.requiredAction)"' "$F" | grep . || echo "$CVE NO está en KEV"
+  551  2026-11-21 11:37  curl -s "https://cveawg.mitre.org/api/cve/$CVE" -o evidencias/p4/43-aviso-cveorg.json
+  552  2026-11-21 11:37  F="evidencias/p4/43-aviso-kev-$(date +%F).json"
+  553  2026-11-21 11:37  curl -s "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json" -o "$F"
+  554  2026-11-21 11:38  jq -r '"Catálogo KEV " + .catalogVersion + " | " + (.count|tostring) + " entradas"' "$F"
+  555  2026-11-21 11:38  jq -r --arg c "$CVE" '.vulnerabilities[] | select(.cveID==$c) | "SI desde \(.dateAdded) | ransomware: \(.knownRansomwareCampaignUse) | \(.vulnerabilityName) | acción: \(.requiredAction)"' "$F" | grep . || echo "$CVE NO está en KEV"
+  556  2026-11-21 11:38  curl -s "https://cveawg.mitre.org/api/cve/$CVE" -o evidencias/p4/43-aviso-cveorg.json
+  557  2026-11-21 11:38  jq -r '.cveMetadata // . | tostring' evidencias/p4/43-aviso-cveorg.json | head -c 400; echo
+  558  2026-11-21 11:41  grep -rilE "openssh" evidencias/p1/ evidencias/p2/ | sort
+  559  2026-11-21 11:41  grep -H "SSH-2.0" evidencias/p2/22-ssh-banner-*.txt

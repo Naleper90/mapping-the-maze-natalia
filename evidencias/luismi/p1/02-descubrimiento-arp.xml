@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Tue Nov 17 15:17:43 2026 as: /usr/lib/nmap/nmap -sn -PR -iL scope.txt -oA evidencias/p1/02-descubrimiento-arp -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sn -PR -iL scope.txt -oA evidencias/p1/02-descubrimiento-arp" start="1794928663" startstr="Tue Nov 17 15:17:43 2026" version="7.99" xmloutputversion="1.05">
+<verbose level="0"/>
+<debugging level="0"/>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.3" addrtype="ipv4"/>
+<address addr="4A:88:C9:B8:E1:7B" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="10" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.4" addrtype="ipv4"/>
+<address addr="42:B1:9B:9C:27:4E" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="9" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.5" addrtype="ipv4"/>
+<address addr="06:5D:85:88:6B:1E" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="9" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.6" addrtype="ipv4"/>
+<address addr="BA:3C:70:3E:0C:44" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="9" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.7" addrtype="ipv4"/>
+<address addr="52:D5:AF:A4:C8:F8" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="11" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.8" addrtype="ipv4"/>
+<address addr="1E:5A:CF:72:E2:CE" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="8" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.9" addrtype="ipv4"/>
+<address addr="FE:4C:C6:EA:1C:EC" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="7" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.17.0.10" addrtype="ipv4"/>
+<address addr="06:A1:D6:A9:7F:30" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="22" rttvar="1206" to="100000"/>
+</host>
+<host><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="172.17.0.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</host>
+<runstats><finished time="1794928667" timestr="Tue Nov 17 15:17:47 2026" summary="Nmap done at Tue Nov 17 15:17:47 2026; 256 IP addresses (9 hosts up) scanned in 3.99 seconds" elapsed="3.99" exit="success"/><hosts up="9" down="247" total="256"/>
+</runstats>
+</nmaprun>

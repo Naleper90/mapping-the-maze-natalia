@@ -1,0 +1,51 @@
+  102  2026-11-17 20:27  echo "SAFE=$SAFE"
+  103  2026-11-17 20:27  export FRAGIL=172.17.0.7
+  104  2026-11-17 20:31  cat evidencias/p1/resumen-puertos.txt
+  105  2026-11-17 20:38  for ip in $(grep -vx "$FRAGIL" evidencias/p1/vivos.txt); do\nports=$(grep -oE '[0-9]+/open/tcp' evidencias/p1/10-tcp-all-$ip.gnmap | cut -d/ -f1 | paste -sd, -)\n[ -z "$ports" ] && continue\necho "=== $ip : $ports ==="\nsudo nmap -Pn -sV -p $ports --script "$SAFE" -oA evidencias/p2/20-nse-$ip $ip\ndone
+  106  2026-11-17 20:41  ports=$(grep -oE '[0-9]+/open/tcp' evidencias/p1/10-tcp-all-$FRAGIL.gnmap | cut -d/ -f1 | paste -sd,\n-)
+  107  2026-11-17 20:41  sudo nmap -Pn -sV --version-light -T2 --max-retries 1 -p $ports \\n--script "$SAFE" \\n-oA evidencias/p2/20-nse-$FRAGIL $FRAGIL
+  109  2026-11-17 20:45  cat evidencias/p2/20-nse-172.17.0.3.nmap
+  110  2026-11-17 20:46  cat evidencias/p2/20-nse-172.17.0.4.nmap
+  111  2026-11-17 20:46  cat evidencias/p2/20-nse-172.17.0.5.nmap
+  112  2026-11-17 20:47  cat evidencias/p2/20-nse-172.17.0.6.nmap
+  113  2026-11-17 20:47  cat evidencias/p2/20-nse-172.17.0.7.nmap
+  114  2026-11-17 20:48  cat evidencias/p2/20-nse-172.17.0.8.nmap
+  115  2026-11-17 20:48  cat evidencias/p2/20-nse-172.17.0.9.nmap
+  116  2026-11-17 20:48  cat evidencias/p2/20-nse-172.17.0.10.nmap
+  118  2026-11-17 20:50  clear; date "+%F %H:%M"; for s in ssh2-enum-algos ssh-hostkey smb-os-discovery smb2-security-mode smb-security-mode smb-protocols nbstat ipmi-version amqp-info; do nmap --script-help $s | grep -iE "^$s|categories"; done | tee evidencias/p2/20-categorias-scripts.txt
+  119  2026-11-17 21:06  clear; date "+%F %H:%M"\nfor s in 172.17.0.3:80:http 172.17.0.4:8080:http 172.17.0.5:80:http 172.17.0.5:443:https 172.17.0.5:8161:http 172.17.0.5:61614:http 172.17.0.6:8080:http 172.17.0.8:80:http 172.17.0.9:80:http 172.17.0.10:80:http; do\n  IP=${s%%:*}; r=${s#*:}; P=${r%%:*}; PR=${r#*:}; URL=$PR://$IP:$P\n  echo "\n########## $URL ##########"\n  curl -sk -m 10 -I $URL                | tee evidencias/p2/21-http-cabeceras-$IP-$P.txt\n  curl -sk -m 10 $URL/robots.txt | head -30 | tee evidencias/p2/21-http-robots-$IP-$P.txt\n  curl -sk -m 10 $URL/ | grep -iE "generator|version|author|<title|mailto|@|<" | head -40 | tee evidencias/p2/21-http-pistas-$IP-$P.txt\n  whatweb -a 1 $URL 2>/dev/null         | tee evidencias/p2/21-whatweb-$IP-$P.txt\ndone\necho | openssl s_client -connect 172.17.0.5:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates | tee evidencias/p2/21-tls-cert-172.17.0.5-443.txt
+  120  2026-11-17 21:06  clear; date "+%F %H:%M"\nfor s in 172.17.0.3:80:http 172.17.0.4:8080:http 172.17.0.5:80:http 172.17.0.5:443:https 172.17.0.5:8161:http 172.17.0.5:61614:http 172.17.0.6:8080:http 172.17.0.8:80:http 172.17.0.9:80:http 172.17.0.10:80:http; do\n  IP=${s%%:*}; r=${s#*:}; P=${r%%:*}; PR=${r#*:}; URL=$PR://$IP:$P\n  echo "\n########## $URL ##########"\n  curl -sk -m 10 -I $URL                | tee evidencias/p2/21-http-cabeceras-$IP-$P.txt\n  curl -sk -m 10 $URL/robots.txt | head -30 | tee evidencias/p2/21-http-robots-$IP-$P.txt\n  curl -sk -m 10 $URL/ | grep -iE "generator|version|author|<title|mailto|@|<" | head -40 | tee evidencias/p2/21-http-pistas-$IP-$P.txt\n  whatweb -a 1 $URL 2>/dev/null         | tee evidencias/p2/21-whatweb-$IP-$P.txt\ndone\n
+  121  2026-11-17 21:08  echo | openssl s_client -connect 172.17.0.5:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates | tee evidencias/p2/21-tls-cert-172.17.0.5-443.txt
+  122  2026-11-17 21:10  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.3-80.txt
+  123  2026-11-17 21:11  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.4-80.txt
+  124  2026-11-17 21:11  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.3-80.txt
+  125  2026-11-17 21:11  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.4-80.txt
+  126  2026-11-17 21:11  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.5-80.txt
+  127  2026-11-17 21:11  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.4-8080.txt
+  128  2026-11-17 21:12  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.5-80.txt
+  129  2026-11-17 21:12  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.5-443.txt
+  130  2026-11-17 21:13  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.5-8161.txt
+  131  2026-11-17 21:14  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.5-61614.txt
+  132  2026-11-17 21:15  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.6-8080.txt
+  133  2026-11-17 21:15  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.8-80.txt
+  134  2026-11-17 21:15  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.9-80.txt
+  135  2026-11-17 21:16  clear; date "+%F %H:%M"; tail -n +1 evidencias/p2/21-*-172.17.0.10-80.txt
+  136  2026-11-17 21:17  cat evidencias/p2/21-tls-cert-172.17.0.5-443.txt
+  137  2026-11-17 21:18  clear; date "+%F %H:%M"\nfor IP in 172.17.0.4 172.17.0.6 172.17.0.8 172.17.0.9; do\n  echo "\n########## $IP ##########"\n  nc -nv -w 3 $IP 22 </dev/null 2>&1 | tee evidencias/p2/22-ssh-banner-$IP.txt\n  sudo nmap -Pn -p 22 --script ssh2-enum-algos,ssh-hostkey $IP -oA evidencias/p2/22-ssh-$IP\ndone
+  138  2026-11-17 21:20  clear; date "+%F %H:%M"\nnc -nv -w 3 172.17.0.7 22 </dev/null 2>&1 | tee evidencias/p2/22-ssh-banner-172.17.0.7.txt\nsudo nmap -Pn -T2 --max-retries 1 -p 22 --script ssh2-enum-algos,ssh-hostkey 172.17.0.7 -oA evidencias/p2/22-ssh-172.17.0.7
+  139  2026-11-17 21:22  clear; date "+%F %H:%M"; cat evidencias/p2/22-ssh-banner-172.17.0.4.txt; cat evidencias/p2/22-ssh-172.17.0.4.nmap
+  140  2026-11-17 21:22  clear; date "+%F %H:%M"; cat evidencias/p2/22-ssh-banner-172.17.0.6.txt; cat evidencias/p2/22-ssh-172.17.0.6.nmap
+  141  2026-11-17 21:24  clear; date "+%F %H:%M"; cat evidencias/p2/22-ssh-banner-172.17.0.7.txt; cat evidencias/p2/22-ssh-172.17.0.7.nmap
+  142  2026-11-17 21:24  clear; date "+%F %H:%M"; cat evidencias/p2/22-ssh-banner-172.17.0.8.txt; cat evidencias/p2/22-ssh-172.17.0.8.nmap
+  143  2026-11-17 21:25  clear; date "+%F %H:%M"; cat evidencias/p2/22-ssh-banner-172.17.0.9.txt; cat evidencias/p2/22-ssh-172.17.0.9.nmap
+  144  2026-11-17 21:30  clear; date "+%F %H:%M"\necho "##### FTP 172.17.0.3:21 #####"\nnc -nv -w 3 172.17.0.3 21 </dev/null 2>&1 | tee evidencias/p2/23-ftp-banner-172.17.0.3.txt\necho "##### ActiveMQ 172.17.0.5:61616 #####"\nnc -nv -w 3 172.17.0.5 61616 </dev/null 2>&1 | strings | head -20 | tee evidencias/p2/23-banner-172.17.0.5-61616.txt\necho "##### 172.17.0.5:38443 #####"\nnc -nv -w 3 172.17.0.5 38443 </dev/null 2>&1 | tee evidencias/p2/23-banner-172.17.0.5-38443.txt
+  145  2026-11-17 21:31  for s in 172.17.0.5:1883 172.17.0.5:5672 172.17.0.5:61613 172.17.0.4:8009; do\n  echo "##### $s #####"; nc -nv -w 3 ${s%:*} ${s#*:} </dev/null 2>&1 | strings | head -5\ndone | tee evidencias/p2/23-banner-sin-saludo.txt
+  146  2026-11-17 21:37  clear; date "+%F %H:%M"\nIP=172.17.0.8\nsudo nmap -Pn -p 139,445 --script smb2-security-mode,smb-security-mode,smb-protocols $IP -oA evidencias/p2/24-smb-$IP\nsudo nmap -Pn -sU -p 137 --script nbstat $IP -oA evidencias/p2/24-nbstat-$IP\nnmblookup -A $IP | tee evidencias/p2/24-nmblookup-$IP.txt
+  147  2026-11-17 21:37  clear; date "+%F %H:%M"; cat evidencias/p2/24-smb-172.17.0.8.nmap evidencias/p2/24-nbstat-172.17.0.8.nmap evidencias/p2/24-nmblookup-172.17.0.8.txt
+  148  2026-11-17 21:42  clear; date "+%F %H:%M"\nsudo nmap -Pn -sU -p 623 --script ipmi-version 172.17.0.10 -oA evidencias/p2/25-ipmi-172.17.0.10
+  149  2026-11-17 21:44  clear; date "+%F %H:%M"\nsudo nmap -Pn -p 5672 --script amqp-info 172.17.0.5 -oA evidencias/p2/26-amqp-172.17.0.5
+  150  2026-11-17 21:46  clear; date "+%F %H:%M"\ngrep -rhoiE "(user(name)?|login|owner|author|contact|admin)[^<]{0,60}|[a-z0-9._-]+@[a-z0-9.-]+" evidencias/p2/ | grep -viE "openssh\.com|libssh\.org" | sort -u | tee evidencias/p2/29-cuentas-candidatas.txt\necho "--- NetBIOS de la .8 (los nombres con <03> suelen ser el usuario conectado) ---"; grep -hE "<03>|<00>|<20>|User" evidencias/p2/24-nmblookup-172.17.0.8.txt evidencias/p2/24-nbstat-172.17.0.8.nmap\necho "--- Certificado HTTPS de la .5 ---"; cat evidencias/p2/21-tls-cert-172.17.0.5-443.txt
+  151  2026-11-17 21:47  git add .
+  152  2026-11-17 21:47  git commit -m "Añadidas evidencias de la parte 2"
+  153  2026-11-17 21:47  git push
+  155  2026-11-17 22:00  wc -l evidencias/p2/historial-comandos.txt

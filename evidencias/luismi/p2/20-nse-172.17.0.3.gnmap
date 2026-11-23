@@ -1,0 +1,5 @@
+# Nmap 7.99 scan initiated Tue Nov 17 20:38:23 2026 as: /usr/lib/nmap/nmap -Pn -sV -p 21,80 --script "default and safe and not (intrusive or exploit or dos or brute or malware or
+broadcast or external or auth)" -oA evidencias/p2/20-nse-172.17.0.3 172.17.0.3
+Host: 172.17.0.3 ()	Status: Up
+Host: 172.17.0.3 ()	Ports: 21/open/tcp//ftp//vsftpd 2.3.4/, 80/open/tcp//http//Apache httpd 2.4.58 ((Ubuntu))/
+# Nmap done at Tue Nov 17 20:38:30 2026 -- 1 IP address (1 host up) scanned in 7.02 seconds

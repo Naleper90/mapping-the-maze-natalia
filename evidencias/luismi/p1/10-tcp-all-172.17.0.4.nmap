@@ -1,0 +1,11 @@
+# Nmap 7.99 scan initiated Tue Nov 17 16:17:40 2026 as: /usr/lib/nmap/nmap -Pn -sS -p- -T3 --max-rate 200 -oA evidencias/p1/10-tcp-all-172.17.0.4 172.17.0.4
+Nmap scan report for 172.17.0.4
+Host is up (0.000021s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: 42:B1:9B:9C:27:4E (Unknown)
+
+# Nmap done at Tue Nov 17 16:23:08 2026 -- 1 IP address (1 host up) scanned in 328.33 seconds

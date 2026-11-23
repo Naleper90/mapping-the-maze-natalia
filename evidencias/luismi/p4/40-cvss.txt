@@ -1,0 +1,14 @@
+CVE-2011-2523 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2013-4786 | v3.0 | 7.5 HIGH | CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N | fuente: nvd@nist.gov
+CVE-2018-15473 | v3.1 | 5.3 MEDIUM | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N | fuente: nvd@nist.gov
+CVE-2020-1938 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2021-34429 | v3.1 | 5.3 MEDIUM | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N | fuente: nvd@nist.gov
+CVE-2022-41678 | v3.1 | 8.8 HIGH | CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2023-38408 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2023-46604 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2023-48795 | v3.1 | 5.9 MEDIUM | CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N | fuente: nvd@nist.gov
+CVE-2024-23897 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2024-38476 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2024-50379 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: 134c704f-9b21-4f2e-91b3-4a467353bcc0
+CVE-2024-6387 | v3.1 | 8.1 HIGH | CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov
+CVE-2025-24813 | v3.1 | 9.8 CRITICAL | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | fuente: nvd@nist.gov

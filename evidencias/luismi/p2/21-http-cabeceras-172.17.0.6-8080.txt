@@ -1,0 +1,12 @@
+HTTP/1.1 403 Forbidden
+Date: Tue, 17 Nov 2026 21:06:58 GMT
+X-Content-Type-Options: nosniff
+Set-Cookie: JSESSIONID.8bdbac58=node0slabae5qxd2117al8544cksmh36.node0; Path=/; HttpOnly
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: text/html;charset=utf-8
+X-Hudson: 1.395
+X-Jenkins: 2.441
+X-Jenkins-Session: 8cc62dd4
+Transfer-Encoding: chunked
+Server: Jetty(10.0.18)
+

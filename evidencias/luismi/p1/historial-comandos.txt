@@ -1,0 +1,75 @@
+    1  2026-11-17 15:03  cat >> ~/.zshrc <<'FIN'\nsetopt EXTENDED_HISTORY INC_APPEND_HISTORY SHARE_HISTORY\nHISTSIZE=50000\nSAVEHIST=50000\nFIN\nsource ~/.zshrc\nfc -li -3
+    6  2026-11-17 15:04  echo "export SAFE='default and safe and not (intrusive or exploit or dos or brute or malware or\nbroadcast or external or auth)'" >> ~/.zshrc\nsource ~/.zshrc\necho "$SAFE"
+    7  2026-11-17 15:04  echo "$SAFE"
+    8  2026-11-17 15:04  ip -br a\nip route | grep 172.17\ndate "+%F %H:%M"
+    9  2026-11-17 15:08  git pull
+   11  2026-11-17 15:12  date "+%F %H:%M"
+   12  2026-11-17 15:12  sudo nmap -sn -PE -PP -PS21,22,23,25,80,443,445,3389,8080 -PA80 -PU53,161 \\n-iL scope.txt -oA evidencias/p1/01-descubrimiento
+   13  2026-11-17 15:13  awk '/Status: Up/{print $2}' evidencias/p1/01-descubrimiento.gnmap | sort -t. -k4 -n \\n| tee evidencias/p1/vivos.txt\nwc -l evidencias/p1/vivos.txt
+   14  2026-11-17 15:13  date "+%F %H:%M"
+   15  2026-11-17 15:17  sudo nmap -sn -PR -iL scope.txt -oA evidencias/p1/02-descubrimiento-arp\nawk '/Status: Up/{print $2}' evidencias/p1/02-descubrimiento-arp.gnmap | sort -t. -k4 -n \\n> evidencias/p1/vivos-arp.txt\ndiff evidencias/p1/vivos.txt evidencias/p1/vivos-arp.txt && echo "COINCIDEN"
+   16  2026-11-17 15:20  MIIP=$(ip -br a | grep -oE '172\.17\.0\.[0-9]+' | head -1); echo "Mi IP: $MIIP"\ngrep -vx "$MIIP" evidencias/p1/vivos.txt > /tmp/v && mv /tmp/v evidencias/p1/vivos.txt\ncat evidencias/p1/vivos.txt
+   17  2026-11-17 15:22  for ip in $(cat evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sS --top-ports 100 -sV --version-light -T2 --max-retries 1 \\n-oA evidencias/p1/03-suave-$ip $ip\ndone
+   18  2026-11-17 15:34  grep -H "open" evidencias/p1/03-suave-*.nmap
+   19  2026-11-17 15:41  grep -H -E "Host is up|scanned in" evidencias/p1/03-suave-172.17.0.{3,7,10}.nmap
+   20  2026-11-17 15:41  for ip in 172.17.0.3 172.17.0.7 172.17.0.10; do\n  echo "== $ip"; ping -c 20 -i 0.5 $ip | tail -2\ndone | tee evidencias/p1/04-ping-candidatos.txt
+   21  2026-11-17 15:41  sudo for ip in 172.17.0.3 172.17.0.7 172.17.0.10; do\n  echo "== $ip"; ping -c 20 -i 0.5 $ip | tail -2\ndone | tee evidencias/p1/04-ping-candidatos.txt
+   23  2026-11-17 15:42  grep -H -E "Host is up|scanned in" evidencias/p1/03-suave-172.17.0.{3,7,10}.nmap
+   24  2026-11-17 15:43  sudo nmap -Pn -sS -p- -T2 --max-rate 30 --max-retries 1 -oA evidencias/p1/10-tcp-all-172.17.0.3 172.17.0.3
+   26  2026-11-17 15:47  grep -H "<times" evidencias/p1/03-suave-*.xml
+   27  2026-11-17 15:47  grep -H -E "Host is up|scanned in|Warning|retransmission|giving up|RTTVAR" evidencias/p1/03-suave-*.nmap
+   29  2026-11-17 15:49  # Terminal 1:\nfor ip in $(cat evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sS --top-ports 100 -sV --version-light -T2 --max-retries 1 \\n-oA evidencias/p1/03-suave-$ip $ip\ndone
+   31  2026-11-17 15:50  # Terminal 1:\nfor ip in $(cat evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sS --top-ports 100 -sV --version-light -T2 --max-retries 1 \\n-oA evidencias/p1/03-suave-$ip $ip\ndone
+   32  2026-11-17 15:57  grep -H "open" evidencias/p1/03-suave-*.nmap
+   33  2026-11-17 16:06  export FRAGIL=172.17.0.7
+   34  2026-11-17 16:06  echo "export FRAGIL =$FRAGIL" >> ./.zshrc
+   35  2026-11-17 16:06  echo "export FRAGIL =$FRAGIL" >> ~/.zshrc
+   38  2026-11-17 16:12  for ip in $(grep -vx "$FRAGIL" evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sS -p- -T3 --max-rate 200 -oA evidencias/p1/10-tcp-all-$ip $ip\ndone
+   39  2026-11-17 16:54  sudo nmap -Pn -sS -p- -T2 --max-rate 30 --max-retries 1 \\n-oA evidencias/p1/10-tcp-all-$FRAGIL $FRAGIL
+   40  2026-11-17 17:56  sudo nmap -Pn -sS -p- -T3 --max-rate 30 --max-retries 1 \\n-oA evidencias/p1/10-tcp-all-$FRAGIL $FRAGIL
+   41  2026-11-17 18:33  grep open evidencias/p1/10-tcp-all-$ip.nmap 
+   42  2026-11-17 18:34  grep open evidencias/p1/10-tcp-all-$FRAGIL.nmap
+   44  2026-11-17 18:36  for ip in $(sort -t. -k4 -n evidencias/p1/vivos.txt); do\n  [ "$ip" = "${FRAGIL:-172.17.0.7}" ] && m=" \e[31m[EQUIPO DELICADO]\e[0m" || m=""\n  echo -e "\n\e[1;36m===== $ip =====\e[0m$m"\n  f=evidencias/p1/11-tcp-ver-$ip.nmap; [ -f "$f" ] || f=evidencias/p1/10-tcp-all-$ip.nmap\n  if [ -f "$f" ]; then grep -E '^[0-9]+/tcp +open ' "$f" | sed 's/^/  TCP  /' || echo "  TCP  ningún puerto abierto"\n  else echo -e "  \e[33mTCP  sin escanear todavía\e[0m"; fi\n  [ -f evidencias/p1/12-udp-$ip.nmap ] && grep -E '^[0-9]+/udp +open ' evidencias/p1/12-udp-$ip.nmap | sed 's/^/  UDP  /'\ndone
+   45  2026-11-17 18:36  date "+%F %H:%M"
+   46  2026-11-17 18:37  for ip in $(cat evidencias/p1/vivos.txt); do\nports=$(grep -oE '[0-9]+/open/tcp' evidencias/p1/10-tcp-all-$ip.gnmap | cut -d/ -f1 | sort -un |\npaste -sd, -)\n[ -z "$ports" ] && { echo "$ip sin TCP abiertos"; continue; }\necho "=== $ip : $ports ==="\nif [ "$ip" = "$FRAGIL" ]; then\nsudo nmap -Pn -sV --version-light -T2 --max-retries 1 -p $ports -oA evidencias/p1/11-tcp-ver-$ip\n$ip\nelse\nsudo nmap -Pn -sV -p $ports -oA evidencias/p1/11-tcp-ver-$ip $ip\nfi\ndone
+   47  2026-11-17 18:39  ping 172.17.0.6
+   48  2026-11-17 18:39  sudo ping 172.17.0.6
+   50  2026-11-17 18:39  git pull
+   51  2026-11-17 18:40  cat evidencias/p1/11-tcp-ver-172.17.0.<n>.nmap
+   52  2026-11-17 18:40  cat evidencias/p1/11-tcp-ver-172.17.0.3.nmap
+   53  2026-11-17 18:40  cat evidencias/p1/11-tcp-ver-172.17.0.4.nmap
+   54  2026-11-17 18:40  cat evidencias/p1/11-tcp-ver-172.17.0.5.nmap
+   55  2026-11-17 18:43  cat evidencias/p1/11-tcp-ver-172.17.0.6.nmap
+   56  2026-11-17 18:43  cat evidencias/p1/11-tcp-ver-172.17.0.7.nmap
+   57  2026-11-17 18:43  cat evidencias/p1/11-tcp-ver-172.17.0.8.nmap
+   58  2026-11-17 18:44  cat evidencias/p1/11-tcp-ver-172.17.0.9.nmap
+   59  2026-11-17 18:44  cat evidencias/p1/11-tcp-ver-172.17.0.10.nmap
+   61  2026-11-17 18:46  for ip in $(grep -vx "$FRAGIL" evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sU --top-ports 100 -sV --version-intensity 0 --max-retries 1 -T3 --max-rate 100 \\n-oA evidencias/p1/12-udp-$ip $ip\ndone\n# Equipo delicado: solo los UDP más típicos y despacio\nsudo nmap -Pn -sU -p 53,67,69,123,137,161,500,623,1900,5353 --max-retries 1 -T2 \\n-oA evidencias/p1/12-udp-$FRAGIL $FRAGIL
+   62  2026-11-17 18:46  ping 172.17.0.3
+   63  2026-11-17 18:46  sudo ping 172.17.0.3
+   65  2026-11-17 18:46  for ip in $(grep -vx "$FRAGIL" evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sU --top-ports 100 -sV --version-intensity 0 --max-retries 1 -T3 --max-rate 100 \\n-oA evidencias/p1/12-udp-$ip $ip\ndone\n# Equipo delicado: solo los UDP más típicos y despacio\nsudo nmap -Pn -sU -p 53,67,69,123,137,161,500,623,1900,5353 --max-retries 1 -T2 \\n-oA evidencias/p1/12-udp-$FRAGIL $FRAGIL
+   66  2026-11-17 18:47  echo "$FRAGIL"
+   67  2026-11-17 18:48  for ip in $(grep -vx "$FRAGIL" evidencias/p1/vivos.txt); do\necho "=== $ip ==="\nsudo nmap -Pn -sU --top-ports 100 -sV --version-intensity 0 --max-retries 1 -T3 --max-rate 100 \\n-oA evidencias/p1/12-udp-$ip $ip\ndone
+   68  2026-11-17 18:51  sudo nmap -Pn -sU -p 53,67,69,123,137,161,500,623,1900,5353 --max-retries 1 -T2 \\n-oA evidencias/p1/12-udp-$FRAGIL $FRAGIL
+   70  2026-11-17 18:55  for f in evidencias/p1/11-tcp-ver-*.nmap evidencias/p1/12-udp-*.nmap; do\necho "== $(basename $f)"; grep -E "^[0-9]+/(tcp|udp) +open " "$f"\ndone | tee evidencias/p1/resumen-puertos.txt
+   71  2026-11-17 19:01  cat evidencias/p1/11-tcp-ver-172.17.0.7.nmap
+   72  2026-11-17 19:01  sudo nmap -Pn -sV --version-light -T2 --max-retries 1 -p 22 -oA evidencias/p1/11-tcp-ver-172.17.0.7 172.17.0.7
+   74  2026-11-17 19:02  cat evidencias/p1/11-tcp-ver-$FRAGIL.nmap
+   75  2026-11-17 19:02  for f in evidencias/p1/11-tcp-ver-*.nmap evidencias/p1/12-udp-*.nmap; do\n  echo "== $(basename $f)"; grep -E "^[0-9]+/(tcp|udp) +open " "$f"\ndone | tee evidencias/p1/resumen-puertos.txt
+   79  2026-11-17 19:10  wc -l evidencias/p1/historial-comandos.txt
+   83  2026-11-17 19:11  git add .
+   84  2026-11-17 19:11  git commit -m "Añadidas evidencias de la parte 1"
+   85  2026-11-17 19:15  git push
+   86  2026-11-17 19:18  git config --global credential.helper 'cache --timeout=14400'
+   87  2026-11-17 19:18  git push
+   88  2026-11-17 19:19  git config --global credential.helper 'cache --timeout=14400'
+   89  2026-11-17 19:19  git push
+   90  2026-11-17 19:20  git credential-cache exit
+   91  2026-11-17 19:21  git push
+   92  2026-11-17 19:22  git config --global credential.helper 'cache --timeout=14400'
+   93  2026-11-17 19:22  git push
+   94  2026-11-17 19:22  git credential-cache exit
+   96  2026-11-17 19:24  git credential-cache exit
+   97  2026-11-17 19:24  git push
+   98  2026-11-17 19:24  git credential-cache exit
+  100  2026-11-17 19:24  git push

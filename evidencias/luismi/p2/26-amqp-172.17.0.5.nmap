@@ -1,0 +1,10 @@
+# Nmap 7.99 scan initiated Tue Nov 17 21:44:13 2026 as: /usr/lib/nmap/nmap -Pn -p 5672 --script amqp-info -oA evidencias/p2/26-amqp-172.17.0.5 172.17.0.5
+Nmap scan report for 172.17.0.5
+Host is up (0.000049s latency).
+
+PORT     STATE SERVICE
+5672/tcp open  amqp
+|_amqp-info: ERROR: AQMP:handshake expected header (1) frame, but was 65
+MAC Address: 06:5D:85:88:6B:1E (Unknown)
+
+# Nmap done at Tue Nov 17 21:44:14 2026 -- 1 IP address (1 host up) scanned in 0.70 seconds

@@ -1,0 +1,10 @@
+# Nmap 7.99 scan initiated Thu Nov 19 23:21:15 2026 as: /usr/lib/nmap/nmap -Pn -sU --top-ports 1000 --max-retries 1 --max-rate 100 -sV --version-intensity 0 -oA evidencias/p1/13-udp-top1000-172.17.0.6 172.17.0.6
+Warning: 172.17.0.6 giving up on port because retransmission cap hit (1).
+Nmap scan report for 172.17.0.6
+Host is up (0.000032s latency).
+All 1000 scanned ports on 172.17.0.6 are in ignored states.
+Not shown: 972 open|filtered udp ports (no-response), 28 closed udp ports (port-unreach)
+MAC Address: BA:3C:70:3E:0C:44 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 19 23:23:10 2026 -- 1 IP address (1 host up) scanned in 115.00 seconds

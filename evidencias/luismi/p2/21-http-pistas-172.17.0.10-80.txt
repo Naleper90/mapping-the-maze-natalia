@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CTG · IPMI bajo exposición</title>
+<style>
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<span class="tag">CTG · gestión fuera de banda</span>
+<h1>IPMI: administrar un servidor incluso cuando su sistema operativo no responde</h1>
+<p>
+El <strong>Intelligent Platform Management Interface (IPMI)</strong> es un estándar utilizado
+<strong>independientemente del sistema operativo</strong> que esté instalado.
+</p>
+<p>
+Para ello, muchos servidores incorporan un <strong>BMC (Baseboard Management Controller)</strong>,
+</p>
+<div class="grid">
+  <div class="card">
+    <div class="metric">UDP 623</div>
+    <div>Puerto habitual de IPMI sobre red.</div>
+    <p class="muted">
+    </p>
+  </div>
+  <div class="card">
+    <div class="metric">BMC</div>
+    <div>Controlador independiente.</div>
+    <p class="muted">
+    </p>
+  </div>
+  <div class="card">
+    <div class="metric">SOL</div>
+    <div>Serial Over LAN.</div>
+    <p class="muted">
+    </p>
+  </div>

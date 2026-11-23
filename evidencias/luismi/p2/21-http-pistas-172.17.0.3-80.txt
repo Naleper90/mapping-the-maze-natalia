@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <!--
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Apache2 Ubuntu Default Page: It works</title>
+    <style type="text/css" media="screen">
+    </style>
+  </head>
+  <body>
+    <div class="main_page">
+      <div class="page_header floating_element">
+        <img src="icons/ubuntu-logo.png" alt="Ubuntu Logo"
+        <div>
+          <span style="margin-top: 1.5em;" class="floating_element">
+          </span>
+        </div>
+        <div class="banner">
+          <div id="about"></div>
+        </div>
+      </div>
+      <div class="content_section floating_element">
+        <div class="content_section_text">
+          <p>
+                this site is working properly. You should <b>replace this file</b> (located at
+                <tt>/var/www/html/index.html</tt>) before continuing to operate your HTTP server.
+          </p>
+          <p>
+          </p>
+        </div>
+        <div class="section_header">
+          <div id="changes"></div>
+        </div>
+        <div class="content_section_text">
+          <p>
+                <b>fully documented in
+                /usr/share/doc/apache2/README.Debian.gz</b>. Refer to this for the full
+                found by accessing the <a href="/manual">manual</a> if the <tt>apache2-doc</tt>
+          </p>
+          <p>

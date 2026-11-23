@@ -1,0 +1,17 @@
+(UNKNOWN) [172.17.0.5] 61616 (?) open
+ActiveMQ
+TcpNoDelayEnabled
+SizePrefixDisabled
+	CacheSize
+ProviderName	
+ActiveMQ
+StackTraceEnabled
+PlatformDetails	
+Java
+CacheEnabled
+TightEncodingEnabled
+MaxFrameSize
+MaxInactivityDuration
+ MaxInactivityDurationInitalDelay
+ProviderVersion	
+5.15.15

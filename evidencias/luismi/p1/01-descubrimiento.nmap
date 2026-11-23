@@ -1,0 +1,28 @@
+# Nmap 7.99 scan initiated Tue Nov 17 15:12:50 2026 as: /usr/lib/nmap/nmap -sn -PE -PP -PS21,22,23,25,80,443,445,3389,8080 -PA80 -PU53,161 -iL scope.txt -oA evidencias/p1/01-descubrimiento
+Nmap scan report for 172.17.0.3
+Host is up (0.000034s latency).
+MAC Address: 4A:88:C9:B8:E1:7B (Unknown)
+Nmap scan report for 172.17.0.4
+Host is up (0.000012s latency).
+MAC Address: 42:B1:9B:9C:27:4E (Unknown)
+Nmap scan report for 172.17.0.5
+Host is up (0.000011s latency).
+MAC Address: 06:5D:85:88:6B:1E (Unknown)
+Nmap scan report for 172.17.0.6
+Host is up (0.000013s latency).
+MAC Address: BA:3C:70:3E:0C:44 (Unknown)
+Nmap scan report for 172.17.0.7
+Host is up (0.000013s latency).
+MAC Address: 52:D5:AF:A4:C8:F8 (Unknown)
+Nmap scan report for 172.17.0.8
+Host is up (0.000011s latency).
+MAC Address: 1E:5A:CF:72:E2:CE (Unknown)
+Nmap scan report for 172.17.0.9
+Host is up (0.0000080s latency).
+MAC Address: FE:4C:C6:EA:1C:EC (Unknown)
+Nmap scan report for 172.17.0.10
+Host is up (0.000017s latency).
+MAC Address: 06:A1:D6:A9:7F:30 (Unknown)
+Nmap scan report for 172.17.0.1
+Host is up.
+# Nmap done at Tue Nov 17 15:12:54 2026 -- 256 IP addresses (9 hosts up) scanned in 4.00 seconds

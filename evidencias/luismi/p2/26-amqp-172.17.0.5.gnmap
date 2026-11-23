@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Tue Nov 17 21:44:13 2026 as: /usr/lib/nmap/nmap -Pn -p 5672 --script amqp-info -oA evidencias/p2/26-amqp-172.17.0.5 172.17.0.5
+Host: 172.17.0.5 ()	Status: Up
+Host: 172.17.0.5 ()	Ports: 5672/open/tcp//amqp///
+# Nmap done at Tue Nov 17 21:44:14 2026 -- 1 IP address (1 host up) scanned in 0.70 seconds

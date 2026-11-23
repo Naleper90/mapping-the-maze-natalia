@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Apache Tomcat/9.0.30</title>
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="tomcat.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="navigation" class="curved container">
+                <span id="nav-home"><a href="https://tomcat.apache.org/">Home</a></span>
+                <span id="nav-hosts"><a href="/docs/">Documentation</a></span>
+                <span id="nav-config"><a href="/docs/config/">Configuration</a></span>
+                <span id="nav-examples"><a href="/examples/">Examples</a></span>
+                <span id="nav-wiki"><a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a></span>
+                <span id="nav-lists"><a href="https://tomcat.apache.org/lists.html">Mailing Lists</a></span>
+                <span id="nav-help"><a href="https://tomcat.apache.org/findhelp.html">Find Help</a></span>
+                <br class="separator" />
+            </div>
+            <div id="asf-box">
+                <h1>Apache Tomcat/9.0.30</h1>
+            </div>
+            <div id="upper" class="curved container">
+                <div id="congrats" class="curved container">
+                    <h2>If you're seeing this, you've successfully installed Tomcat. Congratulations!</h2>
+                </div>
+                <div id="notice">
+                    <img src="tomcat.png" alt="[tomcat logo]" />
+                    <div id="tasks">
+                        <h3>Recommended Reading:</h3>
+                        <h4><a href="/docs/security-howto.html">Security Considerations How-To</a></h4>
+                        <h4><a href="/docs/manager-howto.html">Manager Application How-To</a></h4>
+                        <h4><a href="/docs/cluster-howto.html">Clustering/Session Replication How-To</a></h4>
+                    </div>
+                </div>
+                <div id="actions">
+                    <div class="button">
+                        <a class="container shadow" href="/manager/status"><span>Server Status</span></a>

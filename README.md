@@ -28,9 +28,10 @@ mapping-the-maze/
 ├── scope.txt                  # Frontera legal de la auditoría (172.17.0.0/24)
 ├── inventario-cliente.csv     # Hoja de inventario entregada por el cliente (referencia)
 ├── cuadernos/
-│   ├── natalia-alejo.md       # Cuaderno de Natalia (Entradas 00 a 20)
-│   └── gonzalo-garciavega.md  # Cuaderno de Gonzalo
-├── inventario.md              # Equipos, puertos, servicios, cuentas y corrección al cliente
+│   ├── natalia-alejo.md                 # Cuaderno de Natalia (Entradas 00 a 20)
+│   ├── gonzalo-garciavega.md            # Cuaderno de Gonzalo
+│   └── luis-miguel-gomila-dominguez.md  # Cuaderno de Luis Miguel
+├── inventario.md                        # Equipos, puertos, servicios, cuentas y corrección al cliente
 ├── registro-vulns.md          # Registro priorizado: CVE, CWE, ATT&CK, CVSS, EPSS, KEV, evidencias y limitaciones
 ├── informe-cliente.md         # Informe ejecutivo final y respuesta a la noticia sobre OpenSSH
 ├── evidencias/
